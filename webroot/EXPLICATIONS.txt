@@ -1,0 +1,10 @@
+activation de la réécriture d'url
+
+on va mettre en place des conditions qui vont indiquer que si un fichier ou un dossier est atteint la reecriture précédente ne soit pas mise en place
+
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME} !-f
+--> si je n'atteint pas un dossier ou si je n'atteint pas un fichier je vais faire la regle en dessous
+
+on redirige tout vers index.php
+[L] derniere regle a utiliser

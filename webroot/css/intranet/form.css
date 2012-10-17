@@ -1,0 +1,73 @@
+﻿#form p{
+margin-bottom:30px;
+}	
+#form label{
+display:block;
+}	
+#form input[type=text],[type=password],textarea{		
+font-size: 12px;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-weight: normal;
+padding: 3px;
+color: #777;
+background: url('../../img/intranet/site/bg-input.png') repeat-x 0px 0px;
+background-color:white;
+border-top: solid 1px #aaa;
+border-left: solid 1px #aaa;
+border-bottom: solid 1px #ccc;
+border-right: solid 1px #ccc;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+outline: 0;
+}	
+#form input[type=text]:focus,[type=password]:focus,textarea:focus{		
+-webkit-box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
+-moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
+box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
+border-color: #999;
+background: url('../../img/intranet/site/bg-input-focus.png') repeat-x 0px 0px #ffffff;
+}	
+#form textarea{
+height:125px;
+width:400px;
+overflow:auto;
+background-color:#ffffff;
+}		
+#form p.submit{
+clear:both;
+padding:0 25px 20px 25px;
+margin:0;
+text-align:right;
+}		
+button{
+width:110px;
+height:27px;		
+border:none;
+background:url(../../img/intranet/site/form_button.png) no-repeat 0 0;
+color:#fff;
+cursor:pointer;
+text-align:center;
+font-weight:bold;
+padding-bottom:5px;
+margin-top:20px;
+}
+button:hover{
+background:url(../../img/intranet/site/form_button_hover.png) no-repeat 0 0;
+}		
+.champs{
+margin-bottom:30px;
+}
+select{
+color: #777;
+width:150px;
+background: url('../../img/intranet/site/bg-input.png') repeat-x 0px 0px;
+border-top: solid 1px #aaa;
+border-left: solid 1px #aaa;
+border-bottom: solid 1px #ccc;
+border-right: solid 1px #ccc;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+outline: 0;
+}
