@@ -17,7 +17,7 @@ $articlesTypesList = $aControllerDatas['articlesTypesList'];
 
 
 
-<div class="article">
+<div class="view_article">
 	<?php echo $article['contenu']; ?>
 </div>
 

@@ -594,6 +594,14 @@ border-radius:10px;
 border:1px solid lightgrey;
 margin-bottom:60px;
 }
+.view_article{
+box-shadow: 5px 5px 5px #ddd;
+background:url(../../img/intranet/site/stripe2.png);
+border-radius:10px;
+border:1px solid lightgrey;
+margin-bottom:60px;
+padding:10px;
+}
 .titre{
 text-align:right;
 font-size:22px;
