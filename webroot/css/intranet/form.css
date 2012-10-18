@@ -28,6 +28,9 @@ box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
 border-color: #999;
 background: url('../../img/intranet/site/bg-input-focus.png') repeat-x 0px 0px #ffffff;
 }	
+
+
+
 #form textarea{
 height:125px;
 width:400px;
