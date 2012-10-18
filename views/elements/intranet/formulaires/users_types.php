@@ -21,13 +21,13 @@ echo form_input('name', "Nom", array('errors' => $aControllerDatas['errors'], 'v
 			<th>Delete</th>
 		</tr>
 	</thead> 
-	<tfoot>
+	<tfoot class="align_checkall">
 		<tr>
 			<td colspan="4" class="rounded-foot-left">&nbsp;</td>
 			<td class="rounded-foot-right"><input type="checkbox" id="checkall"/></td>
 		</tr>
 	</tfoot>
-	<tbody>
+	<tbody class="align_checkbox">
 		<tr>
 			<td width="60%">Catégories</td>
 			<td width="10%">

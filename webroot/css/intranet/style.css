@@ -256,6 +256,10 @@ padding-left: 10px;
 background: #e2f0ff;
 color: #0e4354;
 }
+
+/***************** CRUD******************************/
+.align_checkbox td{text-align:center;}
+.align_checkall tr td{text-align:center;}
 /***************** BARRE DE RECHERCHE ***************/
 .sidebar_search{
 background:url(../../img/intranet/site/sidebar_search.png) no-repeat center;
