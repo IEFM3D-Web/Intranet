@@ -61,27 +61,35 @@ label{
 font-size:18px;
 }
 .right_header{
-float:right;
-text-align:right;
 color:#FFFFFF;
-padding:9px 0 0 0;
+padding:7px 0 0 0;
+width:890px;
 }
 .right_header a{
-margin:0 5px 0 5px;
 text-decoration:underline;
 color:#FFFFFF;
+font-weight:bold;
 }
 .right_header a.messages{
 background:url(../../img/intranet/site/comment.png) no-repeat right;
 padding-right:20px;
 }
 .right_header a.logout{
-background:url(../../img/intranet/site/user_logout.png) no-repeat right;
-padding-right:20px;
+background:url(../../img/intranet/site/user_logout.png) no-repeat 75px;
+padding-right:25px;
 }
 .right_header a.profil{
 text-decoration:underline;
+padding-right:10px;
 }
+
+.message-bienvenue{
+float:left;
+}	
+.liens-barre-infos{
+float:right;
+}
+
 .main_content{
 margin:0 auto;
 width:900px;
