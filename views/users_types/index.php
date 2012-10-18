@@ -4,14 +4,13 @@
 		<thead>
 			<tr>
 				<th scope="col" class="rounded-company"><input type="checkbox" id="checkall"/></th>
-				<th scope="col" class="rounded">#</th>
-				<th scope="col" class="rounded" width="70%">Nom</th>
-				<th scope="col" class="rounded-q4" width="15%">Actions</th>
+				<th scope="col" class="rounded fixed-width">Nom</th>
+				<th scope="col" class="rounded-q4">Actions</th>
 			</tr> 
 		</thead> 
 		<tfoot>
 			<tr>
-				<td colspan="3" class="rounded-foot-left">&nbsp;</td>
+				<td colspan="2" class="rounded-foot-left">&nbsp;</td>
 				<td class="rounded-foot-right">&nbsp;</td>
 			</tr>
 		</tfoot>
@@ -24,7 +23,6 @@
 					<input type="hidden" value="0" class="cb-element" name="delete[<?php echo $aValue['id']; ?>]" id="InputDelete<?php echo $aValue['id']; ?>hidden">
 					<input type="checkbox" value="1" class="cb-element" name="delete[<?php echo $aValue['id']; ?>]" id="InputDelete<?php echo $aValue['id']; ?>">
 				</td>
-				<td><?php echo $aValue['id']; ?></td>
 				<td><?php echo ucfirst($aValue['name']); ?></td>
 				<td>
 					<a href="<?php echo BASE_URL; ?>/users_types/edit/<?php echo $aValue['id']; ?>"><img alt="éditer" title="modifier" src="<?php echo BASE_URL;?> /img/intranet/site/article-edit.png"></a>

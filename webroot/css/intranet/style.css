@@ -54,6 +54,9 @@ margin:0 auto;
 width:600px;
 margin:auto;
 }
+.fixed-width{
+width:500px;
+}
 .logo{
 padding:35px 0 0 20px;
 }
@@ -142,6 +145,9 @@ float:left;
 height:34px; 
 width:880px; 
 background:url(../../img/intranet/site/menu_bg.png) no-repeat center top
+}
+.center{
+text-align:center;
 }
 .center_content{
 clear:both;

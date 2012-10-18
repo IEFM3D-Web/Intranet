@@ -4,7 +4,7 @@
 		<thead>
 			<tr>
 				<th scope="col" class="rounded-company"><input type="checkbox" id="checkall"/></th>
-				<th scope="col" class="rounded">Nom</th>
+				<th scope="col" class="rounded fixed-width">Nom</th>
 				<th scope="col" class="rounded-q4">Actions</th>
 			</tr> 
 		</thead> 
