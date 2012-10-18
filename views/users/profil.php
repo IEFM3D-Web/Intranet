@@ -4,7 +4,6 @@ $roleList = $aControllerDatas['usersTypesList'];
 ?>
 <h2>Mon profil</h2>
 <div id="profil">
-	<div class="titre">Informations</div>
 	<div class="photo">
 		<img src="<?php echo BASE_URL;?> /img/intranet/site/silhouette.png">
 	</div>
