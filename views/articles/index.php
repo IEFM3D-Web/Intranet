@@ -2,6 +2,7 @@
 <?php 
 $authorList = $aControllerDatas['authorList'];
 $articlesTypesList = $aControllerDatas['articlesTypesList'];
+
 foreach($aControllerDatas['articles'] as $iKey => $aValue) {
 ?>
 <div class="article">

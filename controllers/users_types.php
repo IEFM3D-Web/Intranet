@@ -151,11 +151,16 @@ function edit($id) {
 */
 function erase($id) {
 	
-	global $link;
-	delete(array('table' => 'types_users', 'link' => $link, 'id' => $id)); //On supprime le role de la table types_users
-	delete_by_name(array('table' => 'acls', 'link' => $link, 'name' => 'types_user_id', 'value' => $id)); //On supprime le role de la table acls
-	if(file_exists(ELEMENTS.DS.'intranet/menus/menu_'.$id.'.php')){unlink(ELEMENTS.DS.'intranet/menus/menu_'.$id.'.php');} //On supprime le menu associé au role
-	redirect('users_types/index');
+	if($id>16){
+		global $link;
+		delete(array('table' => 'types_users', 'link' => $link, 'id' => $id)); //On supprime le role de la table types_users
+		delete_by_name(array('table' => 'acls', 'link' => $link, 'name' => 'types_user_id', 'value' => $id)); //On supprime le role de la table acls
+		if(file_exists(ELEMENTS.DS.'intranet/menus/menu_'.$id.'.php')){unlink(ELEMENTS.DS.'intranet/menus/menu_'.$id.'.php');} //On supprime le menu associé au role
+		redirect('users_types/index');
+	}else{
+		redirect('articles');
+	}
+	
 }
 
 

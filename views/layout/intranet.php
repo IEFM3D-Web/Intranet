@@ -8,7 +8,6 @@
 	//On inclu les fichiers css
 	$aCss = array(
 		'intranet/style',
-		'intranet/stylecss3',
 		'intranet/form',
 		'intranet/checkbox',
 		'intranet/plugins/wysiwyg',
@@ -30,7 +29,7 @@
 	js($aJs);
 	?>
 </head>
-<body>
+<body class="CKFinderFrameWindow">
 	<?php include(ELEMENTS.DS.'intranet/header.php'); ?>
 	<div class="main_content"> 
 		<div class="center_content">  

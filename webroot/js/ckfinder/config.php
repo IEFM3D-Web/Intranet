@@ -1,4 +1,6 @@
 <?php
+session_name("IEFM3D");
+session_start();
 /*
  * ### CKFinder : Configuration File - Basic Instructions
  *
@@ -80,7 +82,12 @@ Examples:
 
 ATTENTION: The trailing slash is required.
 */
-$baseUrlTMP = dirname(dirname(dirname(dirname(dirname(dirname($_SERVER['SCRIPT_NAME'])))))).'/upload/';
+if(isset($_SESSION['ckfinder']) && $_SESSION['ckfinder'] == 'pass'){
+	$baseUrlTMP = dirname(dirname(dirname(dirname(dirname(dirname($_SERVER['SCRIPT_NAME'])))))).'/files/'.$_SESSION['folder'].'/';
+}else{
+	$baseUrlTMP = dirname(dirname(dirname(dirname(dirname(dirname($_SERVER['SCRIPT_NAME'])))))).'/upload/';
+}
+
 $baseUrl = str_replace("webroot/", "", $baseUrlTMP);
 $baseDir = resolveUrl($baseUrlTMP);
 

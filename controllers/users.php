@@ -245,11 +245,13 @@ function profil() {
 			redirect('articles/index');
 		}
 	}
+
 	$aReturn = array(
 		'users' => findFirst(array('table' => 'users', 'link' => $link, 'conditions' => 'id='.$_SESSION['user_id'])),
 		'usersTypesList' => findRole(array('table' => 'types_users', 'link' => $link)),
 		'errors' => $errors
 	);
+	
 	return $aReturn;
 }
 
@@ -262,8 +264,15 @@ function view_profil($id) {
 	global $validate;
 	global $table;
 	
+	$profil = findFirst(array('table' => 'users', 'link' => $link, 'conditions' => 'id='.$id));
+	
+	if($_SESSION['role'] == 10 || $_SESSION['role'] == 11){
+		$_SESSION['folder'] = $profil['folder'];
+		$_SESSION['ckfinder'] = 'pass';
+	}
+	
 	$aReturn = array(
-		'profil' => findFirst(array('table' => 'users', 'link' => $link, 'conditions' => 'id='.$id)),
+		'profil' => $profil,
 		'usersTypesList' => findRole(array('table' => 'types_users', 'link' => $link)),		
 	);
 	return $aReturn;

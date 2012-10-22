@@ -26,8 +26,15 @@
 				<td><?php echo ucfirst($aValue['name']); ?></td>
 				<td>
 					<a href="<?php echo BASE_URL; ?>/users_types/edit/<?php echo $aValue['id']; ?>"><img alt="éditer" title="modifier" src="<?php echo BASE_URL;?> /img/intranet/site/article-edit.png"></a>
-					&nbsp;
-					<a href="<?php echo BASE_URL; ?>/users_types/erase/<?php echo $aValue['id']; ?>" class="ask"><img alt="supprimer" title="supprimer" src="<?php echo BASE_URL;?> /img/intranet/site/article-delete.png"></a>
+					
+					<?php 
+					if($aValue['id']>16){
+					?>
+						&nbsp;
+						<a href="<?php echo BASE_URL; ?>/users_types/erase/<?php echo $aValue['id']; ?>" class="ask"><img alt="supprimer" title="supprimer" src="<?php echo BASE_URL;?> /img/intranet/site/article-delete.png"></a>
+					<?php
+					}
+					?>
 				</td>
 			</tr>
 			<?php
