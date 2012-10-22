@@ -38,6 +38,10 @@ $roleList = $aControllerDatas['usersTypesList'];
 				<td class="label">Mail</td>
 				<td><input type="text" name="mail" id="InputName" <?php echo $users['mail'] ? 'value="'.$users['mail'].'"' : ''; ?>/></td>
 			</tr>
+			<tr>
+				<td class="label">Documents</td>
+				
+			</tr>
 		</table>			
 </div>
 <input type="hidden" name ="id" value="<?php echo $_SESSION['user_id']; ?>"/>

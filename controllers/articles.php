@@ -104,7 +104,7 @@ function add(){
 	global $validate;
 	$errors = array();
 
-	
+	pr(directoryContent(VIEWS));
 	if(isset($_POST) && !empty($_POST)) {
 		
 		if(!empty($validate)){ //On vérifi que la variable de validation contenant les règles n'est pas vide
