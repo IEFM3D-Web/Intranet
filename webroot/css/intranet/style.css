@@ -738,3 +738,11 @@ width:100%;
 padding-bottom:10px;
 margin-right:80px;
 }
+.doc{
+list-style-type: none;
+color:black;
+font-weight:bold;
+}
+.fichier{
+list-style-type: none;
+}

@@ -284,13 +284,6 @@ function view_profil($id) {
 	return $aReturn;
 }
 
-/**
-*Cette fonction permet de récupérer le contenu du dossier personnel de l'utilisateur connecté
-*/
-function document() {
-	
-}
-
 
 /**
 *Cette fonction permet la suppression d'un utilisateur

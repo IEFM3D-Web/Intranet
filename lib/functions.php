@@ -11,8 +11,14 @@ function pr($mVar2Display) {
 }
 
 
-function liste_Dirs($dir)
+function liste_Dirs($dir, $userPath)
 {
+
+	$sourceFolder = str_replace('\\', '/', $dir);
+	$sourceFolderTab = explode('/', $sourceFolder);
+	$webrootIndex = array_search('webroot', $sourceFolderTab);
+	$sourceFolderTab = array_slice ($sourceFolderTab, $webrootIndex + 1);
+	
     $output = '<ul>';
     $dossier = opendir($dir);
 
@@ -22,17 +28,17 @@ function liste_Dirs($dir)
 
         if (!in_array($item, $berk))
         {
-            $new_Dir = $dir.'/'.$item;
+            $new_Dir = $dir.DS.$item;
 
             if(is_dir($new_Dir))
             {
-                $output .= '<li><strong>'.$item.'</strong></li>';
-                $output .= liste_Dirs($new_Dir);
+                $output .= '<li class="doc">'.$item.'</li>';
+                $output .= liste_Dirs($new_Dir, $userPath);
                 $output .= '</li>';
             }
             else
             {
-                $output .= '<li>'.$item.'</li>';
+                $output .= '<li class="fichier"><a href="'.BASE_URL.'/'.implode('/', $sourceFolderTab).'/'.$item.'" target="_blank">'.$item.'</a></li>';
             }
         }
     }
