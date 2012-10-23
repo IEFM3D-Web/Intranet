@@ -8,6 +8,7 @@
 	//On inclu les fichiers css
 	$aCss = array(
 		'intranet/style',
+		'intranet/stylecss3',
 		'intranet/form',
 		'intranet/checkbox',
 		'intranet/plugins/wysiwyg',
