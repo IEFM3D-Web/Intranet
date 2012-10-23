@@ -22,6 +22,7 @@ $articlesTypesList = $aControllerDatas['articlesTypesList'];
 </div>
 
 <?php
+
 foreach($commentaires as $aValue){
 ?>
 <div class="commentaire">
@@ -29,10 +30,17 @@ foreach($commentaires as $aValue){
 	<div class="contenu"><?php echo $aValue['contenu']; ?></div>
 </div>
 <?php
+/*
+$idAuthor = ($aValue['created_by']);}
+$parametres = array(
+	'table' => '',
+)
+*/
 }
 ?>
 
 <?php
+
 if(count($commentaires) == 0){
 ?>
 	<div class="commentaire">
@@ -42,8 +50,6 @@ if(count($commentaires) == 0){
 }
 echo $aControllerDatas['pagination'];
 ?>
-
-
 <div class="add-commentaire">
 	<?php 
 	echo form_create(array('action' => $_SERVER['REQUEST_URI'], 'method' => 'post', 'class' => 'valid'));
