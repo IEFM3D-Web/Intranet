@@ -29,4 +29,5 @@ foreach($aControllerDatas['articles'] as $iKey => $aValue) {
 
 <?php
 	echo $aControllerDatas['pagination'];
+	pr($_SESSION);
 ?>

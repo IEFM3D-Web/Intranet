@@ -47,6 +47,11 @@ function index() {
 							$_SESSION['prenom']= $bddPrenom;
 							$_SESSION['folder'] = $bddFolder;
 							
+							
+							$types_users = find(array('table' => 'types_users', 'link' => $link, 'conditions' => 'id='.$_SESSION['role']));
+							
+							$_SESSION['couleur'] = $types_users[0]['color'];
+							
 							//Récupération du rôle de l'utilisateur
 							$acls = find(array('table' => 'acls', 'link' => $link, 'conditions' => 'types_user_id='.$bddRole));
 							$crud = array();
