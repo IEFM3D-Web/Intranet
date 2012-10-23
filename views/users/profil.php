@@ -44,3 +44,12 @@ $roleList = $aControllerDatas['usersTypesList'];
 <?php
 echo form_close();
 ?>
+
+
+<h2>Mes documents</h2>
+<div id="profil">
+<?php 
+	echo liste_Dirs(FILES.DS.$users['folder']);
+?>
+</div>
+
