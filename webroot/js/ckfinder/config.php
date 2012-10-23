@@ -87,7 +87,7 @@ if(isset($_SESSION['ckfinder']) && $_SESSION['ckfinder'] == 'pass'){
 }else{
 	$baseUrlTMP = dirname(dirname(dirname(dirname(dirname(dirname($_SERVER['SCRIPT_NAME'])))))).'/upload/';
 }
-
+ 
 $baseUrl = str_replace("webroot/", "", $baseUrlTMP);
 $baseDir = resolveUrl($baseUrlTMP);
 
