@@ -47,9 +47,10 @@ function index() {
 							$_SESSION['prenom']= $bddPrenom;
 							$_SESSION['folder'] = $bddFolder;
 							
-							
+							//On récupère les informations du role en fonction de l'id du role de l'utilisateur
 							$types_users = find(array('table' => 'types_users', 'link' => $link, 'conditions' => 'id='.$_SESSION['role']));
 							
+							//On stocke
 							$_SESSION['couleur'] = $types_users[0]['color'];
 							
 							//Récupération du rôle de l'utilisateur

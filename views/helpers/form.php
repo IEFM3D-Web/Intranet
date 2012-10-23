@@ -46,15 +46,23 @@ function form_close($submit = true, $value = 'Envoyer') {
  * @param 	varchar	  $Name     Titre du label
  * @param 	array	  $options  Tableau d'options
  */
+
+ 
 function form_input($name, $label, $options = array()) {
 	
 	
+	//pr($options);
+	
+	 //if(isset($options['values'][$name])){ 
 	 if(isset($options['values'][$name])){ 
+		//$value = $options['values'][$name]; 
 		$value = $options['values'][$name]; 
 	} else{
 		$value = '';
 	}
 
+	//pr($value);
+	
 	$except = array('type', 'errors', 'values', 'wysiwyg'); //champs à échapper
 	
 	//Mise en place des options par défault
@@ -112,7 +120,7 @@ function form_input($name, $label, $options = array()) {
 		break;
 		
 		case 'hidden':
-			return '<input type="hidden" value="'.$value.'" name="'.$name.'" id="'.$libelleId.'Hidden"/>';
+			$html .= '<input type="hidden" value="'.$value.'" name="'.$name.'" id="'.$libelleId.'Hidden"/>';
 		break;
 
 		case 'checkbox':
