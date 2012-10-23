@@ -674,7 +674,7 @@ margin-right:auto;
 margin-bottom:10px;
 }
 
-.commentaire-10{
+.commentaire_admin{
 box-shadow: 5px 5px 5px #ddd;
 background: url(../../img/intranet/site/stripe2.png);
 border-radius:10px;
@@ -685,6 +685,43 @@ margin-left:auto;
 margin-right:auto;
 margin-bottom:10px;
 }
+
+.commentaire_profe{
+box-shadow: 5px 5px 5px #ddd;
+background: url(../../img/intranet/site/stripe2.png);
+border-radius:10px;
+border:1px solid lightgrey;
+padding:10px;
+width:64%;
+margin-left:auto;
+margin-right:auto;
+margin-bottom:10px;
+}
+
+.commentaire_eleve{
+box-shadow: 5px 5px 5px #ddd;
+background: url(../../img/intranet/site/stripe2.png);
+border-radius:10px;
+border:1px solid lightgrey;
+padding:10px;
+width:64%;
+margin-left:auto;
+margin-right:auto;
+margin-bottom:10px;
+}
+
+.commentaire_moder{
+box-shadow: 5px 5px 5px #ddd;
+background: url(../../img/intranet/site/stripe2.png);
+border-radius:10px;
+border:1px solid lightgrey;
+padding:10px;
+width:64%;
+margin-left:auto;
+margin-right:auto;
+margin-bottom:10px;
+}
+
 .add-commentaire{
 box-shadow: 5px 5px 5px #ddd;
 background:url(../../img/intranet/site/stripe2.png);
