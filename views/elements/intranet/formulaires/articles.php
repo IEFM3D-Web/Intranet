@@ -7,7 +7,8 @@ if(isset($aControllerDatas['articles']['id'])){
 
 echo form_input('titre', "Titre", array('errors' => $aControllerDatas['errors'], 'values' => $articles));
 
-echo form_input('contenu', "Contenu", array('type' => 'textarea', 'errors' => $aControllerDatas['errors'], 'values' => $articles, 'wysiwyg' => true,
+echo '<div class="titre_wysi">Contenu</div>';
+echo form_input('contenu', "", array('type' => 'textarea', 'errors' => $aControllerDatas['errors'], 'values' => $articles, 'wysiwyg' => true,
 'rows' =>80, 'cols' =>10));
 
 echo form_input('articles_type_id','Catégorie', array('type'=>'select', 'errors'=>$aControllerDatas['errors'],
