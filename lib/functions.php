@@ -11,8 +11,7 @@ function pr($mVar2Display) {
 }
 
 
-function liste_Dirs($dir, $userPath)
-{
+function liste_Dirs($dir, $userPath) {
 
 	$sourceFolder = str_replace('\\', '/', $dir);
 	$sourceFolderTab = explode('/', $sourceFolder);
@@ -25,20 +24,34 @@ function liste_Dirs($dir, $userPath)
     while($item = readdir($dossier))
     {
         $berk = array('.', '..'); // ne pas tenir compte de ses répertoires / fichiers
-
+		$extension = recup_file_extension($item);
+		
+		if($extension == ("jpg" || "png" || "bmp" || "gif")){
+			$extension = "images";
+		}
+		
+		else if($extension == ("avi" || "mpeg4" || "wmv" || "mov" || "mkv")){
+			$extension = "videos";
+		}
+		
         if (!in_array($item, $berk))
         {
             $new_Dir = $dir.DS.$item;
 
-            if(is_dir($new_Dir))
+            if(is_dir($new_Dir) && $item !== "_thumbs")
             {
-                $output .= '<li class="doc">'.$item.'</li>';
+                $output .= '<li class="doc"><img src="'.BASE_URL.'/img/intranet/site/icones/folder.png" />'.$item.'</li>';
                 $output .= liste_Dirs($new_Dir, $userPath);
                 $output .= '</li>';
             }
-            else
+			else if($item !== "_thumbs")
             {
-                $output .= '<li class="fichier"><a href="'.BASE_URL.'/'.implode('/', $sourceFolderTab).'/'.$item.'" target="_blank">'.$item.'</a></li>';
+			
+				if(!file_exists(IMG.DS.'intranet'.DS.'site'.DS.'icones'.DS.$extension.'.png')){
+					$extension = "default";
+				}
+				
+                $output .= '<li class="fichier"><img src="'.BASE_URL.'/img/intranet/site/icones/'.$extension.'.png" /><a href="'.BASE_URL.'/'.implode('/', $sourceFolderTab).'/'.$item.'" target="_blank">'.$item.'</a></li>';
             }
         }
     }
@@ -59,6 +72,14 @@ function recup_file_extension($filename)
 	$extension = array_reverse($extension);
 	$extension = $extension[0];
 
+	if($extension == ("jpg" || "png" || "bmp" || "gif")){
+		$extension = "images";
+	}
+	
+	else if($extension == ("avi" || "mpeg4" || "wmv" || "mov" || "mkv")){
+		$extension = "videos";
+	}
+	
     return $extension;
 }
 ?>
