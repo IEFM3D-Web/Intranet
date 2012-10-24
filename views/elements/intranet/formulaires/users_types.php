@@ -12,13 +12,13 @@ echo form_input('name', "Nom", array('errors' => $aControllerDatas['errors'], 'v
 
 
 <table id="rounded-corner">
-	<thead>
+	<thead class="top_users_types">
 		<tr>
-			<th>Module</th>
+			<th class="rounded-company" scope="col">Module</th>
 			<th>Create</th>
 			<th>Read</th>
 			<th>Update</th>
-			<th>Delete</th>
+			<th class="rounded-q4 center" scope="col">Delete</th>
 		</tr>
 	</thead> 
 	<tfoot class="align_checkall">
