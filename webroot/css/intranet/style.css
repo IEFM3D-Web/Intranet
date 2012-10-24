@@ -676,7 +676,7 @@ margin-right:30px;
 /****************** LES COMMENTAIRES *******************/
 .commentaire{
 box-shadow: 5px 5px 5px #ddd;
-background: url(../../img/intranet/site/stripe2.png);
+background: url(../../img/intranet/site/stripes_blue.png);
 border-radius:10px;
 border:1px solid lightgrey;
 padding:10px;
@@ -688,7 +688,7 @@ margin-bottom:10px;
 
 .commentaire_admin{
 box-shadow: 5px 5px 5px #ddd;
-background: url(../../img/intranet/site/stripe2.png);
+background: url(../../img/intranet/site/stripes_red.png);
 border-radius:10px;
 border:1px solid lightgrey;
 padding:10px;
@@ -700,7 +700,7 @@ margin-bottom:10px;
 
 .commentaire_profe{
 box-shadow: 5px 5px 5px #ddd;
-background: url(../../img/intranet/site/stripe2.png);
+background: url(../../img/intranet/site/stripes_purple.png);
 border-radius:10px;
 border:1px solid lightgrey;
 padding:10px;
@@ -712,7 +712,7 @@ margin-bottom:10px;
 
 .commentaire_eleve{
 box-shadow: 5px 5px 5px #ddd;
-background: url(../../img/intranet/site/stripe2.png);
+background: url(../../img/intranet/site/stripes_blue.png);
 border-radius:10px;
 border:1px solid lightgrey;
 padding:10px;
@@ -724,7 +724,7 @@ margin-bottom:10px;
 
 .commentaire_moder{
 box-shadow: 5px 5px 5px #ddd;
-background: url(../../img/intranet/site/stripe2.png);
+background: url(../../img/intranet/site/stripes_orange.png);
 border-radius:10px;
 border:1px solid lightgrey;
 padding:10px;
@@ -746,7 +746,8 @@ margin-right:auto;
 margin-top:50px;
 }
 .commentaire-top{
-color:#f69f14;
+/*color:#f69f14;*/
+color:#fff;
 }
 /******************* LES PROFILS ******************/
 #profil{

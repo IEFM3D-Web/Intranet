@@ -24,8 +24,9 @@ $articlesTypesList = $aControllerDatas['articlesTypesList'];
 <?php
 
 foreach($commentaires as $aValue){
+
 ?>
-<div class="commentaire">
+<div class="commentaire_<?php echo $aValue['color']; ?>">
 	<div class="commentaire-top">Par <?php echo ucfirst($authorList[$aValue['created_by']]); ?> le <?php echo date("d/m/Y", strtotime($aValue['created'])); ?></div>
 	<div class="contenu"><?php echo $aValue['contenu']; ?></div>
 </div>
