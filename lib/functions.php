@@ -47,4 +47,18 @@ function liste_Dirs($dir, $userPath)
 
     return $output;
 }
+
+/**
+ *Cette fonction permet de retourner le nom de l'extension du fichier passé en paramètre
+ *@param  string  $filename  Nom du fichier
+ *@return  string  $extension  Nom de l'extension
+ */
+function recup_file_extension($filename)
+{
+	$extension = explode('.', $filename);
+	$extension = array_reverse($extension);
+	$extension = $extension[0];
+
+    return $extension;
+}
 ?>
