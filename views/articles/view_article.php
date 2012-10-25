@@ -27,7 +27,7 @@ foreach($commentaires as $aValue){
 
 ?>
 <div class="commentaire">
-	<div class="commentaire-top_<?php echo $aValue['color']; ?>">Par <?php echo ucfirst($authorList[$aValue['created_by']]); ?> le <?php echo date("d/m/Y", strtotime($aValue['created'])); ?></div>
+	<div class="commentaire-top <?php echo $aValue['color']; ?>">Par <?php echo ucfirst($authorList[$aValue['created_by']]); ?> le <?php echo date("d/m/Y", strtotime($aValue['created'])); ?></div>
 	<div class="contenu"><?php echo $aValue['contenu']; ?></div>
 </div>
 <?php
