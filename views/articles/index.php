@@ -1,4 +1,3 @@
-<h2>Articles</h2>
 <?php 
 $authorList = $aControllerDatas['authorList'];
 $articlesTypesList = $aControllerDatas['articlesTypesList'];
