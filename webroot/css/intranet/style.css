@@ -361,27 +361,23 @@ text-shadow: 0px 1px 0px #000;
 background: url('../../img/intranet/site/buttonn.png') left top no-repeat;
 }
 .warning_box{
-width:540px;
 clear:both;
 background:url(../../img/intranet/site/warning.png) no-repeat left #fcfae9;
 border:1px #e9e6c7 solid;
 background-position:15px 10px;
-padding:20px 20px 15px 60px;
-margin:0 0 10px 0;
+padding:10px 10px 15px 50px;
 }
 .valid_box{
-width:100%;
 clear:both;
 background:url(../../img/intranet/site/valid.png) no-repeat left #edfce9;
 border:1px #cceac4 solid;
 background-position:15px 10px;
-padding:20px 20px 15px 60px;
+padding:10px 10px 15px 50px;
 }
 .error_box{
 clear:both;
 background:url(../../img/intranet/site/error.png) no-repeat left #fce9e9;
 border:1px #eac7c7 solid;
-font-size: 12px;
 background-position:15px 10px;
 padding:10px 10px 15px 50px;
 }
@@ -758,4 +754,9 @@ list-style-type: none;
 .icone{
 margin-right:10px;
 vertical-align:bottom;
+}
+#ckfinder {
+width: 100%;
+height: 500px;
+overflow: hidden;
 }
