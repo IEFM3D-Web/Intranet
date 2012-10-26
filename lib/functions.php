@@ -35,7 +35,7 @@ function liste_Dirs($dir, $userPath) {
 
             if(is_dir($new_Dir) && $item !== "_thumbs")
             {
-                $output .= '<li class="doc"><div class="icone"><img src="'.BASE_URL.'/img/intranet/site/icones/folder.png" /></div>'.$item.'</li>';
+                $output .= '<li class="doc"><img src="'.BASE_URL.'/img/intranet/site/icones/folder.png" />'.$item.'</li>';
                 $output .= liste_Dirs($new_Dir, $userPath);
                 $output .= '</li>';
             }
