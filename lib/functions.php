@@ -2,6 +2,7 @@
 /**
  *Cette fonction permet de faire un print_r formaté
  *@param  mixed  $mVar2Display  élement à afficher
+ *
  */
 function pr($mVar2Display) {
 
