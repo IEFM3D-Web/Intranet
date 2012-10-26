@@ -133,7 +133,7 @@ function form_input($name, $label, $options = array()) {
 		
 		
 		case 'submit':
-			return '<button type="'.$options['type'].'" class="'.$options['class'].'"><span>'.$name.'</span></button>';
+			return '<button type="'.$options['type'].'" class="'.$options['class'].'">'.$name.'</span></button>';
 		break;
 	
 	}

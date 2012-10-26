@@ -761,12 +761,3 @@ list-style-type: none;
 margin-right:10px;
 vertical-align:bottom;
 }
-/** ckEditor **/
-#ckfinder {
-margin: 0;
-padding: 0;
-border: 0;
-width: 100%;
-height: 400px;
-overflow: hidden;
-}
