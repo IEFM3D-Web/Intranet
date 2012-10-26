@@ -740,8 +740,9 @@ text-align:left;
 font-weight:bold;
 }
 .info{
-padding-top:20px;
-width:100%;
+//padding-top:20px;
+width:auto;
+float:right;
 }
 .info td {
 padding-bottom:10px;

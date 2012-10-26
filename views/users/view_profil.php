@@ -6,12 +6,12 @@ $roleList = $aControllerDatas['usersTypesList'];?>
 <h2>Profil de <?php echo  ucfirst($profil['nom'])." ".ucfirst($profil['prenom']); ?></h2>
 <div id="profil">
 	<div class="titre">Informations</div>
-	<table class="photo">
-		<tr>
+	<div class="photo">
+		<!-- <tr>
 			<td> </td>
-		</tr>
-	</table>
-	<div class="clear"></div>
+		</tr> -->
+	</div>
+	
 	<table class="info">
 		<tr>
 			<td class="label">Sexe</td>
@@ -43,7 +43,11 @@ $roleList = $aControllerDatas['usersTypesList'];?>
 			<td><?php echo ucfirst($roleList[$profil['role']]);?></td>
 		</tr> 
 	</table>
+	<div class="clear"></div>
+
+	
 </div>
+
 <h2>Gestion des fichiers</h2>
 <div id="gestion-fichiers">
 <div id="ckfinder"></div>
@@ -168,4 +172,5 @@ $roleList = $aControllerDatas['usersTypesList'];?>
 })();
 //]]>
 	</script>
+	
 </div>
