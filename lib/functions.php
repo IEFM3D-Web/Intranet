@@ -23,21 +23,26 @@ function liste_Dirs($dir, $userPath) {
     $dossier = opendir($dir);
 
 	
-    while($item = readdir($dossier))
+    while(($item = readdir($dossier)))
     {
         $berk = array('.', '..'); // ne pas tenir compte de ses répertoires / fichiers
 		$extension = recup_file_extension($item);
-		
-		
+			
         if (!in_array($item, $berk))
         {
             $new_Dir = $dir.DS.$item;
 
             if(is_dir($new_Dir) && $item !== "_thumbs")
             {
-                $output .= '<li class="doc"><img src="'.BASE_URL.'/img/intranet/site/icones/folder.png" />'.$item.'</li>';
+				$is_empty = count(scandir($new_Dir));
+				
+				if($is_empty > 2){
+				
+                $output .= '<li class="doc"><img src="'.BASE_URL.'/img/intranet/site/icones/folder.png" class="icone"/>'.$item.'</li>';
                 $output .= liste_Dirs($new_Dir, $userPath);
                 $output .= '</li>';
+				
+				}
             }
 			else if($item !== "_thumbs")
             {
@@ -46,7 +51,7 @@ function liste_Dirs($dir, $userPath) {
 					$extension = "default";
 				}
 				
-                $output .= '<li class="fichier"><img src="'.BASE_URL.'/img/intranet/site/icones/'.$extension.'.png" /><a href="'.BASE_URL.'/'.implode('/', $sourceFolderTab).'/'.$item.'" target="_blank">'.$item.'</a></li>';
+                $output .= '<li class="fichier"><img src="'.BASE_URL.'/img/intranet/site/icones/'.$extension.'.png" class="icone"/><a href="'.BASE_URL.'/'.implode('/', $sourceFolderTab).'/'.$item.'" target="_blank">'.$item.'</a></li>';
             }
         }
     }
