@@ -77,4 +77,3 @@ function recup_file_extension($filename)
     return $extension;
 }
 ?>
->>>>>>> test
