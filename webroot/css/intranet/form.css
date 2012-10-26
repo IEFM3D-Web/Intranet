@@ -29,10 +29,7 @@ outline: 0;
 box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
 border-color: #999;
 background: url('../../img/intranet/site/bg-input-focus.png') repeat-x 0px 0px #ffffff;
-}	
-
-
-
+}
 #form textarea{
 height:100px;
 width:99%;
@@ -55,7 +52,7 @@ cursor:pointer;
 text-align:center;
 font-weight:bold;
 padding-bottom:5px;
-margin-top:20px;
+float:right;
 }
 button:hover{
 background:url(../../img/intranet/site/form_button_hover.png) no-repeat 0 0;
