@@ -1,0 +1,10 @@
+[23-Oct-2012 15:57:18 UTC] PHP Notice:  Undefined index: color in C:\wamp\www\Intranet\controllers\users.php on line 54
+[23-Oct-2012 15:57:18 UTC] PHP Stack trace:
+[23-Oct-2012 15:57:18 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Oct-2012 15:57:18 UTC] PHP   2. call_user_func_array() C:\wamp\www\Intranet\webroot\index.php:124
+[23-Oct-2012 15:57:18 UTC] PHP   3. index() C:\wamp\www\Intranet\webroot\index.php:124
+[23-Oct-2012 18:10:04 UTC] PHP Notice:  Undefined index: color in C:\wamp\www\Intranet\controllers\users.php on line 54
+[23-Oct-2012 18:10:04 UTC] PHP Stack trace:
+[23-Oct-2012 18:10:04 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Oct-2012 18:10:04 UTC] PHP   2. call_user_func_array() C:\wamp\www\Intranet\webroot\index.php:124
+[23-Oct-2012 18:10:04 UTC] PHP   3. index() C:\wamp\www\Intranet\webroot\index.php:124
