@@ -33,7 +33,13 @@
 				<td class="center"><?php echo date("d/m/Y", strtotime($aValue['created'])); ?></td>
 				<td class="center"><?php echo ucfirst($authorList[$aValue['created_by']]); ?></td>
 				<td class="center"><?php echo $articlesTypesList[$aValue['articles_type_id']]; ?></td>
-				<td class="center"><?php if($aValue['online'] == 1){echo '<img src="'.BASE_URL.'/img/intranet/site/green.png" alt="Oui" title="Oui"/>';}else{echo '<img src="'.BASE_URL.'/img/intranet/site/red.png" alt="Non" title="Non"/>';} ?></td>
+				<td class="center">
+					<?php if($aValue['online'] == 1) { ?>
+						<a href="<?php echo BASE_URL.'/articles/publish/'.$aValue['id'].'/0'; ?>"><img src="<?php echo BASE_URL.'/img/intranet/site/green.png'; ?>" alt="Oui" title="Oui" /></a>
+					<?php } else { ?>
+						<a href="<?php echo BASE_URL.'/articles/publish/'.$aValue['id'].'/1'; ?>"><img src="<?php echo BASE_URL.'/img/intranet/site/red.png'; ?>" alt="Oui" title="Oui" /></a>
+					<?php } ?>
+				</td>
 				<td class="center">
 					<a href="<?php echo BASE_URL; ?>/articles/edit/<?php echo $aValue['id']; ?>"><img alt="éditer" title="éditer" src="<?php echo BASE_URL;?> /img/intranet/site/article-edit.png"></a>
 					&nbsp;

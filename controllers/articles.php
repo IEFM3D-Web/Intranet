@@ -204,7 +204,14 @@ function view_article($id) {
 }
 
 
+function publish($articleId, $newValueOnline){
+	
+	global $link;
+	global $table;
+	save(array('table' => $table, 'link' => $link), array('id' => $articleId, 'online' => $newValueOnline));
+	redirect('articles/liste');
 
+}
 
 /**
 *Cette fonction permet la suppression d'un articles

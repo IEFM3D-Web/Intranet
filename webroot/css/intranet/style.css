@@ -260,6 +260,7 @@ color: #0e4354;
 /***************** CRUD******************************/
 .align_checkbox td{text-align:center;}
 .align_checkall tr td{text-align:center;}
+.checkall{text-align:center; background-color:red;}
 /***************** BARRE DE RECHERCHE ***************/
 .sidebar_search{
 background:url(../../img/intranet/site/sidebar_search.png) no-repeat center;

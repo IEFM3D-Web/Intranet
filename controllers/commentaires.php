@@ -84,7 +84,14 @@ function erase($id) {
 	redirect('commentaires/index');
 }
 
+function publish($commentId, $newValueOnline){
+	
+	global $link;
+	global $table;
+	save(array('table' => $table, 'link' => $link), array('id' => $commentId, 'online' => $newValueOnline));
+	redirect('commentaires/index');
 
+}
 
 /**
 *Cette fonction permet la suppression de plusieurs commentaires

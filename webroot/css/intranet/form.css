@@ -58,6 +58,7 @@ cursor:pointer;
 text-align:center;
 font-weight:bold;
 padding-bottom:5px;
+margin-top:10px;
 }
 button:hover{
 background:url(../../img/intranet/site/form_button_hover.png) no-repeat 0 0;
