@@ -1,6 +1,7 @@
 <?php 
 $authorList = $aControllerDatas['authorList'];
 $articlesTypesList = $aControllerDatas['articlesTypesList'];
+$nbComments = $aControllerDatas['nbComments'];
 
 foreach($aControllerDatas['articles'] as $iKey => $aValue) {
 ?>
@@ -17,7 +18,7 @@ foreach($aControllerDatas['articles'] as $iKey => $aValue) {
 	<div id="article_footer">
 		<div class="auteur"><?php echo ucfirst($authorList[$aValue['created_by']]); ?></div>
 		<div>
-			<?php echo '<a href="'.BASE_URL.'/articles/view_article/'.$aValue['id'].'">';?>Commentaires (<?php echo get_nb_comments($aValue['id']); ?>)</a>
+			<?php echo '<a href="'.BASE_URL.'/articles/view_article/'.$aValue['id'].'">';?>Commentaires (<?php echo $nbComments[$aValue['id']]; ?>)</a>
 		</div>
 	</div>
 	<div class="clear"></div>

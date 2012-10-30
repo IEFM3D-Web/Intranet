@@ -34,7 +34,7 @@ function index(){
 	
 	return array(
 		'types' => find(array('table' => 'types_users', 'limite' => array('start' =>$start, 'limit' =>$limit),'link' => $link)),
-		'pagination' => pagination('types_users', $limit)
+		'pagination' => pagination($link, 'types_users', $limit)
 	);
 }
 

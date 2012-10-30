@@ -39,14 +39,16 @@ define('BASE_URL', $baseUrl); //Chemin relatif vers le coeur de l'application
 
 /////////////////////////////////////////////////////////
 
-///////////////////////////////////////////
-//   INCLUSION DES LIBRAIRIES, HELPERS   //
+//////////////////////////////////////////////////////////////////
+//   INCLUSION DES LIBRAIRIES, HELPERS ET fichiers DE CONFIGS   //
 $aLibs = array('functions','menu');
 $aHelpers = array('html','form');
+$aConfigs = array('database');
 
 foreach($aLibs as $sLibrairie) { require_once(LIB.DS.$sLibrairie.'.php'); }
 foreach($aHelpers as $sHelper) { require_once(HELPERS.DS.$sHelper.'.php'); }
-///////////////////////////////////////////
+foreach($aConfigs as $sConfig) { require_once(CONFIGS.DS.$sConfig.'.php'); }
+//////////////////////////////////////////////////////////////////
 
 ////////////////////////////
 //   FORMATAGE DE L'URL   //

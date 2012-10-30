@@ -34,7 +34,7 @@ function index(){
 	
 	return array(
 		'categories' => find(array('table' => 'articles_types', 'limite' => array('start' =>$start, 'limit' =>$limit),'link' => $link)),
-		'pagination' => pagination('articles_types ', $limit)
+		'pagination' => pagination($link,'articles_types ', $limit)
 	);
 };
 
@@ -60,7 +60,6 @@ function add(){
 		if(empty($errors)){
 			save(array('table' => 'articles_types', 'link' => $link), $_POST);
 			redirect('categories/index');
-			die();
 		}
 		
 	}

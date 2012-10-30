@@ -26,34 +26,38 @@ function index(){
 		}
 	}
 	
+	//On test si le numéro de page est passé dans l'URL
 	if(isset($_GET['page']) && !empty($_GET['page'])){
 		$page = $_GET['page'];
+		
+	//Si il n'y en a pas, on charge la page 1 par défault
 	}else{$page = 1;}
-	//Pagination
+	
 	$limit = 3; //Limite d'éléments par page
 	$start = ($page - 1) * $limit;
 	
+	//On récupère les articles
+	$articles = find(array('table' => 'articles', 'conditions' => 'online = 1', 'limite' => array('start' =>$start, 'limit' =>$limit), 'link' => $link));
 	
+	//On parcours les articles
+	foreach($articles as $k => $v){
+		
+		$articleID = $v['id'];
+		
+		//On stock l'id de chaque article et le nombre de commentaires associés dans un tableau
+		$nbComments[$articleID] = count(find(array('table' => 'commentaires', 'conditions' => 'articles_id = '.$articleID.' AND online = 1', 'link' => $link)));
+		
+	}
 	
 	return array(
-		'articles' => find(array('table' => 'articles', 'conditions' => 'online = 1', 'limite' => array('start' =>$start, 'limit' =>$limit), 'link' => $link)),
+		'articles' => $articles,
 		'authorList' => findAuthor(array('table' => 'users', 'link' => $link)),
 		'articlesTypesList' => findList(array('table' => 'articles_types', 'link' => $link)),
-		'pagination' => pagination('articles', $limit, 'online = 1')
+		'pagination' => pagination($link,'articles', $limit, 'online = 1'),
+		'nbComments' => $nbComments
 	);
 	
 };
-
-
-function get_nb_comments($articleID) {
-
-$sql = "SELECT * FROM commentaires WHERE articles_id = ".$articleID." AND online = 1";
-$query = mysql_query($sql);
-$nbComments = mysql_num_rows($query);
-
-return $nbComments;
-
-}
 
 
 /**
@@ -89,7 +93,7 @@ function liste(){
 		'articles' => find(array('table' => 'articles', 'limite' => array('start' =>$start, 'limit' =>$limit),'link' => $link)),
 		'authorList' => findAuthor(array('table' => 'users', 'link' => $link)),
 		'articlesTypesList' => findList(array('table' => 'articles_types', 'link' => $link)),
-		'pagination' => pagination('articles', $limit)
+		'pagination' => pagination($link,'articles', $limit)
 	);
 };
 
@@ -114,8 +118,7 @@ function add(){
 		
 		if(empty($errors)){
 			save(array('table' => 'articles', 'link' => $link), $_POST);
-			redirect('articles/liste');
-			die();
+			//redirect('articles/liste');
 		}
 		
 	}
@@ -196,7 +199,7 @@ function view_article($id) {
 		'authorList' => findAuthor(array('table' => 'users', 'link' => $link)),
 		'articlesTypesList' => findList(array('table' => 'articles_types', 'link' => $link)),
 		'commentaires' => find(array('table' => 'commentaires', 'conditions' => 'online = 1 and articles_id ='.$id, 'limite' => array('start' => $start, 'limit' =>$limit), 'link' => $link)),
-		'pagination' => pagination('commentaires', $limit, 'online = 1'),
+		'pagination' => pagination($link,'commentaires', $limit, 'online = 1'),
 		'errors' => $errors,
 		'success_comment' => $success_comment
 	);

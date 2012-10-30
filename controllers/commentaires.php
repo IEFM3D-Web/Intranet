@@ -37,7 +37,7 @@ function index(){
 		'commentaires' => find(array('table' => 'commentaires', 'limite' => array('start' =>$start, 'limit' =>$limit),'link' => $link)),
 		'authorList' => findAuthor(array('table' => 'users', 'link' => $link)),
 		'articleList' => findArticle(array('table' => 'articles', 'link' => $link)),
-		'pagination' => pagination('articles', $limit)
+		'pagination' => pagination($link, 'articles', $limit)
 	);
 };
 

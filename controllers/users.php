@@ -147,7 +147,7 @@ function liste(){
 	
 	return array(
 		'users' => find(array('table' => 'users', 'limite' => array('start' =>$start, 'limit' =>$limit),'link' => $link)),
-		'pagination' => pagination('users', $limit)
+		'pagination' => pagination($link, 'users', $limit)
 	);
 }
 

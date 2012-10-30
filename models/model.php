@@ -1,24 +1,62 @@
 <?php
-$serveurHost = 'localhost';
-$bddLogin = 'root';
-$bddPass = '';
-$bddName = 'intranet';
+/*
+*Fonction gérant plusieurs SGBD pour se connecter à une base de données
+*
+*@param string $database Tableau des paramètres de connection
+*$database = array(
+*	'host' => 'localhost',
+*	'name' => 'pdo',
+*	'user' => 'root',
+*	'password' => '',
+*	'driver' => 'mysql'
+*);
+*@return ressource $link Ressource de la connection
+*/
+function connect_db($database){
 
+	//Si aucun driver n'est passé en paramètre, on utilise MySQL par défault
+	if(!isset($database['driver']) || empty($database['driver'])){$database['driver'] = 'mysql';}
 
-/**
- * Fonction de connexion à la base de données
- * 
- * @param 	varchar		$serveur	Nom du serveur
- * @param 	varchar		$login		Identifiant de connexion au serveur
- * @param 	varchar		$password	Mot de passe de connexion au serveur
- * @param 	varchar		$dbName		Base de données à utiliser
- * @return 	ressource	$link		Ressource de connexion au serveur
- */
-function connect($serveur, $login, $password, $dbName){
-	
-	$connector = mysql_connect($serveur, $login, $password) or die ('Impossible de se connecter au serveur'); 
-	mysql_select_db($dbName, $connector) or die ('Impossible de selectionner la base de donnée');
-	return $connector;
+	switch ($database['driver']){
+
+		case 'mysql':
+			$source = 'mysql:host='.$database['host'].';dbname='.$database['name'];
+			$utilisateur = $database['user'];
+			$mot_de_passe = $database['password'];
+			break;
+		case 'oracle':
+			$source = 'oci:dbname='.$database['name'];
+			$utilisateur = $database['user'];
+			$mot_de_passe = $database['password'];
+			break;
+		case 'sqlite':
+			$source = $database['name'];
+			$utilisateur = $database['password'];
+			$mot_de_passe = '';
+			break;
+	}
+
+	//Toutes les opérations sont éffectuées dans un bloc 'Try'
+	//afin de récupérer les exceptions leveées par PDO
+	try{
+
+		//Connexion à la base de données
+		$link = new PDO($source, $utilisateur, $mot_de_passe);
+
+		//Modification des paramètres e la connexion pour
+		//demander que les exceptions soient levées en cas d'erreurs
+		$link->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
+		return $link;
+
+	}catch(PDOException $e){
+
+		// Gérer les exceptions.
+		echo 'Error!: ',$e->getMessage(),'<br />';
+		die();
+
+	}
+
 }
 
 
@@ -35,14 +73,21 @@ function schema_column($table,$link){
 	$aResult_schema = array(); //Déclaration d'une variable de type tableau qui contiendra la liste des tables.
 	
 	$sql_schema = "SHOW COLUMNS FROM ".$table;
-	if($sql_result_schema = mysql_query($sql_schema,$link)){
-		
-		//Parcours des résultats.
-		while($sql_ligne_schema = mysql_fetch_row($sql_result_schema)) {
-			$aResult_schema[] = $sql_ligne_schema[0]; //Affectation du tableaux.
-		}
+	
+	$preparedQuerySelect = $link->prepare($sql_schema);
+	
+	$preparedQuerySelect->execute();
+
+	$schema = array();
+	foreach($preparedQuerySelect->fetchAll(PDO::FETCH_ASSOC) as $v){
+	
+			$schema[] = $v['Field'];	
 	}
-	return $aResult_schema; //On retourne le résultat.
+	
+	
+	pr($schema);
+	
+	return $schema; //On retourne le résultat.
 }
 
 
@@ -106,12 +151,15 @@ function find($parametres) {
 		$sql .= " LIMIT $start, $limit";
 	}
 	
-	if($result = mysql_query($sql, $link)) { //On lance la requête
+	//On prépare la requête de selection
+	$preparedQuerySelect = $link->prepare($sql);
 		
-		//Parcours des résultats et affectation du tableau
-		while($ligne = mysql_fetch_assoc($result)) { $tableau[] = $ligne; }
-	}
-	return $tableau; //On retourne le résultat
+	//Exécuter la requête
+	$preparedQuerySelect->execute();
+		
+	//On retourne le résultat
+	return $preparedQuerySelect->fetchAll(PDO::FETCH_ASSOC);
+
 }
 
 function findFirst($parametres) {
@@ -163,21 +211,20 @@ function save($parametres, $data){
 
 	$schema = schema_column($parametres['table'],$parametres['link']); //On appel la fonction schema_column retournant un tableau contenant le nom des colonnes existantes dans la table
 	
-	if(in_array("modified", $schema)) { //On teste l'éxistence de la colonne modified
-		$data['modified'] = date('Y-m-d H:i:s'); //On ajoute l'index Modified et sa valeur au tableau Data
-	}
-		
-	if(in_array("modified_by", $schema)) { //On teste l'éxistence de la colonne modified_by
-		$data['modified_by'] = $_SESSION['user_id']; //On ajoute l'index Modified_by et sa valeur au tableau Data
-	}
-		
+		if(in_array("modified", $schema)) { //On teste l'éxistence de la colonne modified
+			$data['modified'] = date('Y-m-d H:i:s'); //On ajoute l'index Modified et sa valeur au tableau Data
+		}
+			
+		if(in_array("modified_by", $schema)) { //On teste l'éxistence de la colonne modified_by
+			$data['modified_by'] = $_SESSION['user_id']; //On ajoute l'index Modified_by et sa valeur au tableau Data
+		}
+	
 	if(isset($data['id']) && !empty($data['id'])) {
 		
 		$sql = "UPDATE ".$parametres['table']." SET ";
 		foreach($data as $k=>$v) {
 			
 			if($k!="id") { 
-				$v = mysql_real_escape_string($v, $parametres['link']);
 				$sql .= "$k='$v',"; }
 		}
 		$sql = substr($sql,0,-1); //Je supprime la derniere virgule 
@@ -185,15 +232,15 @@ function save($parametres, $data){
 	}
 	else {
 	
-		if(in_array("created", $schema)) { //On teste l'éxistence de la colonne created
-			$data['created'] = date('Y-m-d H:i:s'); //On ajoute l'index Created et sa valeur au tableau Data
+			if(in_array("created", $schema)) { //On teste l'éxistence de la colonne created
+				$data['created'] = date('Y-m-d H:i:s'); //On ajoute l'index Created et sa valeur au tableau Data
+			}
+			
+			if(in_array("created_by", $schema)) { //On teste l'éxistence de la colonne created_by
+				$data['created_by'] = $_SESSION['user_id']; //On ajoute l'index Created_by et sa valeur au tableau Data
+		
 		}
 		
-		if(in_array("created_by", $schema)) { //On teste l'éxistence de la colonne created_by
-			$data['created_by'] = $_SESSION['user_id']; //On ajoute l'index Created_by et sa valeur au tableau Data
-		}
-		
-	
 		$sql = "INSERT INTO ".$parametres['table']."(";
 		unset($data["id"]);
 		foreach($data as $k=>$v) { $sql .= "$k,"; }
@@ -202,28 +249,42 @@ function save($parametres, $data){
 		$sql .=') VALUES(';
 		
 		foreach($data as $v) { 
-		$v = mysql_real_escape_string($v, $parametres['link']);
+		//$v = mysql_real_escape_string($v, $parametres['link']);
 		$sql .= "'$v',"; }
 		$sql = substr($sql,0,-1);
 		$sql .=")";
 	}
 	$sql .= ';';
-	//echo $sql;
-	mysql_query($sql) or die(mysql_error()."</br>=>".mysql_query());
+	
+	//On prépare la requête d'insertion
+	$preparedQueryInsert = $parametres['link']->prepare($sql);
+	
+	$preparedQueryInsert->execute();
+	
 	if(!isset($data['id'])) { return mysql_insert_id(); } 
 	else { return $data["id"]; }	
 }
 
 
 function delete($parametres){
+
 		$sql = "DELETE FROM ".$parametres['table']." WHERE id=".$parametres['id'];
-	mysql_query($sql, $parametres['link']) or die(mysql_error()."</br>=>".mysql_query());	
+		
+		//On prépare la requête de suppression
+		$preparedQueryDelete = $parametres['link']->prepare($sql);
+	
+		$preparedQueryDelete->execute();
 }
 
 
 function delete_by_name($parametres){
+
 		$sql = "DELETE FROM ".$parametres['table']." WHERE ".$parametres['name']."=".$parametres['value'];
-	mysql_query($sql, $parametres['link']) or die(mysql_error()."</br>=>".mysql_query());	
+		
+		//On prépare la requête de suppression
+		$preparedQueryDelete = $parametres['link']->prepare($sql);
+	
+		$preparedQueryDelete->execute();
 }
 
 
@@ -273,18 +334,19 @@ function count_elem($table){
 *@param int $limit Variable contenant le nombre d'éléments à afficher par page
 *@author Holic
 */
-function pagination($table, $limit, $condition=null){
-
-	$tbl_name=$table;
+function pagination($link, $table, $limit, $condition=null){
 
 	$adjacents = 2; //Nombre de pages adjacentes
 	
 	//On récupère en premier le nombre de lignes présentes dans la table
-	if(isset($condition) && !empty($condition)){$query = "SELECT COUNT(*) as num FROM $tbl_name WHERE $condition";}
-	else{$query = "SELECT COUNT(*) as num FROM $tbl_name";}
-	
-	$total_pages = mysql_fetch_array(mysql_query($query));
-	$total_pages = $total_pages['num'];
+	if(isset($condition) && !empty($condition)){
+		$total_pages = find(array('table' => $table, 'conditions' => 'online = 1','link' => $link));
+	}
+	else{
+		$total_pages = find(array('table' => $table,'link' => $link));
+	}
+		
+	$total_pages = count($total_pages);
 	
 	$targetpage = ""; //Nom de la page présente dans les urls
 
@@ -379,4 +441,4 @@ function pagination($table, $limit, $condition=null){
 }
 
 
-$link = connect($serveurHost, $bddLogin, $bddPass, $bddName); //Par défaut on se connecte à la base de données
+$link = connect_db($database); //Par défaut on se connecte à la base de données
