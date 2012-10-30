@@ -118,7 +118,7 @@ function add(){
 		
 		if(empty($errors)){
 			save(array('table' => 'articles', 'link' => $link), $_POST);
-			//redirect('articles/liste');
+			redirect('articles/liste');
 		}
 		
 	}
