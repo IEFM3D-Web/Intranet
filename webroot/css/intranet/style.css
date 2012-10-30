@@ -295,6 +295,7 @@ font-size:12px;
 #rounded-corner thead th.rounded-company{
 width:26px;
 background: #2a9dd9 url('../../img/intranet/site/left.png') left top no-repeat;
+text-align:center;
 }
 #rounded-corner thead th.rounded-q4{
 background: #2a9dd9 url('../../img/intranet/site/right.png') right top no-repeat;
@@ -306,12 +307,14 @@ font-size: 13px;
 color: #ffffff;
 font-weight:bold;
 background: #2a9dd9;
+text-align:center;
 }
 #rounded-corner td{
 padding: 8px;
 background: #ecf8fd;
 border-top: 1px solid #fff;
 color: #669;
+text-align:center;
 }
 #rounded-corner tfoot td.rounded-foot-left{
 background: #ecf8fd url('../../img/intranet/site/botleft.jpg') left bottom no-repeat;

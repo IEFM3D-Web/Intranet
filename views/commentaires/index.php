@@ -6,7 +6,7 @@
 				<th scope="col" class="rounded-company"><input type="checkbox" id="checkall"/></th>
 				<th scope="col" class="rounded center">Date</th>
 				<th scope="col" class="rounded center">Auteur</th>
-				<th scope="col" class="rounded center">contenu</th>
+				<th scope="col" class="rounded center">Contenu</th>
 				<th scope="col" class="rounded center">Article associé</th>
 				<th scope="col" class="rounded center">Publié</th>
 				<th scope="col" class="rounded-q4 center">Actions</th>
