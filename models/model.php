@@ -210,7 +210,7 @@ function save($parametres, $data){
 
 	foreach($data as $key => $value){
 	
-		//On test si la valeur est numérique
+		//On test si la valeur n'est pas numérique
 		if(!is_numeric($value)){
 		
 			//Si oui, on échappe les éventuelles apostrophes
