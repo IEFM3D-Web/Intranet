@@ -14,10 +14,11 @@
 	?>
 </head>
 <body>
-<?php include(ELEMENTS.DS.'users/header.php'); ?>
+
+<?php //include(ELEMENTS.DS.'users/header.php'); ?>
 <!-- Affichage de la vue -->
 <?php echo $content_for_layout; ?>
-<div id="fleur_gauche"></div>
-<div id="fleur_droite"></div>
+<div id="fleur"></div>
+
 </body>
 </html>

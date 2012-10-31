@@ -1,5 +1,5 @@
 body{
-background:url(../../img/user/stripe.png); 
+background:url(../../img/user/stripe23.png); 
 font-family:verdana; 
 }
 #header{
@@ -9,10 +9,14 @@ margin-left:auto;
 margin-right:auto;
 }
 #logo{
+margin-left:auto;
+margin-right:auto;
+margin-bottom:30px;
+margin-top:10px;
 position:relative;
 width:195px;
 height:49px;
-background:url(../../img/user/iefm.png) no-repeat top;
+background:url(../../img/user/iefm2.png) no-repeat top;
 }
 #titre{
 color:#000000; 
@@ -21,15 +25,18 @@ font-family:verdana;
 margin-top:15px; 
 text-align:center;
 }
-#fleur_gauche{
-z-index:50; 
-height:600px; 
-width:440px; 
-background:url(../../img/user/fleur_gauche.png) no-repeat; 
-margin-top:-400px;
+#fleur{
+z-index:80; 
+height:859px;
+width:600px;
+margin-top:-600px;
+margin-left:auto;
+margin-right:auto;
+background:url(../../img/user/fleur_gauche2.png) no-repeat; 
+
 }
 #fleur_droite{
-z-index:55; 
+z-index:55;
 height:600px; 
 width:440px; 
 background:url(../../img/user/fleur_droite.png) no-repeat; 
@@ -43,9 +50,11 @@ box-shadow:3px 3px 15px #aaa;
 margin:0 auto;
 border-radius:7px;
 border:solid #2a9dd9 0.30px;
+margin-top:250px;
 width:250px;
-height:200px;
-background:url(../../img/user/bande.png) no-repeat #FCFCFC right bottom;
+height:300px;
+background:white;
+background-opacity: 0.8;
 }
 #error{ 
 padding:5px;

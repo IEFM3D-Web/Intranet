@@ -8,6 +8,7 @@
 }
 ?>
 <div id="form">
+	<div id="logo"></div>
 	<form class="niceform" action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
 		<label class="label" for="mail">Adresse mail</label>
 		<input  class="field" name="mail" type="text" value="" size="12" maxlength="180">
