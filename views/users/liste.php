@@ -43,5 +43,5 @@
 			?>
 	</table>
 	<?php echo $aControllerDatas['pagination']; ?>
-	<button type="submit"><span>Supprimer</span></button>
+	<button type="submit" onclick="return deleteUser();"><span>Supprimer</span></button>
 </form>

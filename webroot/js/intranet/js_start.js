@@ -22,5 +22,58 @@ ddaccordion.init({
 
 /////////////////////// Initialisation jConfirmAction ///////////////////////
 $(document).ready(function() {
-		$('.ask').jConfirmAction();
-	});
+
+	$('.ask').jConfirmAction();
+	
+});
+
+/////////////////////// Confirmation suppressions multiples ///////////////////////
+function deleteArticle()
+{
+	var answer = confirm("Supprimer les articles sélectionnés ?")
+	if (answer){
+		document.messages.submit();
+	}
+
+	return false;  
+}	
+
+function deleteUser()
+{
+	var answer = confirm("Supprimer les utilisateurs sélectionnés ?")
+	if (answer){
+		document.messages.submit();
+	}
+
+	return false;  
+}
+
+function deleteComment()
+{
+	var answer = confirm("Supprimer les commentaires sélectionnés ?")
+	if (answer){
+		document.messages.submit();
+	}
+
+	return false;  
+}
+
+function deleteCategory()
+{
+	var answer = confirm("Supprimer les catégories sélectionnées ?")
+	if (answer){
+		document.messages.submit();
+	}
+
+	return false;  
+}
+
+function deleteRole()
+{
+	var answer = confirm("Supprimer les rôles sélectionnées ?")
+	if (answer){
+		document.messages.submit();
+	}
+
+	return false;  
+}

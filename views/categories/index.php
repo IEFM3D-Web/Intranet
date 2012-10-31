@@ -35,5 +35,5 @@
 			?>
 		</tbody>
 	</table>
-	<button type="submit"><span>Supprimer</span></button>
+	<button type="submit" onclick="return deleteCategory();"><span>Supprimer</span></button>
 </form>
