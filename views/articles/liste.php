@@ -52,5 +52,5 @@
 		</tbody>
 	</table>
 	<?php echo $aControllerDatas['pagination']; ?>
-	<button type="submit" class="ask"><span>Supprimer</span></button>
+	<button type="submit"><span>Supprimer</span></button>
 </form>

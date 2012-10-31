@@ -289,7 +289,6 @@ function save($parametres, $data){
 	else{ return $data["id"]; }	
 }
 
-
 function delete($parametres){
 
 		$sql = "DELETE FROM ".$parametres['table']." WHERE id=".$parametres['id'];
@@ -300,7 +299,6 @@ function delete($parametres){
 		$preparedQueryDelete->execute();
 }
 
-
 function delete_by_name($parametres){
 
 		$sql = "DELETE FROM ".$parametres['table']." WHERE ".$parametres['name']."=".$parametres['value'];
@@ -310,7 +308,6 @@ function delete_by_name($parametres){
 	
 		$preparedQueryDelete->execute();
 }
-
 
 function validates($validate, $datas){
 
@@ -352,7 +349,6 @@ function validates($validate, $datas){
 	//On retourne le tableau contenant les erreurs
 	return $errors;
 }	
-
 
 /**
 *Cette fonction permet de compter le nombre d'éléments que renvoi l'instruction sql SELECT.
