@@ -46,7 +46,7 @@
 		</tbody> 
 		<tfoot>
 			<tr>
-				<td colspan="7" class="rounded-foot-left">&nbsp;</td>
+				<td colspan="6" class="rounded-foot-left">&nbsp;</td>
 				<td class="rounded-foot-right">&nbsp;</td>
 			</tr>
 		</tfoot>
