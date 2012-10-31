@@ -208,9 +208,13 @@ function findRole($parametres){
 
 function save($parametres, $data){
 
-	foreach($data as $value){
+	foreach($data as $key => $value){
+	
+		//On test si la valeur est numérique
 		if(!is_numeric($value)){
-			$value = $parametres['link']->quote($value); 
+		
+			//Si oui, on échappe les éventuelles apostrophes
+			$data[$key] = substr($parametres['link']->quote($value), 1, -1);
 		}
 	}
 	
