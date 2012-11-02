@@ -63,10 +63,9 @@ function connect_db($database){
 /**
 *Cette fonction permet de renvoyer les colonnes de la table passée en paramètre.
 *
-*@param varchar $table Variable contenant le nom de la base de donnée.
-*@param ressource $link Lien vers la ressource de connection au serveur.
-*@return array Tableau contenant la liste des colonnes de la table.
-*@author Holic
+*@param varchar $table Nom de la table
+*@param ressource $link Lien vers la ressource de connection au serveur
+*@return array Tableau contenant la liste des colonnes de la table
 */
 function schema_column($table,$link){
 	
@@ -90,12 +89,16 @@ function schema_column($table,$link){
 	return $schema;
 }
 
-
+/**
+*Cette fonction permet de récupérer des informations d'une base de donnèes.
+*
+*@param array $parametres Tableau des paramètres de la requête
+*@return array Tableau contenant les résultats de la requête
+*/
 function find($parametres) {
 	
 	$table = $parametres['table'];
 	$link = $parametres['link'];	
-
 	$tableau = array();
 	$sql = "SELECT ";
 		
@@ -123,7 +126,7 @@ function find($parametres) {
 		}else{
 	
 			$cond = array();
-			foreach($parametres['conditions'] as $k => $v) {
+			foreach($parametres['conditions'] as $k => $v){
 	
 				if(!is_numeric($v)) {
 	
@@ -133,7 +136,7 @@ function find($parametres) {
 			}
 			
 			//On test si il y a des conditions
-			if(count($cond) > 0) {
+			if(count($cond) > 0){
 				
 				$sql .= ' WHERE '.implode(' AND ', $cond);
 
@@ -153,7 +156,7 @@ function find($parametres) {
 	//On prépare la requête de selection
 	$preparedQuerySelect = $link->prepare($sql);
 		
-	//Exécuter la requête
+	//Exécution de la requête
 	$preparedQuerySelect->execute();
 		
 	//On retourne le résultat
@@ -206,6 +209,13 @@ function findRole($parametres){
 	return $tableau;	
 }
 
+/**
+*Cette fonction permet l'insertion et l'update d'une base de données.
+*
+*@param array $parametres Tableau des paramètres de la requête
+*@param array $data Tableau des valeurs à utiliser pour la requête
+*@return integer Id de la dernières requête affectée
+*/
 function save($parametres, $data){
 
 	foreach($data as $key => $value){
@@ -285,30 +295,59 @@ function save($parametres, $data){
 	
 	$preparedQueryInsert->execute();
 	
-	if(!isset($data['id'])){ return mysql_insert_id(); } 
-	else{ return $data["id"]; }	
+	//Si on est dans le cas d'une insertion
+	if(!isset($data['id'])){ 
+		
+		//On retourne l'Id de la dernières requête affectée
+		return $parametres['link']->lastInsertId(); 
+	} 
+	//Sinon c'est qu'on effectu un update
+	else{ 
+	
+		//On renvoi l'id passé dans le tableau $data
+		return $data["id"]; 
+	}	
 }
 
+/**
+*Cette fonction permet de supprimer un élément d'une base de données.
+*
+*@param array $parametres Tableau des paramètres de la requête
+*/
 function delete($parametres){
 
 		$sql = "DELETE FROM ".$parametres['table']." WHERE id=".$parametres['id'];
 		
 		//On prépare la requête de suppression
 		$preparedQueryDelete = $parametres['link']->prepare($sql);
-	
+		
+		//Exécution de la requête
 		$preparedQueryDelete->execute();
 }
 
+/**
+*Cette fonction permet de supprimer un élément d'une base de données par rapport à un nom.
+*
+*@param array $parametres Tableau des paramètres de la requête
+*/
 function delete_by_name($parametres){
 
 		$sql = "DELETE FROM ".$parametres['table']." WHERE ".$parametres['name']."=".$parametres['value'];
 		
 		//On prépare la requête de suppression
 		$preparedQueryDelete = $parametres['link']->prepare($sql);
-	
+		
+		//Exécution de la requête
 		$preparedQueryDelete->execute();
 }
 
+/**
+*Cette fonction permet de gérer la validation d'un formulaire.
+*
+*@param array $validate Tableau des paramètres de la validation
+*@param array $data Tableau des valeurs à utiliser pour la validation
+*@return array Tableau des erreurs
+*/
 function validates($validate, $datas){
 
 	//On inclu la fonction de validation
@@ -369,9 +408,10 @@ function count_elem($table){
 /**
 *Cette fonction permet de générer une pagination.
 *
+*@param object $link Ressource de la connection
 *@param varchar $table Variable contenant le nom de la table
-*@param int $limit Variable contenant le nombre d'éléments à afficher par page
-*@author Holic
+*@param integer $limit Variable contenant le nombre d'éléments à afficher par page
+*@param varchar $condition Conditions, aucunes par défault
 */
 function pagination($link, $table, $limit, $condition=null){
 
