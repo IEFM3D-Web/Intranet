@@ -32,16 +32,8 @@ width:600px;
 margin-top:-600px;
 margin-left:auto;
 margin-right:auto;
-background:url(../../img/user/fleur_gauche2.png) no-repeat; 
+background:url(../../img/user/fleur.png) no-repeat; 
 
-}
-#fleur_droite{
-z-index:55;
-height:600px; 
-width:440px; 
-background:url(../../img/user/fleur_droite.png) no-repeat; 
-margin-top:-600px; 
-float:right;
 }
 #form{
 position:relative;
