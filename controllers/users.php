@@ -244,7 +244,9 @@ function profil() {
 	global $link;
 	global $validate;
 	global $table;
+	
 	$errors = array();
+	$notification = '';
 	
 	if(isset($_POST) && !empty($_POST)) {
 	
@@ -254,14 +256,15 @@ function profil() {
 		if(empty($errors)){
 		
 			save(array('table' => $table, 'link' => $link), $_POST);
-			redirect('articles/index');
+			$notification = 'success';
 		}
 	}
 
 	$aReturn = array(
 		'users' => findFirst(array('table' => 'users', 'link' => $link, 'conditions' => 'id='.$_SESSION['user_id'])),
 		'usersTypesList' => findRole(array('table' => 'types_users', 'link' => $link)),
-		'errors' => $errors
+		'errors' => $errors,
+		'notification' => $notification
 	);
 	
 	return $aReturn;
