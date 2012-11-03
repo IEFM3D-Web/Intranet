@@ -1,0 +1,6 @@
+[03-Nov-2012 14:08:49 UTC] PHP Notice:  A session had already been started - ignoring session_start() in C:\wamp\www\Intranet\controllers\users.php on line 112
+[03-Nov-2012 14:08:49 UTC] PHP Stack trace:
+[03-Nov-2012 14:08:49 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[03-Nov-2012 14:08:49 UTC] PHP   2. call_user_func_array() C:\wamp\www\Intranet\webroot\index.php:126
+[03-Nov-2012 14:08:49 UTC] PHP   3. logout() C:\wamp\www\Intranet\webroot\index.php:126
+[03-Nov-2012 14:08:49 UTC] PHP   4. session_start() C:\wamp\www\Intranet\controllers\users.php:112

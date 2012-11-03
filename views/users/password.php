@@ -1,11 +1,3 @@
-<?php if(isset($aControllerDatas['errors'])){ ?>
-
-	<div id="error">
-		<?php echo $aControllerDatas['errors']; ?>
-	</div>
-<?php
-}
-?>
 <div id="form">
 	<center><p>Un nouveau mot de passe vous sera envoyé par mail.</p></center>
 	<form class="niceform" action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
@@ -14,5 +6,13 @@
 		<button type="submit">Envoyer</button>
 	</form>
 </div>
+<?php if(isset($aControllerDatas['errors'])){ ?>
+
+	<div id="error">
+		<?php echo $aControllerDatas['errors']; ?>
+	</div>
+<?php
+}
+?>
 
 

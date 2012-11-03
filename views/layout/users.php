@@ -17,8 +17,10 @@
 
 <?php //include(ELEMENTS.DS.'users/header.php'); ?>
 <!-- Affichage de la vue -->
-<?php echo $content_for_layout; ?>
-<div id="fleur"></div>
+
+<div id="fleur">
+	<?php echo $content_for_layout; ?>
+</div>
 
 </body>
 </html>

@@ -1,12 +1,4 @@
 <?php session_name("IEFM3D"); session_start();?>
-<?php if(isset($aControllerDatas['errors'])){ ?>
-
-	<div id="error">
-		<?php echo $aControllerDatas['errors']; ?>
-	</div>
-<?php
-}
-?>
 <div id="form">
 	<div id="logo"></div>
 	<form class="niceform" action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
@@ -18,5 +10,12 @@
 	</form>
 	<a href="<?php echo BASE_URL; ?>/users/password" class="lien">Mot de passe oublié ?</a>
 </div>
+<?php if(isset($aControllerDatas['errors'])){ ?>
 
+	<div id="error">
+		<?php echo $aControllerDatas['errors']; ?>
+	</div>
+<?php
+}
+?>
 

@@ -29,6 +29,7 @@ function index(){
 	if(isset($_GET['page']) && !empty($_GET['page'])){
 		$page = $_GET['page'];
 	}else{$page = 1;}
+	
 	//Pagination
 	$limit = 5; //Limite d'éléments par page
 	$start = ($page - 1) * $limit;

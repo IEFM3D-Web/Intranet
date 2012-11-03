@@ -52,6 +52,5 @@
 		</tfoot>
 	</table>
 	<?php echo $aControllerDatas['pagination']; ?>
-	<br />
 	<button type="submit" onclick="return deleteComment();"><span>Supprimer</span></button>
 </form>
