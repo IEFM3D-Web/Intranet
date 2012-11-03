@@ -47,26 +47,30 @@ function add(){
 
 	global $link;
 	global $validate;
+	
 	$errors = array();
-
+	$notification = '';
 	
 	if(isset($_POST) && !empty($_POST)) {
 		
 		if(!empty($validate)){ //On vérifi que la variable de validation contenant les règles n'est pas vide
 		
 			$errors = validates($validate, $_POST);
+			
 		}
 		
 		if(empty($errors)){
 			save(array('table' => 'articles_types', 'link' => $link), $_POST);
-			redirect('categories/index');
+			$notification = 'success';
 		}
 		
 	}
-	
+
 	return array(
-		'errors' => $errors
+		'errors' => $errors,
+		'notification' => $notification
 	);
+	
 };
 
 
@@ -79,7 +83,9 @@ function edit($id) {
 	global $link;
 	global $validate;
 	global $table;
+	
 	$errors = array();
+	$notification = '';
 	
 	if(isset($_POST) && !empty($_POST)) {
 	
@@ -89,14 +95,15 @@ function edit($id) {
 		}
 		if(empty($errors)){
 			save(array('table' => $table, 'link' => $link), $_POST);
-			redirect('categories/index');
+			$notification = 'success';
 		}
 	}
 	
 	$aReturn = array(
 		'categories' => findFirst(array('table' => 'articles_types', 'link' => $link, 'conditions' => 'id='.$id)),
 		'id' => $id,
-		'errors' => $errors
+		'errors' => $errors,
+		'notification' => $notification
 	);
 	return $aReturn;
 }

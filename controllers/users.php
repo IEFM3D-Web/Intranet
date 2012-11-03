@@ -160,7 +160,9 @@ function add(){
 
 	global $link;
 	global $validate;
+	
 	$errors = array();
+	$notification = '';
 
 	if(isset($_POST) && !empty($_POST)) {
 		
@@ -182,7 +184,7 @@ function add(){
 			mkdir(FILES.DS.$folderName);
 			
 			save(array('table' => 'users', 'link' => $link), $_POST);
-			redirect('users/liste');
+			$notification = 'success';
 		}
 		
 	}
@@ -190,7 +192,8 @@ function add(){
 	return array(
 		'usersTypesList' => findList(array('table' => 'types_users', 'link' => $link)),
 		'userTypesSex'=> findSex(array('table' => 'sexes_users', 'link' => $link)),
-		'errors' => $errors
+		'errors' => $errors,
+		'notification' => $notification
 	);
 }
 
@@ -204,7 +207,9 @@ function edit($id) {
 	global $link;
 	global $validate;
 	global $table;
+	
 	$errors = array();
+	$notification = '';
 	
 	if(isset($_POST) && !empty($_POST)) {
 	
@@ -213,7 +218,7 @@ function edit($id) {
 		}
 		if(empty($errors)){
 			save(array('table' => $table, 'link' => $link), $_POST);
-			redirect('users/liste');
+			$notification = 'success';
 		}
 	}
 	
@@ -222,7 +227,8 @@ function edit($id) {
 		'id' => $id,
 		'usersTypesList' => findList(array('table' => 'types_users', 'link' => $link)),	
 		'userTypesSex'=> findSex(array('table' => 'sexes_users', 'link' => $link)),
-		'errors' => $errors
+		'errors' => $errors,
+		'notification' => $notification
 	);
 	return $aReturn;
 }

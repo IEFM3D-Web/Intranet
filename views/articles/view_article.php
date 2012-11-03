@@ -53,15 +53,48 @@ echo $aControllerDatas['pagination'];
 ?>
 <div class="add-commentaire">
 	<?php 
+	if(isset($aControllerDatas['errors']) && !empty($aControllerDatas['errors'])){
+	?>
+		<script>
+		$(document).ready(function(){
+					
+				 $('html, body').animate({ scrollTop: 800 }, 'slow'); 
+			
+		});       
+		</script>
+	<?php	
+	}
+	
+	if(isset($aControllerDatas['notification'])){
+
+	if($aControllerDatas['notification'] == 'success'){
+		?>
+		<script>
+		$(document).ready(function(){
+					
+			 $('html, body').animate({ scrollTop: 800 }, 'slow'); 
+				
+			 //Affichage des notifications
+			 for(var i=0;i<myMessages.length;i++)
+			 {
+				showMessage(myMessages[i]);
+			 }
+			 
+			 //On cache les notifications au click
+			 $('.message').click(function(){			  
+					  $(this).slideUp();
+			  });		 
+				 
+		});       
+		</script>
+		<div class="success message">
+			<p>Votre commentaire est en attente de validation.</p>
+		</div>
+		<?php
+	}
+}
 	echo form_create(array('action' => $_SERVER['REQUEST_URI'], 'method' => 'post', 'class' => 'valid'));
 		include(ELEMENTS.DS.'intranet'.DS.'formulaires'.DS.'add_commentaire.php'); 
-		if($aControllerDatas['success_comment']){
-		?>
-			<div class="valid_box">
-				Votre commentaire est en attente de validation.
-			</div>
-		<?php
-		};
 	echo form_close();
 	?>
 </div>

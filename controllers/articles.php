@@ -106,8 +106,9 @@ function add(){
 
 	global $link;
 	global $validate;
+	
 	$errors = array();
-
+	$notification = '';
 	
 	if(isset($_POST) && !empty($_POST)) {
 		
@@ -118,14 +119,15 @@ function add(){
 		
 		if(empty($errors)){
 			save(array('table' => 'articles', 'link' => $link), $_POST);
-			redirect('articles/liste');
+			$notification = 'success';
 		}
 		
 	}
 	
 	return array(
 		'articlesTypesList' => findList(array('table' => 'articles_types', 'link' => $link)),
-		'errors' => $errors
+		'errors' => $errors,
+		'notification' => $notification
 	);
 };
 
@@ -139,7 +141,9 @@ function edit($id) {
 	global $link;
 	global $validate;
 	global $table;
+	
 	$errors = array();
+	$notification = '';
 	
 	if(isset($_POST) && !empty($_POST)) {
 	
@@ -149,7 +153,7 @@ function edit($id) {
 		}
 		if(empty($errors)){
 			save(array('table' => $table, 'link' => $link), $_POST);
-			redirect('articles/liste');
+			$notification = 'success';
 		}
 	}
 	
@@ -157,7 +161,8 @@ function edit($id) {
 		'articles' => findFirst(array('table' => 'articles', 'link' => $link, 'conditions' => 'id='.$id)),
 		'id' => $id,
 		'articlesTypesList' => findList(array('table' => 'articles_types', 'link' => $link)),
-		'errors' => $errors
+		'errors' => $errors,
+		'notification' => $notification
 	);
 	return $aReturn;
 }
@@ -171,8 +176,10 @@ function view_article($id) {
 	global $link;
 	global $validate;
 	global $table;
+	
 	$errors = array();
-	$success_comment = "";
+	$notification = '';
+	
 	
 	if(isset($_POST) && !empty($_POST)) {
 	
@@ -182,13 +189,14 @@ function view_article($id) {
 		}
 		if(empty($errors)){
 			save(array('table' => 'commentaires', 'link' => $link), $_POST);
-			$success_comment = "ok";
+			$notification = 'success';
 		}
 	}
 	
 	if(isset($_GET['page']) && !empty($_GET['page'])){
 		$page = $_GET['page'];
 	}else{$page = 1;}
+	
 	//Pagination
 	$limit = 5; //Limite d'éléments par page
 	$start = ($page - 1) * $limit;
@@ -201,7 +209,8 @@ function view_article($id) {
 		'commentaires' => find(array('table' => 'commentaires', 'conditions' => 'online = 1 and articles_id ='.$id, 'limite' => array('start' => $start, 'limit' =>$limit), 'link' => $link)),
 		'pagination' => pagination($link,'commentaires', $limit, 'online = 1'),
 		'errors' => $errors,
-		'success_comment' => $success_comment
+		'notification' => $notification
+		
 	);
 	return $aReturn;
 }

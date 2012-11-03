@@ -77,3 +77,11 @@ function deleteRole()
 
 	return false;  
 }
+
+var myMessages = ['info','warning','error','success']; // define the messages types		 
+
+function showMessage(type)
+{		  
+		  
+		  $('.'+type).slideDown();
+}

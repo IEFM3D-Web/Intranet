@@ -50,7 +50,9 @@ function edit($id) {
 	global $link;
 	global $validate;
 	global $table;
+	
 	$errors = array();
+	$notification = '';
 	
 	if(isset($_POST) && !empty($_POST)) {
 	
@@ -60,14 +62,15 @@ function edit($id) {
 		}
 		if(empty($errors)){
 			save(array('table' => $table, 'link' => $link), $_POST);
-			redirect('commentaires/index');
+			$notification = 'success';
 		}
 	}
 	
 	$aReturn = array(
 		'commentaires' => findFirst(array('table' => 'commentaires', 'link' => $link, 'conditions' => 'id='.$id)),
 		'id' => $id,
-		'errors' => $errors
+		'errors' => $errors,
+		'notification' => $notification
 	);
 	return $aReturn;
 }

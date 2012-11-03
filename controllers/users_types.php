@@ -47,7 +47,9 @@ function add(){
 
 	global $link;
 	global $validate;
+	
 	$errors = array();
+	$notification = '';
 
 	if(isset($_POST) && !empty($_POST)) {
 		
@@ -71,13 +73,14 @@ function add(){
 			}
 			
 			menu($crud,$last_id); //Génération du menu en fonctiond du crud
-			redirect('users_types/index');
+			$notification = 'success';
 		}
 		
 	}
 	
 	return array(
-		'errors' => $errors
+		'errors' => $errors,
+		'notification' => $notification
 	);
 }
 
@@ -91,7 +94,9 @@ function edit($id) {
 	global $link;
 	global $validate;
 	global $table;
+	
 	$errors = array();
+	$notification = '';
 	
 	if(isset($_POST) && !empty($_POST)) {
 	
@@ -120,7 +125,7 @@ function edit($id) {
 				}
 			}
 			menu($crud,$last_id); //Génération du menu en fonctiond du crud
-			redirect('users_types/index');
+			$notification = 'success';
 		}
 	}
 	
@@ -139,7 +144,8 @@ function edit($id) {
 		'types' => findFirst(array('table' => 'types_users', 'link' => $link, 'conditions' => 'id='.$id)),
 		'id' => $id,
 		'crud' => $crud,
-		'errors' => $errors
+		'errors' => $errors,
+		'notification' => $notification
 	);
 	return $aReturn;
 }
