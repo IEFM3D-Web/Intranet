@@ -263,7 +263,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `role` int(11) NOT NULL,
   `folder` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT= ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT= 5;
 
 --
 -- Contenu de la table `users`
