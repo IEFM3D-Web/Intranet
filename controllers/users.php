@@ -2,8 +2,6 @@
 //On inclu les fonctions annexes
 require(CONTROLLERS.DS.'controller.php');
 
-
-
 /**
 *Cette fonction gère la connexion des utilisateurs
 *Si une correspondance mail/mot de passe est trouvée dans la base de données, 
@@ -78,30 +76,85 @@ function index() {
 	}	
 }
 
-
-
 /**
 *Cette fonction permet de générer et d'envoyer un nouveau mot de passe en cas de perte
 */
 function password() {
 	
 	global $link;
+	global $mail;
+	
+	$errors = '';
+	$success = '';
+	
 	if(isset($_POST) && !empty($_POST)){
+	
 		$postMail = $_POST['mail'];
 		if(isset($_POST['mail']) && !empty($_POST['mail'])){
-			if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#i", $_POST['mail']))
-			{
-				$mail = findFirst(array('table' => 'users', 'link' => $link, 'conditions' => "mail='".$postMail."'"));
-				if(empty($mail)){return array('errors' => "Adresse mail inexistante !");}
-				else{/*On envoi le mail contenant le nouveau mot de passe*/
-	
+		
+			//On vérifi que l'adresse mail est bien valide à l'aide d'expression régulière
+			if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#i", $_POST['mail'])){
+
+				//On vérifi que l'adresse mail existe bien dans la base de données
+				$findMail = findFirst(array('table' => 'users', 'link' => $link, 'conditions' => "mail='".$postMail."'"));
+				if(empty($findMail)){
+					return array('errors' => "Adresse mail inexistante !");
+				}else{
+				
+					//On récupère les informations de l'utilisateur en fonction de son adresse mail
+					$user = findFirst(array('table' => 'users', 'link' => $link, 'conditions' => "mail='".$postMail."'"));
+					
+					//On ajoute son Id au tableau $_POST
+					$_POST['id'] = $user['id'];	
+				
+					//Génération du nouveau mot de passe
+					$newPassword = genere_Password(6);
+					
+					//On ajoute le nouveau mot de passe au tableau $_POST
+					$_POST['password'] = sha1($newPassword);	
+					
+					//On supprime le mail du tableau $_POST
+					unset($_POST['mail']);
+					
+					//Mise à jour du mot de passe
+					save(array('table' => 'users', 'link' => $link), $_POST);
+				
+					//Inclusion de la librairie Swift Mailler
+					require(LIB.DS.'swift/swift_required.php');
+					
+					//Création d'une instance de swift transport (SMTP)
+					$transport = Swift_SmtpTransport::newInstance($mail['smtp'], $mail['port'])
+					->setUsername($mail['user'])
+					->setPassword($mail['password'])
+					;
+					
+					//Création d'une instance de swift mailer
+					$mailer = Swift_Mailer::newInstance($transport);
+
+					//Création du mail
+					$message = Swift_Message::newInstance('Nouveau mot de passe')
+					->setFrom(array('john@doe.com' => 'IEFM3D'))
+					->setTo(array($postMail))
+					->setBody('Voici votre nouveau mot de passe : '.$newPassword)
+					;
+
+					//Envoi du message
+					$result = $mailer->send($message);
+
+					if($result){
+						$success = 'oui';
+					}
+
 				}
-			}else{return array('errors' => "Adresse mail invalide !");}
-		}else{return array('errors' => "Le champ mail est vide !");}	
+			}else{$errors = "Adresse mail invalide !";}
+		}else{$errors = "Le champ mail est vide !";}	
 	}
+	
+	return array(
+		'errors' => $errors,
+		'success' => $success
+	);
 }
-
-
 
 /**
 *Cette fonction permet de se déconnecter
@@ -114,8 +167,6 @@ function logout(){
 	session_destroy();//Détruit toutes les données associées à la session courante
 	redirect("users");//Redirection vers le formulaire de connexion
 }
-
-
 
 /**
 *Cette fonction récupère la liste des utilisateurs
@@ -150,8 +201,6 @@ function liste(){
 		'pagination' => pagination($link, 'users', $limit)
 	);
 }
-
-
 
 /**
 *Cette fonction permet d'ajouter un nouvel utilisateur
@@ -197,8 +246,6 @@ function add(){
 	);
 }
 
-
-
 /**
 *Cette fonction permet d'éditer les informations des utilisateurs
 */
@@ -232,8 +279,6 @@ function edit($id) {
 	);
 	return $aReturn;
 }
-
-
 
 /**
 *Cette fonction permet d'éditer les informations des utilisateurs
@@ -304,8 +349,6 @@ function erase($id) {
 	redirect('users/liste');
 }
 
-
-
 /**
 *Cette fonction permet la suppression d'utilisateurs multiples
 */
@@ -315,8 +358,6 @@ function erase_all($id) {
 	delete(array('table' => 'users', 'link' => $link, 'datas' => $_POST));
 	redirect('users/liste');
 }
-
-
 
 function erreur() {
 

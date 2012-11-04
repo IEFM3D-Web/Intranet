@@ -7,6 +7,14 @@ body{
 background:url(../../img/user/stripe23.png); 
 font-family:verdana; 
 }
+p{
+text-align:center;
+margin-bottom:30px;
+}
+.success{
+margin-top:30px;
+color:green;
+}
 #logo{
 margin-left:auto;
 margin-right:auto;
@@ -26,7 +34,7 @@ text-align:center;
 }
 #fleur{
 height:849px;
-padding-top:200px;
+padding-top:220px;
 width:600px;
 margin:50px auto 0 auto;
 background:url(../../img/user/fleur.png) no-repeat; 

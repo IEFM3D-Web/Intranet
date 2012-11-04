@@ -43,7 +43,7 @@ define('BASE_URL', $baseUrl); //Chemin relatif vers le coeur de l'application
 //   INCLUSION DES LIBRAIRIES, HELPERS ET fichiers DE CONFIGS   //
 $aLibs = array('functions','menu');
 $aHelpers = array('html','form');
-$aConfigs = array('database');
+$aConfigs = array('database','mail');
 
 foreach($aLibs as $sLibrairie) { require_once(LIB.DS.$sLibrairie.'.php'); }
 foreach($aHelpers as $sHelper) { require_once(HELPERS.DS.$sHelper.'.php'); }
