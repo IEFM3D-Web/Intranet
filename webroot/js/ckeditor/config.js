@@ -12,9 +12,9 @@ CKEDITOR.editorConfig = function( config )
 	config.toolbar_MyToolbar =
 	[
 		{ name: 'document', items : [ 'NewPage','Preview','Templates' ] },
-		{ name: 'clipboard', items : [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo' ] },
-		{ name: 'editing', items : [ 'Find','Replace','-','SelectAll','-','Scayt' ] },
-		{ name: 'insert', items : [ 'Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'
+		{ name: 'clipboard', items : [ 'Cut','Copy','Paste','PasteText','-','Undo','Redo' ] },
+		{ name: 'editing', items : [ 'Scayt' ] },
+		{ name: 'insert', items : [ 'Image','Flash','Table','HorizontalRule','Smiley','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','SpecialChar','PageBreak'
                  ,'Iframe' ] },
                 '/',
 		{ name: 'styles', items : [ 'Styles','Format' ] },

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Dim 04 Novembre 2012 à 14:15
+-- Généré le: Dim 04 Novembre 2012 à 15:16
 -- Version du serveur: 5.5.24-log
 -- Version de PHP: 5.3.13
 
@@ -152,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
 --
 
 INSERT INTO `articles` (`id`, `titre`, `chapeau`, `contenu`, `created`, `created_by`, `modified`, `modified_by`, `online`, `articles_type_id`) VALUES
-(1, 'Ceci est le titre de l''article', '<p>\r\n	Ceci est le chapeau de l&#39;article !</p>\r\n', '<p>\r\n	Ceci est le contenu de l&#39;article !</p>\r\n', '2012-11-04', 1, '2012-11-04', 1, 1, 2);
+(1, 'CKeditor', '<p>\r\n	<img alt="" height="89" src="http://a.cksource.com/e/1/img/logo-ckeditor-h100.png" width="246" /></p>\r\n<p>\r\n	Petite pr&eacute;sentation du <acronym title="What you see is what you get">WYSIWYG </acronym>CKeditor.</p>\r\n', '<p style="text-align: center;">\r\n	<img alt="" src="http://a.cksource.com/e/1/img/logo-ckeditor-h100.png" style="width: 273px; height: 100px;" /></p>\r\n<p>\r\n	&nbsp;</p>\r\n<p>\r\n	<em>CKEditor</em> est un &eacute;diteur de texte pouvant &ecirc;tre utilis&eacute; &agrave; l&#39;int&eacute;rieur d&#39;une page web. C&rsquo;est un &eacute;diteur <acronym title="What you see is what you get">WYSIWYG</acronym>, ce qui signifie que le texte qui y est &eacute;dit&eacute; ressemble le plus possible au r&eacute;sultat que l&rsquo;utilisateur aura lorsqu&rsquo;il le publiera. Il apporte sur le web de nombreuses fonctionnalit&eacute;s identiques &agrave; celles que l&rsquo;on peut trouver sur des applications d&rsquo;&eacute;dition tels que <a href="http://microsoft.entelechargement.com/">Microsoft Word</a> ou <a href="http://fr.openoffice.org/">OpenOffice</a>. <em>CKEditor</em> permet de faciliter la mise en forme des messages de vos utilisateurs (pour les commentaires ou les forums) sans devoir utiliser de <acronym title="Bulletin Board Code">BBCode</acronym>.</p>\r\n<p>\r\n	&nbsp;</p>\r\n<p style="text-align: center;">\r\n	<img alt="" src="http://www.tutorielsenfolie.com/articles/img/image_CKEditor_basic.jpeg" style="width: 400px; height: 166px;" /></p>\r\n', '2012-11-04', 1, '2012-11-04', 1, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -192,14 +192,17 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
   `online` int(11) NOT NULL DEFAULT '0',
   `color` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
 -- Contenu de la table `commentaires`
 --
 
 INSERT INTO `commentaires` (`id`, `contenu`, `created`, `created_by`, `modified`, `modified_by`, `articles_id`, `online`, `color`) VALUES
-(1, 'Ceci est un commentaire !', '2012-11-04', 1, '2012-11-04', 1, 1, 1, 'admin');
+(1, 'Ceci est un commentaire posté par un administrateur  !', '2012-11-04', 1, '2012-11-04', 1, 1, 1, 'admin'),
+(2, 'Ceci est un commentaire posté par un modérateur !', '2012-11-04', 2, '2012-11-04', 1, 1, 1, 'moder'),
+(3, 'Ceci est un commentaire posté par un professeur !', '2012-11-04', 3, '2012-11-04', 1, 1, 1, 'profe'),
+(4, 'Ceci est un commentaire posté par un élève !', '2012-11-04', 4, '2012-11-04', 1, 1, 1, 'eleve');
 
 -- --------------------------------------------------------
 
@@ -263,7 +266,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `role` int(11) NOT NULL,
   `folder` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT= 5;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
 -- Contenu de la table `users`

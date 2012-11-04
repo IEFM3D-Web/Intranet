@@ -18,7 +18,7 @@ $articlesTypesList = $aControllerDatas['articlesTypesList'];
 </div>
 
 <?php
-
+$commentaires = array_reverse($commentaires);
 foreach($commentaires as $aValue){
 
 ?>
