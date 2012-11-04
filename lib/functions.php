@@ -100,4 +100,17 @@ function genere_Password($size){
 	
 		return $password;
 } 
+
+/**
+*Cette fonction nettoie une chaîne de caractère en enlevant les accents
+*@param  string  $chaine  chaîne à nettoyer
+*@return  string  chaîne à nettoyer
+*/
+function filter($chaine) {
+
+  $string = iconv ('UTF-8', 'US-ASCII//TRANSLIT//IGNORE', $chaine);
+  $string = preg_replace ('#[^.0-9a-z]+#i', '', $string);
+  $string = strtolower ($string);
+  return $string;
+}
 ?>

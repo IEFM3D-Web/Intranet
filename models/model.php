@@ -46,6 +46,9 @@ function connect_db($database){
 		//Modification des paramètres de la connexion pour
 		//demander que les exceptions soient levées en cas d'erreurs
 		$link->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+		
+		//Modification de l'encodage de la connexion
+		$link->exec("SET CHARACTER SET utf8");
 
 		return $link;
 
@@ -421,7 +424,7 @@ function pagination($link, $table, $limit, $condition=null){
 	//On récupère en premier le nombre de lignes présentes dans la table
 	if(isset($condition) && !empty($condition)){
 	
-		$total_pages = find(array('table' => $table, 'conditions' => 'online = 1','link' => $link));
+		$total_pages = find(array('table' => $table, 'conditions' => $condition,'link' => $link));
 	}else{
 	
 		$total_pages = find(array('table' => $table,'link' => $link));

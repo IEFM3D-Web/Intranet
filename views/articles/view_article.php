@@ -13,10 +13,6 @@ $articlesTypesList = $aControllerDatas['articlesTypesList'];
 <div class="info_dat">Date : <?php echo $article['created'] ?></div>
 <div class="info_aut"><?php echo ucfirst($authorList[$article['created_by']])?></div>
 
-
-
-
-
 <div class="view_article">
 	<?php echo $article['contenu']; ?>
 </div>
@@ -48,8 +44,9 @@ if(count($commentaires) == 0){
 		Il n'y a aucun commentaire.
 	</div>
 <?php	
+}else{
+	echo $aControllerDatas['pagination'];
 }
-echo $aControllerDatas['pagination'];
 ?>
 <div class="add-commentaire">
 	<?php 

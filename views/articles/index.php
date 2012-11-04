@@ -14,7 +14,7 @@ foreach($aControllerDatas['articles'] as $iKey => $aValue) {
 		</div>
 	</div>
 	<div class="clear"></div>
-	<div class="contenu"><?php echo $aValue['contenu']; ?></div>
+	<div class="contenu"><?php echo $aValue['chapeau']; ?></div>
 	<div id="article_footer">
 		<div class="auteur"><?php echo ucfirst($authorList[$aValue['created_by']]); ?></div>
 		<div>

@@ -10,21 +10,8 @@ require(CONTROLLERS.DS.'controller.php');
 function index(){
 
 	global $link;
-
-	if(isset($_POST) && !empty($_POST)){
-		
-		$aDelete = array('table' => 'articles','link' => $link);
-		
-		foreach($_POST['delete'] as $key => $value){
-		
-			if($value == 1){
-				$aDelete['id'] = $key;
-				delete($aDelete);
-			}
-
-			
-		}
-	}
+	
+	$nbComments = array();
 	
 	//On test si le numéro de page est passé dans l'URL
 	if(isset($_GET['page']) && !empty($_GET['page'])){
@@ -46,7 +33,7 @@ function index(){
 		
 		//On stock l'id de chaque article et le nombre de commentaires associés dans un tableau
 		$nbComments[$articleID] = count(find(array('table' => 'commentaires', 'conditions' => 'articles_id = '.$articleID.' AND online = 1', 'link' => $link)));
-		
+
 	}
 	
 	return array(
@@ -207,7 +194,7 @@ function view_article($id) {
 		'authorList' => findAuthor(array('table' => 'users', 'link' => $link)),
 		'articlesTypesList' => findList(array('table' => 'articles_types', 'link' => $link)),
 		'commentaires' => find(array('table' => 'commentaires', 'conditions' => 'online = 1 and articles_id ='.$id, 'limite' => array('start' => $start, 'limit' =>$limit), 'link' => $link)),
-		'pagination' => pagination($link,'commentaires', $limit, 'online = 1'),
+		'pagination' => pagination($link,'commentaires', $limit, 'articles_id = '.$id.' AND online = 1'),
 		'errors' => $errors,
 		'notification' => $notification
 		

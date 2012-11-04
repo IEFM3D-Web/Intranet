@@ -226,12 +226,13 @@ function add(){
 			$_POST['password'] = $cryptPassword;
 			
 			//Création du nom du dossier personnel
-			$folderName = uniqid($_POST['prenom'].'_'.$_POST['nom'].'_');
+			$folderName = strtolower(filter(uniqid($_POST['prenom'].'_'.$_POST['nom'].'_')));
 			$_POST['folder'] = $folderName;
 			
 			//Création du dossier personnel
 			mkdir(FILES.DS.$folderName);
 			
+			//Création de l'utilisateur
 			save(array('table' => 'users', 'link' => $link), $_POST);
 			$notification = 'success';
 		}
@@ -264,8 +265,29 @@ function edit($id) {
 			$errors = validates($validate, $_POST);
 		}
 		if(empty($errors)){
+			
+			//On récupère les informations de l'utilisateur
+			$user = findFirst(array('table' => 'users', 'link' => $link, 'conditions' => 'id='.$id));	
+
+			//On récupère le nom du dossier actuel
+			$oldFolderName = $user['folder'];
+				
+			//Préparation des variables qui servirons au nouveau nom de dossier	
+			$nom = strtolower(filter($_POST['nom']));
+			$prenom = strtolower(filter($_POST['prenom']));
+				
+			//Création du nouveau nom du dossier personnel
+			$newFolderName = uniqid($prenom.'_'.$nom.'_');
+			
+			$_POST['folder'] = $newFolderName;	
+			
+			//On met à kour les informations de l'utilisateur
 			save(array('table' => $table, 'link' => $link), $_POST);
 			$notification = 'success';
+			
+			//On renomme le dossier personnel de l'utilisateur
+			sleep(1);
+			rename(FILES.DS.$oldFolderName, FILES.DS.$newFolderName);
 		}
 	}
 	
@@ -326,7 +348,8 @@ function view_profil($id) {
 	
 	$profil = findFirst(array('table' => 'users', 'link' => $link, 'conditions' => 'id='.$id));
 	
-	if($_SESSION['role'] == 10 || $_SESSION['role'] == 11){
+	
+	if($_SESSION['role'] <= 3){
 		$_SESSION['folder'] = $profil['folder'];
 		$_SESSION['ckfinder'] = 'pass';
 	}

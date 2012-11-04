@@ -16,6 +16,10 @@ $validate = array(
 			'message' => "La valeur de ce champs est de 80 caractères maximum."
 		)
 	),
+	'chapeau' => array(
+		'rule' => array('minLength', 10),
+		'message' => "La valeur de ce champs est de 10 caractères minimum."
+	),
 	'contenu' => array(
 		'rule' => array('minLength', 10),
 		'message' => "La valeur de ce champs est de 10 caractères minimum."

@@ -157,7 +157,7 @@ function edit($id) {
 */
 function erase($id) {
 	
-	if($id>16){
+	if($id>4){
 		global $link;
 		delete(array('table' => 'types_users', 'link' => $link, 'id' => $id)); //On supprime le role de la table types_users
 		delete_by_name(array('table' => 'acls', 'link' => $link, 'name' => 'types_user_id', 'value' => $id)); //On supprime le role de la table acls
