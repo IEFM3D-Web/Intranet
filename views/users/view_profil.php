@@ -5,7 +5,6 @@ $roleList = $aControllerDatas['usersTypesList'];?>
 
 <h2>Profil de <?php echo  ucfirst($profil['nom'])." ".ucfirst($profil['prenom']); ?></h2>
 <div id="profil">
-	<div class="titre">Informations</div>
 	<div class="photo">
 		<!-- <tr>
 			<td> </td>

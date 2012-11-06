@@ -9,7 +9,7 @@ font-size:12px;
 font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
 font-weight:400;
 color:#777;
-width:415px;
+width:390px;
 background:url(../../img/intranet/site/bg-input.png) repeat-x 0 0;
 background-color:#FFF;
 border-top:solid 1px #aaa;
@@ -59,7 +59,7 @@ cursor:pointer;
 text-align:center;
 font-weight:700;
 padding-bottom:5px;
-margin-top:10px
+margin-top:10px;
 }
 
 button:hover {

@@ -23,7 +23,7 @@ function form_create($attr = null) {
 function form_close($submit = true, $value = 'Envoyer') {
 	$html = '';
 	if($submit){
-		$html .='<button type="submit"><span>'.$value.'</span></button>';
+		$html .='<button type="submit">'.$value.'</button><div class="clear"></div>';
 	}
 	$html .='</form>';
 	

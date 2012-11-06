@@ -322,11 +322,20 @@ function profil() {
 		}
 		if(empty($errors)){
 		
+		
+			if(!empty($_POST)){
+			
+				//Cryptage du mot de passe en Sha1
+				$cryptPassword = sha1($_POST['password']);
+				$_POST['password'] = $cryptPassword;
+			
+			}
+		
 			save(array('table' => $table, 'link' => $link), $_POST);
 			$notification = 'success';
 		}
 	}
-
+	
 	$aReturn = array(
 		'users' => findFirst(array('table' => 'users', 'link' => $link, 'conditions' => 'id='.$_SESSION['user_id'])),
 		'usersTypesList' => findRole(array('table' => 'types_users', 'link' => $link)),
