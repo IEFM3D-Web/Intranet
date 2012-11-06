@@ -28,7 +28,7 @@
 					<a href="<?php echo BASE_URL; ?>/users_types/edit/<?php echo $aValue['id']; ?>"><img alt="éditer" title="modifier" src="<?php echo BASE_URL;?> /img/intranet/site/article-edit.png"></a>
 					
 					<?php 
-					if($aValue['id']>16){
+					if($aValue['id']>4){
 					?>
 						&nbsp;
 						<a href="<?php echo BASE_URL; ?>/users_types/erase/<?php echo $aValue['id']; ?>" class="ask"><img alt="supprimer" title="supprimer" src="<?php echo BASE_URL;?> /img/intranet/site/article-delete.png"></a>
