@@ -10,7 +10,6 @@ if(isset($aControllerDatas['types']['id'])){
 echo form_input('name', "Nom", array('errors' => $aControllerDatas['errors'], 'values' => $types));
 ?>
 
-
 <table id="rounded-corner">
 	<thead class="top_users_types">
 		<tr>
@@ -24,69 +23,40 @@ echo form_input('name', "Nom", array('errors' => $aControllerDatas['errors'], 'v
 	</thead> 
 	<tbody class="align_checkbox">
 		<tr>
-			<td width="60%">Catégories</td>
-			<td width="10%">
-				<input type="hidden" value="0" name="crud[categories][add]"/>
-				<input type="checkbox" value="1" name="crud[categories][add]" <?php echo isset($crud['crud']['categories']['add']) && $crud['crud']['categories']['add'] == 1 ? 'checked="checked"' : ''; ?>/>
-			</td>	
-			<td width="10%">
-				<input type="hidden" value="0" name="crud[categories][index]"/>
-				<input type="checkbox" value="1" name="crud[categories][index]" <?php echo isset($crud['crud']['categories']['index']) && $crud['crud']['categories']['index'] == 1 ? 'checked="checked"' : ''; ?>/>
-			</td>
-			<td width="10%">
-				<input type="hidden" value="0" name="crud[categories][edit]"/>
-				<input type="checkbox" value="1" name="crud[categories][edit]" <?php echo isset($crud['crud']['categories']['edit']) && $crud['crud']['categories']['edit'] == 1 ? 'checked="checked"' : ''; ?>/>
-			</td>
-			<td width="10%">
-				<input type="hidden" value="0" name="crud[categories][erase]"/>
-				<input type="checkbox" value="1" name="crud[categories][erase]" <?php echo isset($crud['crud']['categories']['erase']) && $crud['crud']['categories']['erase'] == 1 ? 'checked="checked"' : ''; ?>/>
-			</td>
-			<td width="10%">
-				-
-			</td>
+			<td>Catégories</td>
+			<td><?php echo form_input('crud[categories][add]', " ", array('type' => 'checkbox', 'values' => $types)); ?></td>	
+			<td><?php echo form_input('crud[categories][index]', " ", array('type' => 'checkbox', 'values' => $types)); ?></td>
+			<td><?php echo form_input('crud[categories][edit]', " ", array('type' => 'checkbox', 'values' => $types)); ?></td>
+			<td><?php echo form_input('crud[categories][erase]', " ", array('type' => 'checkbox', 'values' => $types)); ?></td>
+			<td> - </td>
 		</tr>
 		<tr>
-			<td width="60%">Articles</td>
-			<td width="10%">
-				<input type="hidden" value="0" name="crud[articles][add]"/>
-				<input type="checkbox" value="1" name="crud[articles][add]" <?php echo isset($crud['crud']['articles']['add']) && $crud['crud']['articles']['add'] == 1 ? 'checked="checked"' : ''; ?>/>
-			</td>
-			<td width="10%">
-				<input type="hidden" value="0" name="crud[articles][liste]"/>
-				<input type="checkbox" value="1" name="crud[articles][liste]" <?php echo isset($crud['crud']['articles']['liste']) && $crud['crud']['articles']['liste'] == 1 ? 'checked="checked"' : ''; ?>/>
-			</td>
-			<td width="10%">
-				<input type="hidden" value="0" name="crud[articles][edit]"/>
-				<input type="checkbox" value="1" name="crud[articles][edit]" <?php echo isset($crud['crud']['articles']['edit']) && $crud['crud']['articles']['edit'] == 1 ? 'checked="checked"' : ''; ?>/>
-			</td>
-			<td width="10%">
-				<input type="hidden" value="0" name="crud[articles][erase]"/>
-				<input type="checkbox" value="1" name="crud[articles][erase]" <?php echo isset($crud['crud']['articles']['erase']) && $crud['crud']['articles']['erase'] == 1 ? 'checked="checked"' : ''; ?>/>
-			</td>
-			<td width="10%">
-				<input type="hidden" value="0" name="crud[articles][publish]"/>
-				<input type="checkbox" value="1" name="crud[articles][publish]" <?php echo isset($crud['crud']['articles']['publish']) && $crud['crud']['articles']['publish'] == 1 ? 'checked="checked"' : ''; ?>/>
-			</td>
+			<td>Articles</td>
+			<td><?php echo form_input('crud[articles][add]', " ", array('type' => 'checkbox', 'values' => $types)); ?></td>
+			<td><?php echo form_input('crud[articles][index]', " ", array('type' => 'checkbox', 'values' => $types)); ?></td>
+			<td><?php echo form_input('crud[articles][edit]', " ", array('type' => 'checkbox', 'values' => $types)); ?></td>
+			<td><?php echo form_input('crud[articles][erase]', " ", array('type' => 'checkbox', 'values' => $types)); ?></td>
+			<td><?php echo form_input('crud[articles][publish]', " ", array('type' => 'checkbox', 'values' => $types)); ?></td>
 		</tr>
 		<tr>
-			<td width="60%">Commentaires</td>
-			<td width="10%">
+			<td>Commentaires</td>
+			<td>
 				-
 			</td>
-			<td width="10%">
+			<td>
 				<input type="hidden" value="0" name="crud[commentaires][index]"/>
 				<input type="checkbox" value="1" name="crud[commentaires][index]" <?php echo isset($crud['crud']['commentaires']['index']) && $crud['crud']['commentaires']['index'] == 1 ? 'checked="checked"' : ''; ?>/>
 			</td>
-			<td width="10%">
+			<td>
 				<input type="hidden" value="0" name="crud[commentaires][edit]"/>
 				<input type="checkbox" value="1" name="crud[commentaires][edit]" <?php echo isset($crud['crud']['commentaires']['edit']) && $crud['crud']['commentaires']['edit'] == 1 ? 'checked="checked"' : ''; ?>/>
 			</td>
 			
-			<td width="10%">
+			<td>
 				<input type="hidden" value="0" name="crud[commentaires][erase]"/>
 				<input type="checkbox" value="1" name="crud[commentaires][erase]" <?php echo isset($crud['crud']['commentaires']['erase']) && $crud['crud']['commentaires']['erase'] == 1 ? 'checked="checked"' : ''; ?>/>
 			</td>
-			<td width="10%">
+			<td>
 				<input type="hidden" value="0" name="crud[commentaires][publish]"/>
 				<input type="checkbox" value="1" name="crud[commentaires][publish]" <?php echo isset($crud['crud']['commentaires']['publish']) && $crud['crud']['commentaires']['publish'] == 1 ? 'checked="checked"' : ''; ?>/>
 			</td>
@@ -131,7 +101,7 @@ echo form_input('name', "Nom", array('errors' => $aControllerDatas['errors'], 'v
 				<input type="hidden" value="0" name="crud[users_types][erase]"/>
 				<input type="checkbox" value="1" name="crud[users_types][erase]"  <?php echo isset($crud['crud']['users_types']['erase']) && $crud['crud']['users_types']['erase'] == 1 ? 'checked="checked"' : ''; ?>/>
 			</td>
-			<td width="10%">
+			<td>
 				-
 			</td>
 		</tr>

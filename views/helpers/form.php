@@ -50,20 +50,7 @@ function form_close($submit = true, $value = 'Envoyer') {
  
 function form_input($name, $label, $options = array()) {
 	
-	
 	//pr($options);
-	
-	 //if(isset($options['values'][$name])){ 
-	 if(isset($options['values'][$name])){ 
-		//$value = $options['values'][$name]; 
-		$value = $options['values'][$name]; 
-	} else{
-		$value = '';
-	}
-
-	//pr($value);
-	
-	$except = array('type', 'errors', 'values', 'wysiwyg'); //champs à échapper
 	
 	//Mise en place des options par défault
 	$defaultOptions = array(
@@ -74,10 +61,20 @@ function form_input($name, $label, $options = array()) {
 	
 	$options = array_merge($defaultOptions, $options);
 	
-	$html = '<div class="champs">';
-	if(!isset($options['label'])){$html .= '<label>'.$label.'</label>';}
-	$html .= '<div>';
+	if($options['type'] != 'checkbox') {
+		 if(isset($options['values'][$name])){ $value = $options['values'][$name]; } 
+		 else{ $value = ''; }
+	} else {$value = $options['values'];}
 	
+	//pr($value);
+	
+	$except = array('type', 'errors', 'values', 'wysiwyg'); //champs à échapper
+		
+	if($options['type'] != 'checkbox') {
+		$html = '<div class="champs">';
+		if(!isset($options['label'])){$html .= '<label>'.$label.'</label>';}
+		$html .= '<div>';
+	} else { $html = ''; }
 	
 	$attr = '';
 
@@ -124,6 +121,7 @@ function form_input($name, $label, $options = array()) {
 		break;
 
 		case 'checkbox':
+		
 			$html .= '<input type="hidden" value="0" name="'.$name.'" id="'.$libelleId.'Hidden"/>';
 			$html .= '<input type="checkbox" value="1" name="'.$name.'" id="'.$libelleId.'" ';
 		    $html .= isset($value) && $value ? 'checked="checked"' : '';
