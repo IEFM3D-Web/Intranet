@@ -24,7 +24,7 @@ echo form_input('name', "Nom", array('errors' => $aControllerDatas['errors'], 'v
 	<tbody class="align_checkbox">
 		<tr>
 			<td>Catégories</td>
-			<td><?php echo form_input('crud[categories][add]', " ", array('type' => 'checkbox', 'values' => $types)); ?></td>	
+			<td><?php echo form_input('crud[categories][add]', " ", array('type' => 'checkbox', 'values' => $crud)); ?></td>	
 			<td><?php echo form_input('crud[categories][index]', " ", array('type' => 'checkbox', 'values' => $types)); ?></td>
 			<td><?php echo form_input('crud[categories][edit]', " ", array('type' => 'checkbox', 'values' => $types)); ?></td>
 			<td><?php echo form_input('crud[categories][erase]', " ", array('type' => 'checkbox', 'values' => $types)); ?></td>
@@ -40,9 +40,7 @@ echo form_input('name', "Nom", array('errors' => $aControllerDatas['errors'], 'v
 		</tr>
 		<tr>
 			<td>Commentaires</td>
-			<td>
-				-
-			</td>
+			<td> - </td>
 			<td>
 				<input type="hidden" value="0" name="crud[commentaires][index]"/>
 				<input type="checkbox" value="1" name="crud[commentaires][index]" <?php echo isset($crud['crud']['commentaires']['index']) && $crud['crud']['commentaires']['index'] == 1 ? 'checked="checked"' : ''; ?>/>
@@ -79,9 +77,7 @@ echo form_input('name', "Nom", array('errors' => $aControllerDatas['errors'], 'v
 				<input type="hidden" value="0" name="crud[users][erase]"/>
 				<input type="checkbox" value="1" name="crud[users][erase]" <?php echo isset($crud['crud']['users']['erase']) && $crud['crud']['users']['erase'] == 1 ? 'checked="checked"' : ''; ?>/>
 			</td>
-			<td width="10%">
-				-
-			</td>
+			<td> - </td>
 		</tr>
 		<tr>
 			<td>Rôles</td>
