@@ -10,7 +10,7 @@
 	$aCss = array(
 		'users/style'
 	);
-	css($aCss);
+	Html::css($aCss);
 	?>
 </head>
 <body>

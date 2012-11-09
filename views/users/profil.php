@@ -49,7 +49,6 @@ if(isset($aControllerDatas['notification'])){
 				<td>
 			</tr>
 	</table>
-
 	<?php
 		echo form_create(array('action' => $_SERVER['REQUEST_URI'], 'method' => 'post', 'class' => 'valid'));
 			include(ELEMENTS.DS.'intranet'.DS.'formulaires'.DS.'profil.php'); 

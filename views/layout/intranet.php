@@ -15,7 +15,7 @@
 		'intranet/plugins/wysiwyg.modal',
 		'intranet/plugins/wysiwyg-editor'
 	);
-	css($aCss);
+	Html::css($aCss);
 	
 	//On inclu les fichiers Javascript
 	$aJs = array(
@@ -27,7 +27,7 @@
 		'ckeditor/ckeditor',
 		'ckfinder/ckfinder'
 	);
-	js($aJs);
+	Html::js($aJs);
 	?>
 </head>
 <body class="CKFinderFrameWindow">

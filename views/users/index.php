@@ -1,4 +1,3 @@
-<?php session_name("IEFM3D"); session_start();?>
 <div id="form">
 	<div id="logo"></div>
 	<form class="niceform" action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">

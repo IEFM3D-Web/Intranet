@@ -36,20 +36,19 @@ function index() {
 						
 						if($bddIs_auth){
 							
-							session_name("IEFM3D");
-							session_start(); //On démarre une variable de session
-							$_SESSION['isAuth']= true;
-							$_SESSION['user_id']= $bddId;
-							$_SESSION['nom']= $bddNom;
-							$_SESSION['role']= $bddRole;
-							$_SESSION['prenom']= $bddPrenom;
-							$_SESSION['folder'] = $bddFolder;
+							//Insertion des données de session
+							Session::write('isAuth',true);
+							Session::write('user_id',$bddId);
+							Session::write('nom',$bddNom);
+							Session::write('role',$bddRole);
+							Session::write('prenom',$bddPrenom);
+							Session::write('folder',$bddFolder);
 							
 							//On récupère les informations du role en fonction de l'id du role de l'utilisateur
-							$types_users = find(array('table' => 'types_users', 'link' => $link, 'conditions' => 'id='.$_SESSION['role']));
+							$types_users = find(array('table' => 'types_users', 'link' => $link, 'conditions' => 'id='.Session::read('role')));
 							
-							//On stocke
-							$_SESSION['couleur'] = $types_users[0]['color'];
+							//On stock la couleur récupérée
+							Session::write('couleur',$types_users[0]['color']);
 							
 							//Récupération du rôle de l'utilisateur
 							$acls = find(array('table' => 'acls', 'link' => $link, 'conditions' => 'types_user_id='.$bddRole));
@@ -62,11 +61,11 @@ function index() {
 							
 								$crud[$controller][$action] = $is_auth;
 							}
-							$_SESSION['crud']= $crud;
+							
+							//On stock le tableau de CRUD
+							Session::write('crud',$crud);
 							
 							redirect("articles"); //On redirige vers l'accueil
-							
-							
 							
 						}else{return array('errors' => "Vous n'avez pas les droits pour vous connecter !");}	
 					}else{return array('errors' => "Le mot de passe n'est pas bon !");}				
@@ -100,13 +99,13 @@ function password() {
 				if(empty($findMail)){
 					return array('errors' => "Adresse mail inexistante !");
 				}else{
-				
+					
 					//On récupère les informations de l'utilisateur en fonction de son adresse mail
 					$user = findFirst(array('table' => 'users', 'link' => $link, 'conditions' => "mail='".$postMail."'"));
 					
 					//On ajoute son Id au tableau $_POST
 					$_POST['id'] = $user['id'];	
-				
+					
 					//Génération du nouveau mot de passe
 					$newPassword = genere_Password(6);
 					
@@ -125,8 +124,7 @@ function password() {
 					//Création d'une instance de swift transport (SMTP)
 					$transport = Swift_SmtpTransport::newInstance($mail['smtp'], $mail['port'])
 					->setUsername($mail['user'])
-					->setPassword($mail['password'])
-					;
+					->setPassword($mail['password']);
 					
 					//Création d'une instance de swift mailer
 					$mailer = Swift_Mailer::newInstance($transport);
@@ -135,8 +133,7 @@ function password() {
 					$message = Swift_Message::newInstance('Nouveau mot de passe')
 					->setFrom(array('john@doe.com' => 'IEFM3D'))
 					->setTo(array($postMail))
-					->setBody('Voici votre nouveau mot de passe : '.$newPassword)
-					;
+					->setBody('Voici votre nouveau mot de passe : '.$newPassword);
 
 					//Envoi du message
 					$result = $mailer->send($message);
@@ -161,10 +158,7 @@ function password() {
 */
 function logout(){
 
-	session_name("IEFM3D");//Retourne le nom de la session courante
-	session_start();//Crée une session ou restaure celle trouvée sur le serveur, via l'identifiant de session passé dans une requête GET, POST ou par un cookie
-	session_unset();//Détruit toutes les variables de la session courante
-	session_destroy();//Détruit toutes les données associées à la session courante
+	Session::destroy();
 	redirect("users");//Redirection vers le formulaire de connexion
 }
 
@@ -337,7 +331,7 @@ function profil() {
 	}
 	
 	$aReturn = array(
-		'users' => findFirst(array('table' => 'users', 'link' => $link, 'conditions' => 'id='.$_SESSION['user_id'])),
+		'users' => findFirst(array('table' => 'users', 'link' => $link, 'conditions' => 'id='.Session::read('user_id'))),
 		'usersTypesList' => findRole(array('table' => 'types_users', 'link' => $link)),
 		'errors' => $errors,
 		'notification' => $notification
@@ -358,9 +352,10 @@ function view_profil($id) {
 	$profil = findFirst(array('table' => 'users', 'link' => $link, 'conditions' => 'id='.$id));
 	
 	
-	if($_SESSION['role'] <= 3){
-		$_SESSION['folder'] = $profil['folder'];
-		$_SESSION['ckfinder'] = 'pass';
+	if(Session::read('role') <= 3){
+
+		Session::write('folder',$profil['folder']);
+		Session::write('ckfinder','pass');
 	}
 	
 	$aReturn = array(

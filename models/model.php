@@ -243,7 +243,7 @@ function save($parametres, $data){
 		//On teste l'éxistence de la colonne modified_by
 		if(in_array("modified_by", $schema)){
 			//On ajoute l'index Modified_by et sa valeur au tableau Data
-			$data['modified_by'] = $_SESSION['user_id'];
+			$data['modified_by'] = Session::read('user_id');
 		}
 	
 	if(isset($data['id']) && !empty($data['id'])){
@@ -272,7 +272,7 @@ function save($parametres, $data){
 		//On teste l'éxistence de la colonne created_by
 		if(in_array("created_by", $schema)) {
 			//On ajoute l'index Created_by et sa valeur au tableau Data
-			$data['created_by'] = $_SESSION['user_id'];
+			$data['created_by'] = Session::read('user_id');
 		}
 		
 		$sql = "INSERT INTO ".$parametres['table']."(";

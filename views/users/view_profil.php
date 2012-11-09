@@ -47,7 +47,7 @@ $roleList = $aControllerDatas['usersTypesList'];?>
 	
 </div>
 <?php
-if($_SESSION['role'] <= 3){
+if(Session::read('role') <= 3){
 ?>
 	<h2>Gestion des fichiers</h2>
 	<div id="gestion-fichiers">

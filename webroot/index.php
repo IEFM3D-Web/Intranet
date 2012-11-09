@@ -41,7 +41,7 @@ define('BASE_URL', $baseUrl); //Chemin relatif vers le coeur de l'application
 
 //////////////////////////////////////////////////////////////////
 //   INCLUSION DES LIBRAIRIES, HELPERS ET fichiers DE CONFIGS   //
-$aLibs = array('functions','menu');
+$aLibs = array('functions','menu','session','set','string','inflector');
 $aHelpers = array('html','form');
 $aConfigs = array('database','mail');
 
@@ -49,6 +49,10 @@ foreach($aLibs as $sLibrairie) { require_once(LIB.DS.$sLibrairie.'.php'); }
 foreach($aHelpers as $sHelper) { require_once(HELPERS.DS.$sHelper.'.php'); }
 foreach($aConfigs as $sConfig) { require_once(CONFIGS.DS.$sConfig.'.php'); }
 //////////////////////////////////////////////////////////////////
+
+//Initialisation de la session
+Session::init();
+
 
 ////////////////////////////
 //   FORMATAGE DE L'URL   //
@@ -99,20 +103,13 @@ if(file_exists(CONTROLLERS.DS.$sController.'.php')) {
 						$sLayout = 'users';
 					}
 					else{
-						session_name("IEFM3D");
-						session_start();
-						if(!isset($_SESSION['isAuth']) || !$_SESSION['isAuth']){
+		
+						if(!Session::check('isAuth')){
 							redirect("users"); //On redirige vers la page de login
 						}
 						
 						if( $sController.DS.$sAction != 'articles'.DS.'index' && $sController.DS.$sAction != 'users'.DS.'index' && $sAction != 'view_article' && $sAction != 'profil' && $sAction != 'logout' && $sAction != 'erreur' && $sAction != 'document'){
-							if(
-								!isset($_SESSION['crud'][$sController][$sAction]) || 
-								(
-									isset($_SESSION['crud'][$sController][$sAction]) && 
-									!$_SESSION['crud'][$sController][$sAction]
-								)
-							) {
+							if(!Session::check('crud.'.$sController.'.'.$sAction)) {
 								redirect("users/erreur"); //Si la personne n'a pas accès a cette page, on la redirige vers l'accueil
 							}
 						}
