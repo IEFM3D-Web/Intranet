@@ -1,15 +1,8 @@
 <?php 
 if(isset($aControllerDatas['types'])) {$types = $aControllerDatas['types'];}else{$types = array();}
-
 if(isset($aControllerDatas['crud'])){ $crud = $aControllerDatas['crud'];}
-
-if(isset($aControllerDatas['types']['id'])){
-	echo form_input('id', '', array('type' => 'hidden', 'values' => $aControllerDatas['types']));
-}
-
-echo form_input('name', "Nom", array('errors' => $aControllerDatas['errors'], 'values' => $types));
 ?>
-
+<div id="tableBox">
 <table id="rounded-corner">
 	<thead class="top_users_types">
 		<tr>
@@ -22,85 +15,99 @@ echo form_input('name', "Nom", array('errors' => $aControllerDatas['errors'], 'v
 		</tr>
 	</thead> 
 	<tbody class="align_checkbox">
+	<?php
+	if(isset($aControllerDatas['types']['id'])){
+		echo form_input('id', '', array('type' => 'hidden', 'values' => $aControllerDatas['types']));
+	?>
 		<tr>
 			<td>Catégories</td>
-			<td><?php echo form_input('crud[categories][add]', " ", array('type' => 'checkbox', 'values' => $crud)); ?></td>	
-			<td><?php echo form_input('crud[categories][index]', " ", array('type' => 'checkbox', 'values' => $types)); ?></td>
-			<td><?php echo form_input('crud[categories][edit]', " ", array('type' => 'checkbox', 'values' => $types)); ?></td>
-			<td><?php echo form_input('crud[categories][erase]', " ", array('type' => 'checkbox', 'values' => $types)); ?></td>
+			<td><?php echo form_input('crud[categories][add]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['categories']['add'])); ?></td>	
+			<td><?php echo form_input('crud[categories][index]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['categories']['index'])); ?></td>
+			<td><?php echo form_input('crud[categories][edit]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['categories']['edit'])); ?></td>
+			<td><?php echo form_input('crud[categories][erase]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['categories']['erase'])); ?></td>
 			<td> - </td>
 		</tr>
 		<tr>
 			<td>Articles</td>
-			<td><?php echo form_input('crud[articles][add]', " ", array('type' => 'checkbox', 'values' => $types)); ?></td>
-			<td><?php echo form_input('crud[articles][index]', " ", array('type' => 'checkbox', 'values' => $types)); ?></td>
-			<td><?php echo form_input('crud[articles][edit]', " ", array('type' => 'checkbox', 'values' => $types)); ?></td>
-			<td><?php echo form_input('crud[articles][erase]', " ", array('type' => 'checkbox', 'values' => $types)); ?></td>
-			<td><?php echo form_input('crud[articles][publish]', " ", array('type' => 'checkbox', 'values' => $types)); ?></td>
+			<td><?php echo form_input('crud[articles][add]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['articles']['add'])); ?></td>
+			<td><?php echo form_input('crud[articles][liste]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['articles']['liste'])); ?></td>
+			<td><?php echo form_input('crud[articles][edit]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['articles']['edit'])); ?></td>
+			<td><?php echo form_input('crud[articles][erase]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['articles']['erase'])); ?></td>
+			<td><?php echo form_input('crud[articles][publish]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['articles']['publish'])); ?></td>
 		</tr>
 		<tr>
 			<td>Commentaires</td>
 			<td> - </td>
-			<td>
-				<input type="hidden" value="0" name="crud[commentaires][index]"/>
-				<input type="checkbox" value="1" name="crud[commentaires][index]" <?php echo isset($crud['crud']['commentaires']['index']) && $crud['crud']['commentaires']['index'] == 1 ? 'checked="checked"' : ''; ?>/>
-			</td>
-			<td>
-				<input type="hidden" value="0" name="crud[commentaires][edit]"/>
-				<input type="checkbox" value="1" name="crud[commentaires][edit]" <?php echo isset($crud['crud']['commentaires']['edit']) && $crud['crud']['commentaires']['edit'] == 1 ? 'checked="checked"' : ''; ?>/>
-			</td>
-			
-			<td>
-				<input type="hidden" value="0" name="crud[commentaires][erase]"/>
-				<input type="checkbox" value="1" name="crud[commentaires][erase]" <?php echo isset($crud['crud']['commentaires']['erase']) && $crud['crud']['commentaires']['erase'] == 1 ? 'checked="checked"' : ''; ?>/>
-			</td>
-			<td>
-				<input type="hidden" value="0" name="crud[commentaires][publish]"/>
-				<input type="checkbox" value="1" name="crud[commentaires][publish]" <?php echo isset($crud['crud']['commentaires']['publish']) && $crud['crud']['commentaires']['publish'] == 1 ? 'checked="checked"' : ''; ?>/>
-			</td>
+			<td><?php echo form_input('crud[commentaires][index]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['commentaires']['index'])); ?></td>
+			<td><?php echo form_input('crud[commentaires][edit]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['commentaires']['edit'])); ?></td>
+			<td><?php echo form_input('crud[commentaires][erase]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['commentaires']['erase'])); ?></td>
+			<td><?php echo form_input('crud[commentaires][publish]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['commentaires']['publish'])); ?></td>
 		</tr>
 		<tr>
 			<td>Utilisateurs</td>
-			<td>
-				<input type="hidden" value="0" name="crud[users][add]"/>
-				<input type="checkbox" value="1" name="crud[users][add]" <?php echo isset($crud['crud']['users']['add']) && $crud['crud']['users']['add'] == 1 ? 'checked="checked"' : ''; ?>/>
-			</td>
-			<td>
-				<input type="hidden" value="0" name="crud[users][liste]"/>
-				<input type="checkbox" value="1" name="crud[users][liste]" <?php echo isset($crud['crud']['users']['liste']) && $crud['crud']['users']['liste'] == 1 ? 'checked="checked"' : ''; ?>/>
-			</td>
-			<td>
-				<input type="hidden" value="0" name="crud[users][edit]"/>
-				<input type="checkbox" value="1" name="crud[users][edit]" <?php echo isset($crud['crud']['users']['edit']) && $crud['crud']['users']['edit'] == 1 ? 'checked="checked"' : ''; ?>/>
-			</td>
-			<td>
-				<input type="hidden" value="0" name="crud[users][erase]"/>
-				<input type="checkbox" value="1" name="crud[users][erase]" <?php echo isset($crud['crud']['users']['erase']) && $crud['crud']['users']['erase'] == 1 ? 'checked="checked"' : ''; ?>/>
-			</td>
+			<td><?php echo form_input('crud[users][add]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['users']['add'])); ?></td>
+			<td><?php echo form_input('crud[users][liste]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['users']['liste'])); ?></td>
+			<td><?php echo form_input('crud[users][edit]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['users']['edit'])); ?></td>
+			<td><?php echo form_input('crud[users][erase]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['users']['erase'])); ?></td>
 			<td> - </td>
 		</tr>
 		<tr>
 			<td>Rôles</td>
-			<td>
-				<input type="hidden" value="0" name="crud[users_types][add]"/>
-				<input type="checkbox" value="1" name="crud[users_types][add]" <?php echo isset($crud['crud']['users_types']['add']) && $crud['crud']['users_types']['add'] == 1 ? 'checked="checked"' : ''; ?>/>
-			</td>
-			<td>
-				<input type="hidden" value="0" name="crud[users_types][index]"/>
-				<input type="checkbox" value="1" name="crud[users_types][index]" <?php echo isset($crud['crud']['users_types']['index']) && $crud['crud']['users_types']['index'] == 1 ? 'checked="checked"' : ''; ?>/>
-			</td>
-			<td>
-				<input type="hidden" value="0" name="crud[users_types][edit]"/>
-				<input type="checkbox" value="1" name="crud[users_types][edit]"  <?php echo isset($crud['crud']['users_types']['edit']) && $crud['crud']['users_types']['edit'] == 1 ? 'checked="checked"' : ''; ?>/>
-			</td>
-			<td>
-				<input type="hidden" value="0" name="crud[users_types][erase]"/>
-				<input type="checkbox" value="1" name="crud[users_types][erase]"  <?php echo isset($crud['crud']['users_types']['erase']) && $crud['crud']['users_types']['erase'] == 1 ? 'checked="checked"' : ''; ?>/>
-			</td>
-			<td>
-				-
-			</td>
+			<td><?php echo form_input('crud[users_types][add]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['users_types']['add'])); ?></td>
+			<td><?php echo form_input('crud[users_types][index]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['users_types']['index'])); ?></td>
+			<td><?php echo form_input('crud[users_types][edit]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['users_types']['edit'])); ?></td>
+			<td><?php echo form_input('crud[users_types][erase]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['users_types']['erase'])); ?></td>
+			<td> - </td>
 		</tr>
+	<?php			
+	}else{
+	?>
+		<tr>
+			<td>Catégories</td>
+			<td><?php echo form_input('crud[categories][add]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>	
+			<td><?php echo form_input('crud[categories][index]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
+			<td><?php echo form_input('crud[categories][edit]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
+			<td><?php echo form_input('crud[categories][erase]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
+			<td> - </td>
+		</tr>
+		<tr>
+			<td>Articles</td>
+			<td><?php echo form_input('crud[articles][add]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
+			<td><?php echo form_input('crud[articles][liste]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
+			<td><?php echo form_input('crud[articles][edit]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
+			<td><?php echo form_input('crud[articles][erase]', " ", array('type' => 'checkbox', 'values' =>'')); ?></td>
+			<td><?php echo form_input('crud[articles][publish]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
+		</tr>
+		<tr>
+			<td>Commentaires</td>
+			<td> - </td>
+			<td><?php echo form_input('crud[commentaires][index]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
+			<td><?php echo form_input('crud[commentaires][edit]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
+			<td><?php echo form_input('crud[commentaires][erase]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
+			<td><?php echo form_input('crud[commentaires][publish]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
+		</tr>
+		<tr>
+			<td>Utilisateurs</td>
+			<td><?php echo form_input('crud[users][add]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
+			<td><?php echo form_input('crud[users][liste]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
+			<td><?php echo form_input('crud[users][edit]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
+			<td><?php echo form_input('crud[users][erase]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
+			<td> - </td>
+		</tr>
+		<tr>
+			<td>Rôles</td>
+			<td><?php echo form_input('crud[users_types][add]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
+			<td><?php echo form_input('crud[users_types][index]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
+			<td><?php echo form_input('crud[users_types][edit]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
+			<td><?php echo form_input('crud[users_types][erase]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
+			<td> - </td>
+		</tr>
+	<?php
+	}
+
+	echo form_input('name', "Nom", array('errors' => $aControllerDatas['errors'], 'values' => $types));
+	?>
+
 	</tbody>
 	<tfoot class="checkall">
 		<tr>
@@ -109,3 +116,4 @@ echo form_input('name', "Nom", array('errors' => $aControllerDatas['errors'], 'v
 		</tr>
 	</tfoot>
 </table>
+</div>

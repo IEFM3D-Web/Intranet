@@ -4,6 +4,14 @@ float:left;
 width:200px
 }
 
+#tableBox label {
+display:none;
+}
+
+#tableBox label {
+display:none;
+}
+
 #form input[type=text],[type=password],textarea {
 font-size:12px;
 font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -29,6 +37,10 @@ padding:3px
 box-shadow:0 0 4px rgba(0,0,0,0.3);
 background:url(../../img/intranet/site/bg-input-focus.png) repeat-x 0 0 #fff;
 border-color:#999
+}
+
+#form input[type=checkbox] {
+line-height:200px;
 }
 
 #form textarea {
