@@ -70,11 +70,11 @@ function form_input($name, $label, $options = array()) {
 	
 	$except = array('type', 'errors', 'values', 'wysiwyg'); //champs à échapper
 		
-	if($options['type'] != 'checkbox') {
-		$html = '<div class="champs">';
-		if(!isset($options['label'])){$html .= '<label>'.$label.'</label>';}
-		$html .= '<div>';
-	} else { $html = ''; }
+	$options['type'] != 'checkbox';
+	$html = '<div class="champs">';
+	if(!isset($options['label'])){$html .= '<label>'.$label.'</label>';}
+	$html .= '<div>';
+
 	
 	$attr = '';
 

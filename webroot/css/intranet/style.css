@@ -815,8 +815,10 @@ border: 1px solid;
 display:none;
 color: #fff;
 padding: 20px;
+border-radius:10px;
 text-shadow: 0 1px 0 rgba(0,0,0,.5);
 animation: animate-bg 5s linear infinite;
+margin-bottom:15px;
 }
 
 @keyframes animate-bg {
@@ -875,7 +877,7 @@ text-decoration:none
 }
 
 .center,.align_checkbox td,.align_checkall tr td {
-text-align:center
+text-align:center;
 }
 
 a:hover.bt_green,a:hover.bt_blue,a:hover.bt_red {
