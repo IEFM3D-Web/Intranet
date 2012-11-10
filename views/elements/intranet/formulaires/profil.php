@@ -32,7 +32,7 @@ if(isset($aControllerDatas['users']['id'])){
 			</td>
 		</tr>
 		<tr>
-			<td class="label">Mod password</td>
+			<td class="label">Modifier Password</td>
 			<td>
 				<?php
 				echo form_input('password', "");

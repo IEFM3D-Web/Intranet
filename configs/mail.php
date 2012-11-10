@@ -1,9 +1,9 @@
 <?php
 //Tableau de configuration pour l'envoi de mails
 $mail = array(
-	'smtp' => 'smtp.free.fr',
-	'port' => 25,
-	'user' => '',
-	'password' => ''				
+	'smtp' => 'ns0.ovh.net',
+	'port' => 587,
+	'user' => 'swift@matthieu-avoine.fr',
+	'password' => 'test-envoi'				
 );
 ?>

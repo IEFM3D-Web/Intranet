@@ -46,7 +46,6 @@ if(isset($aControllerDatas['notification'])){
 			</tr>
 			<tr>
 				<td><?php if($users['sexe'] == 1){echo '<img src="'.BASE_URL.'/img/intranet/site/femme.png" alt="Femme" title="Femme"/>';}else{echo '<img src="'.BASE_URL.'/img/intranet/site/homme.png" alt="Homme" title="Homme"/>';} ?></td>
-				<td>
 			</tr>
 	</table>
 	<?php
