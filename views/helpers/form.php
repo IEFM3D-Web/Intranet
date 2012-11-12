@@ -119,6 +119,10 @@ function form_input($name, $label, $options = array()) {
 		case 'hidden':
 			$html .= '<input type="hidden" value="'.$value.'" name="'.$name.'" id="'.$libelleId.'Hidden"/>';
 		break;
+		
+		case 'file':
+			$html .= '<input type="file" name="'.$name.'" />';
+		break;
 
 		case 'checkbox':
 		

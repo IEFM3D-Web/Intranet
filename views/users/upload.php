@@ -20,17 +20,17 @@ if(isset($aControllerDatas['notification'])){
 		});       
 		</script>
 		<div class="success message">
-			<p>Utilisateur ajouté avec succès.</p>
+			<p>Fichié envoyé avec succés.</p>
 		</div>
 		<?php
 	}
 }
 ?>
 <div id="profil">
-<h2>Ajouter un utilisateur</h2>
+<h2>Envoi multiple</h2>
 	<?php 
 		echo form_create(array('action' => $_SERVER['REQUEST_URI'], 'method' => 'post', 'class' => 'valid'));
-			include(ELEMENTS.DS.'intranet'.DS.'formulaires'.DS.'users.php'); 
+			include(ELEMENTS.DS.'intranet'.DS.'formulaires'.DS.'upload.php'); 
 		echo form_close(); 
 	?>
 </div>

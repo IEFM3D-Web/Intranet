@@ -268,10 +268,35 @@ function upload(){
 		
 	}
 	
+	$users =  find(array('table' => 'users', 'fields' => array('id','nom','prenom','section_id','section_id'), 'link' => $link));
+	
+	$userTypesSection = findList(array('table' => 'sections', 'link' => $link));
+	
+	$end = array();
+	
+	foreach($userTypesSection as $k_section => $v_section){
+	
+		$end[$k_section] = array();
+		
+	}
+	
+	foreach($users as $k_user => $v_user){
+	
+		foreach($end as $k_end=> $v_end){
+	
+			if($v_user['section_id'] == $k_end){
+			
+				$end[$k_end][] = $users[$k_user];
+			} 
+		
+		}
+
+	}
+	
+	//pr($end);
+	
 	return array(
-		'usersTypesList' => findList(array('table' => 'types_users', 'link' => $link)),
-		'userTypesSex'=> findSex(array('table' => 'sexes_users', 'link' => $link)),
-		'userTypesSection'=> findList(array('table' => 'sections', 'link' => $link)),
+		'sections_users' => $end,
 		'errors' => $errors,
 		'notification' => $notification
 	);
