@@ -5,13 +5,12 @@
  * @param  array  $options  Tableau d'attributs
  */
 function form_create($attr = null) {
-	$html = '<form id="form"';
+	$html = '<form id="form" enctype="multipart/form-data" ';
 	foreach($attr as $key => $value){$html .=' '.$key.'="'.$value.'"';}
 	$html .= '>';
 	
 	return $html;
 }
-
 
 
 /**
@@ -121,7 +120,7 @@ function form_input($name, $label, $options = array()) {
 		break;
 		
 		case 'file':
-			$html .= '<input type="file" name="'.$name.'" />';
+			$html .= '<input type="file" id="'.$libelleId.'" name="'.$name.'" />';
 		break;
 
 		case 'checkbox':
