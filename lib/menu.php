@@ -54,6 +54,7 @@ function menu($crud,$last_id){
 		$value_menu .= '	<a class="menuitem submenuheader" href="">Gestion des utilisateurs</a>'."\n".'	<div class="submenu">'."\n".'		<ul>'."\n";
 		if(isset($crud['users']['add']) && $crud['users']['add'] == 1){$value_menu .= '			<li><a href="<?php echo BASE_URL."/users/add"?>">Ajouter un utilisateur</a></li>'."\n";}
 		if(isset($crud['users']['liste']) && $crud['users']['liste'] == 1){$value_menu .= '			<li><a href="<?php echo BASE_URL."/users/liste"?>">Gérer les utilisateurs</a></li>'."\n";}
+		if(isset($crud['users']['upload']) && $crud['users']['upload'] == 1){$value_menu .= '			<li><a href="<?php echo BASE_URL."/users/upload"?>">Envoi multiple</a></li>'."\n";}
 		$value_menu .= '		</ul>'."\n".'	</div>'."\n";
 	}
 	

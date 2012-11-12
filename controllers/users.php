@@ -236,6 +236,42 @@ function add(){
 	return array(
 		'usersTypesList' => findList(array('table' => 'types_users', 'link' => $link)),
 		'userTypesSex'=> findSex(array('table' => 'sexes_users', 'link' => $link)),
+		'userTypesSection'=> findList(array('table' => 'sections', 'link' => $link)),
+		'errors' => $errors,
+		'notification' => $notification
+	);
+}
+
+/**
+*Cette fonction permet d'ajouter un nouvel utilisateur
+*/
+function upload(){
+
+	global $link;
+	global $validate;
+	
+	$errors = array();
+	$notification = '';
+
+	if(isset($_POST) && !empty($_POST)) {
+		
+		if(!empty($validate)){ //On vérifi que la variable de validation contenant les règles n'est pas vide
+			$errors = validates($validate, $_POST);
+		}
+		
+		if(empty($errors)){
+		
+			//Appel de la classe upload
+			
+			$notification = 'success';
+		}
+		
+	}
+	
+	return array(
+		'usersTypesList' => findList(array('table' => 'types_users', 'link' => $link)),
+		'userTypesSex'=> findSex(array('table' => 'sexes_users', 'link' => $link)),
+		'userTypesSection'=> findList(array('table' => 'sections', 'link' => $link)),
 		'errors' => $errors,
 		'notification' => $notification
 	);
@@ -289,6 +325,7 @@ function edit($id) {
 		'users' => findFirst(array('table' => 'users', 'link' => $link, 'conditions' => 'id='.$id)),
 		'id' => $id,
 		'usersTypesList' => findList(array('table' => 'types_users', 'link' => $link)),	
+		'userTypesSection'=> findList(array('table' => 'sections', 'link' => $link)),
 		'userTypesSex'=> findSex(array('table' => 'sexes_users', 'link' => $link)),
 		'errors' => $errors,
 		'notification' => $notification

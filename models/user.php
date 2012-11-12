@@ -14,6 +14,10 @@ $validate = array(
 		'rule' => array('minLength', 10),
 		'message' => "La valeur de ce champs est de 10 caractères minimum."
 	),
+	'upload' => array(
+		'rule' => array('notEmpty'),
+		'message' => "Vous devez selectionner un fichier."
+	),
 	'tel' => array(
 		'rule1' => array(
 			'rule' => array('minLength', 10),

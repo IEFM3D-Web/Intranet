@@ -25,6 +25,7 @@
 		<ul>
 			<li><a href="<?php echo BASE_URL."/users/add"?>">Ajouter un utilisateur</a></li>
 			<li><a href="<?php echo BASE_URL."/users/liste"?>">Gérer les utilisateurs</a></li>
+			<li><a href="<?php echo BASE_URL."/users/upload"?>">Envoi multiple</a></li>
 		</ul>
 	</div>
 	<a class="menuitem submenuheader" href="">Gestion des rôles</a>

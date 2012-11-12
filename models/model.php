@@ -177,6 +177,7 @@ function findList($parametres){
 	$tableau = array();
 	$list = find($parametres);
 	foreach($list as $k => $v){ $tableau[$v['id']] = $v['name']; }
+	ksort($tableau);
 	return $tableau;	
 }
 

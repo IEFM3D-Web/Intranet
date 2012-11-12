@@ -18,11 +18,9 @@ echo form_input('adresse', "Adresse", array('type' => 'textarea','errors' => $aC
 
 echo form_input('tel', "Téléphone", array('errors' => $aControllerDatas['errors'], 'values' => $users));
 
-echo form_input('role', "Rôle", array('type' => 'select', 'errors' => $aControllerDatas['errors'], 'values' => $users, 
-'datas' => $aControllerDatas['usersTypesList']));
-
-
 echo form_input('sexe', "Sexe", array('type' => 'select', 'errors' => $aControllerDatas['errors'], 'values' => $users, 'datas' => $aControllerDatas['userTypesSex']));
 
+echo form_input('section_id', "Section", array('type' => 'select', 'errors' => $aControllerDatas['errors'], 'values' => $users, 'datas' => $aControllerDatas['userTypesSection']));
 
+echo form_input('role', "Rôle", array('type' => 'select', 'errors' => $aControllerDatas['errors'], 'values' => $users, 'datas' => $aControllerDatas['usersTypesList']));
 ?>
