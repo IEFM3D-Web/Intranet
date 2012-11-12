@@ -65,6 +65,15 @@ if(isset($aControllerDatas['crud'])){ $crud = $aControllerDatas['crud'];}
 			<td> - </td>
 			<td> - </td>
 		</tr>
+		<tr>
+			<td>Sections</td>
+			<td><?php echo form_input('crud[sections][add]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['sections']['add'])); ?></td>
+			<td><?php echo form_input('crud[sections][index]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['sections']['index'])); ?></td>
+			<td><?php echo form_input('crud[sections][edit]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['sections']['edit'])); ?></td>
+			<td><?php echo form_input('crud[sections][erase]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['sections']['erase'])); ?></td>
+			<td> - </td>
+			<td> - </td>
+		</tr>
 	<?php			
 	}else{
 	?>
@@ -110,6 +119,15 @@ if(isset($aControllerDatas['crud'])){ $crud = $aControllerDatas['crud'];}
 			<td><?php echo form_input('crud[users_types][index]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
 			<td><?php echo form_input('crud[users_types][edit]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
 			<td><?php echo form_input('crud[users_types][erase]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
+			<td> - </td>
+			<td> - </td>
+		</tr>
+		<tr>
+			<td>Sections</td>
+			<td><?php echo form_input('crud[sections][add]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
+			<td><?php echo form_input('crud[sections][index]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
+			<td><?php echo form_input('crud[sections][edit]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
+			<td><?php echo form_input('crud[sections][erase]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
 			<td> - </td>
 			<td> - </td>
 		</tr>

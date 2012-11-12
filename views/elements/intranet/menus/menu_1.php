@@ -28,6 +28,13 @@
 			<li><a href="<?php echo BASE_URL."/users/upload"?>">Envoi multiple</a></li>
 		</ul>
 	</div>
+	<a class="menuitem submenuheader" href="">Gestion des sections</a>
+	<div class="submenu">
+		<ul>
+			<li><a href="<?php echo BASE_URL."/sections/add"?>">Ajouter une section</a></li>
+			<li><a href="<?php echo BASE_URL."/sections/index"?>">Gérer les sections</a></li>
+		</ul>
+	</div>
 	<a class="menuitem submenuheader" href="">Gestion des rôles</a>
 	<div class="submenu">
 		<ul>

@@ -57,7 +57,16 @@ function menu($crud,$last_id){
 		if(isset($crud['users']['upload']) && $crud['users']['upload'] == 1){$value_menu .= '			<li><a href="<?php echo BASE_URL."/users/upload"?>">Envoi multiple</a></li>'."\n";}
 		$value_menu .= '		</ul>'."\n".'	</div>'."\n";
 	}
-	
+	//  sections  //
+	if(
+		isset($crud['sections']['add']) && $crud['sections']['add'] == 1 || 
+		isset($crud['sections']['index']) && $crud['sections']['index'] == 1)
+	{
+		$value_menu .= '	<a class="menuitem submenuheader" href="">Gestion des sections</a>'."\n".'	<div class="submenu">'."\n".'		<ul>'."\n";
+		if(isset($crud['sections']['add']) && $crud['sections']['add'] == 1){$value_menu .= '			<li><a href="<?php echo BASE_URL."/sections/add"?>">Ajouter une section</a></li>'."\n";}
+		if(isset($crud['sections']['index']) && $crud['sections']['index'] == 1){$value_menu .= '			<li><a href="<?php echo BASE_URL."/sections/index"?>">Gérer les sections</a></li>'."\n";}
+		$value_menu .= '		</ul>'."\n".'	</div>'."\n";
+	}
 	//  roles  //
 	if(
 		isset($crud['users_types']['add']) && $crud['users_types']['add'] == 1 || 
