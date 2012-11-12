@@ -212,6 +212,13 @@ function findRole($parametres){
 	foreach($list as $k => $v){ $tableau[$v['id']] = $v['name']; }
 	return $tableau;	
 }
+function findSection($parametres){
+	
+	$tableau = array();
+	$list = find($parametres);
+	foreach($list as $k => $v){ $tableau[$v['id']] = $v['name']; }
+	return $tableau;	
+}
 
 /**
 *Cette fonction permet l'insertion et l'update d'une base de données.

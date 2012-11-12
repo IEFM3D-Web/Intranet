@@ -398,7 +398,6 @@ function profil() {
 		'errors' => $errors,
 		'notification' => $notification
 	);
-	
 	return $aReturn;
 }
 
@@ -422,7 +421,8 @@ function view_profil($id) {
 	
 	$aReturn = array(
 		'profil' => $profil,
-		'usersTypesList' => findRole(array('table' => 'types_users', 'link' => $link)),		
+		'usersTypesList' => findRole(array('table' => 'types_users', 'link' => $link)),
+		'usersSectionsList' => findSection(array('table' => 'sections', 'link' => $link))
 	);
 	return $aReturn;
 }

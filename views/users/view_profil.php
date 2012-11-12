@@ -1,6 +1,8 @@
 <?php 
 $profil = $aControllerDatas['profil'];
-$roleList = $aControllerDatas['usersTypesList'];?>
+$roleList = $aControllerDatas['usersTypesList'];
+$sectionList = $aControllerDatas['usersSectionsList'];
+?>
 
 
 <h2>Profil de <?php echo  ucfirst($profil['nom'])." ".ucfirst($profil['prenom']); ?></h2>
@@ -36,7 +38,11 @@ $roleList = $aControllerDatas['usersTypesList'];?>
 		<tr>
 			<td class="label">Mail</td>
 			<td><?php echo $profil['mail'];?></td>
-		</tr>  
+		</tr>
+		<tr>
+			<td class="label">Section</td>
+			<td><?php echo $sectionList[$profil['section_id']];?></td>
+		</tr>  		
 		<tr>
 			<td class="label">Statut</td>
 			<td><?php echo ucfirst($roleList[$profil['role']]);?></td>
