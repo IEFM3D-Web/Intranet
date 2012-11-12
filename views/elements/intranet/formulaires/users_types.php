@@ -1,6 +1,7 @@
 <?php 
 if(isset($aControllerDatas['types'])) {$types = $aControllerDatas['types'];}else{$types = array();}
 if(isset($aControllerDatas['crud'])){ $crud = $aControllerDatas['crud'];}
+echo form_input('name', "Nom", array('errors' => $aControllerDatas['errors'], 'values' => $types));
 ?>
 <div id="tableBox">
 <table id="rounded-corner">
@@ -133,8 +134,6 @@ if(isset($aControllerDatas['crud'])){ $crud = $aControllerDatas['crud'];}
 		</tr>
 	<?php
 	}
-
-	echo form_input('name', "Nom", array('errors' => $aControllerDatas['errors'], 'values' => $types));
 	?>
 
 	</tbody>

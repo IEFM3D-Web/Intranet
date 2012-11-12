@@ -41,7 +41,7 @@ define('BASE_URL', $baseUrl); //Chemin relatif vers le coeur de l'application
 
 //////////////////////////////////////////////////////////////////
 //   INCLUSION DES LIBRAIRIES, HELPERS ET fichiers DE CONFIGS   //
-$aLibs = array('functions','menu','session','set','string','inflector','upload');
+$aLibs = array('functions','menu','session','set','string','inflector');
 $aHelpers = array('html','form');
 $aConfigs = array('database','mail');
 

@@ -262,13 +262,18 @@ function upload(){
 		if(empty($errors)){
 		
 			//Appel de la classe upload
+			pr($_POST);
+			foreach($_POST as $key => $value){
+			
+				//upload_files();
+			}
 			
 			$notification = 'success';
 		}
 		
 	}
 	
-	$users =  find(array('table' => 'users', 'fields' => array('id','nom','prenom','section_id','section_id'), 'link' => $link));
+	$users =  find(array('table' => 'users', 'fields' => array('folder','nom','prenom','section_id'), 'link' => $link));
 	
 	$userTypesSection = findList(array('table' => 'sections', 'link' => $link));
 	
@@ -297,6 +302,7 @@ function upload(){
 	
 	return array(
 		'sections_users' => $end,
+		'sections_liste' => $userTypesSection,
 		'errors' => $errors,
 		'notification' => $notification
 	);

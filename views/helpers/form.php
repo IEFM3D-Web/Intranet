@@ -125,7 +125,7 @@ function form_input($name, $label, $options = array()) {
 
 		case 'checkbox':
 		
-			$html .= '<input type="hidden" value="0" name="'.$name.'" id="'.$libelleId.'Hidden"/>';
+			if(!isset($options['hidden'])){$html .= '<input type="hidden" value="0" name="'.$name.'" id="'.$libelleId.'Hidden"/>';}
 			$html .= '<input type="checkbox" value="1" name="'.$name.'" id="'.$libelleId.'" ';
 		    $html .= isset($value) && $value ? 'checked="checked"' : '';
 			$html .= '/>';

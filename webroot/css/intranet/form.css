@@ -8,9 +8,16 @@ width:200px
 display:none;
 }
 
-#tableBox label {
-display:none;
+
+#form p,.champs {
+margin-bottom:30px
 }
+
+#tableBox .champs {
+margin:0px
+}
+
+
 
 #form input[type=text],[type=password],textarea {
 font-size:12px;
@@ -39,9 +46,7 @@ background:url(../../img/intranet/site/bg-input-focus.png) repeat-x 0 0 #fff;
 border-color:#999
 }
 
-#form input[type=checkbox] {
-line-height:200px;
-}
+
 
 #form textarea {
 height:100px;
@@ -92,6 +97,3 @@ border-radius:3px;
 outline:0
 }
 
-#form p,.champs {
-margin-bottom:30px
-}

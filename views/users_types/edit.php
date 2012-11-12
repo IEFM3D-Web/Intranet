@@ -27,7 +27,7 @@ if(isset($aControllerDatas['notification'])){
 }
 ?>
 <div id="profil">
-<h2>Modifier le profil d'un utilisateur</h2>
+<h2>Modifier un rôle</h2>
 	<?php 
 		echo form_create(array('action' => $_SERVER['REQUEST_URI'], 'method' => 'post', 'class' => 'valid'));
 			include(ELEMENTS.DS.'intranet'.DS.'formulaires'.DS.'users_types.php'); 

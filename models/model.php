@@ -526,5 +526,50 @@ function pagination($link, $table, $limit, $condition=null){
 	
 }
 
+/**
+* Cette fonction est en charge de l'upload des fichiers sur le serveur et de mettre à jour les champs de la base de données de la ligne concernée
+*
+* @param 	array 	$datas Données à sauvegarder
+* @param 	integer $id	   Identifiant de l'élément
+* @return 	boolean Retourne vrai si la validation est correcte, faux sinon
+* @access	public
+* @author	koéZionCMS
+* @version 0.1 - 28/12/2011
+* @deprecated since 24/08/2012 - On passe par ckfinder pour les upload plus simple et plus léger
+*/	
+function upload_files($datas, $id) {
+	
+	require_once(LIB.DS.'upload.php');		
+	foreach($this->files_to_upload as $k => $v) {
+		
+		if(isset($datas[$k])) {
+			
+			$handle = new Upload($datas[$k]);
+			if($handle->uploaded) {
+				
+				if(isset($v['path']) && $v['path']) { $filePath = $v['path']; }
+				else { $filePath = WEBROOT.DS."upload".DS.get_class($this); }
+				
+				$handle->Process($filePath);					
+				$fileName = $handle->file_dst_name;
+
+				//Sauvegarde en base de données
+				if(isset($v['bdd']) && $v['bdd']) {
+											
+					$primaryKey = $this->primaryKey;						
+					$update = array();
+					$update[$primaryKey] = $id;
+					$update[$k] = $fileName;						
+					
+					$sql = "UPDATE ".$this->table." SET ".$k." = '".$fileName."' WHERE ".$primaryKey." = ".$id;
+					$this->query($sql);
+				}
+				
+				$handle->Clean();
+			}
+		}
+	}
+}
+
 //Par défaut on se connecte à la base de données
 $link = connect_db($database);
