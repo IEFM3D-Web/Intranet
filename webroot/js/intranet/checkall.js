@@ -3,6 +3,15 @@ $('#checkall').click(function(){
 $("input[type='checkbox']").attr('checked', $('#checkall').is(':checked'));
 });
 
+
+$('.cocheAll').click(function(){
+
+	var sectionID = $(this).val();
+	var divSection = "section" + sectionID;
+	$("#" + divSection + " input[type=checkbox]").attr('checked', $(this).is(':checked'));
+
+});
+
 //------calculate the value---------
 $('form').find(':checkbox').click(function(){
 var amt=0;

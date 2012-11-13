@@ -741,7 +741,7 @@ margin-right:auto;
 margin-top:50px;
 padding:10px
 }
-
+/****************** PROFIL *********************/
 #profil {
 box-shadow:5px 5px 5px #ddd;
 background:url(../../img/intranet/site/stripe2.png);
@@ -889,4 +889,8 @@ float:left;
 color:#f69f14;
 font-weight:700;
 margin-right:30px
+}
+/******************************* UPLOAD MULTIPLE ****************************/
+.cocheAll {
+padding-left:7px;
 }
