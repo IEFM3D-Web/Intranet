@@ -8,10 +8,32 @@
 	<?php
 	//On inclu les fichiers css
 	$aCss = array(
-		'users/style'
+		'users/style',
+		'users/simple-sliding-doors'
 	);
 	Html::css($aCss);
+	?>	
+	<script type="text/javascript">document.documentElement.className += " js";</script>
+	
+
+	<?php
+	//On inclu les fichiers Javascript
+	$aJs = array(
+		'users/jquery-1.7.min',
+		'users/jquery.tabs'
+	);
+
+	Html::js($aJs);
 	?>
+    <script type="text/javascript">
+		$(document).ready(function(){
+			$(".tabs").accessibleTabs({
+				tabhead:'h2',
+				fx:"show",
+				autoAnchor:true
+			});
+		});
+    </script>   
 </head>
 <body>
 

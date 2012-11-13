@@ -43,7 +43,7 @@ background:url(../../img/user/fleur.png) no-repeat;
 margin:50px auto 0
 }
 
-#form {
+#form, #form2 {
 box-shadow:3px 3px 15px #aaa;
 border-radius:7px;
 border:solid #2a9dd9 .3px;
