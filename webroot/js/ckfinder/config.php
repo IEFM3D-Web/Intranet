@@ -1,5 +1,5 @@
 <?php
-session_name("IEFM3D");
+session_name("intranetIefm3dLocalhost");
 session_start();
 /*
  * ### CKFinder : Configuration File - Basic Instructions
@@ -82,15 +82,17 @@ Examples:
 
 ATTENTION: The trailing slash is required.
 */
+
 if(isset($_SESSION['ckfinder']) && $_SESSION['ckfinder'] == 'pass'){
 	$baseUrlTMP = dirname(dirname(dirname(dirname(dirname(dirname($_SERVER['SCRIPT_NAME'])))))).'/files/'.$_SESSION['folder'].'/';
 }else{
 	$baseUrlTMP = dirname(dirname(dirname(dirname(dirname(dirname($_SERVER['SCRIPT_NAME'])))))).'/upload/';
 }
- 
+
+
+	
 $baseUrl = str_replace("webroot/", "", $baseUrlTMP);
 $baseDir = resolveUrl($baseUrlTMP);
-
 /*
  * ### Advanced Settings
  */
@@ -218,8 +220,8 @@ $config['ResourceType'][] = Array(
 		'directory' => $baseDir . 'flash',
 		'maxSize' => 0,
 		'allowedExtensions' => 'swf,flv',
-		'deniedExtensions' => '');
-
+		'deniedExtensions' => '');	
+		
 /*
  Due to security issues with Apache modules, it is recommended to leave the
  following setting enabled.

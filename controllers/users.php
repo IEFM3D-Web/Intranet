@@ -249,27 +249,60 @@ function upload(){
 
 	global $link;
 	global $validate;
-	
 	$errors = array();
 	$notification = '';
 
-	if(isset($_POST) && !empty($_POST)) {
+	$requestDatas = get_resquest_datas();
+	
+	if(isset($requestDatas) && !empty($requestDatas)) {
+	
+		//On test si au moins un élève est selectionné
+		if(count($requestDatas)>1){
 		
-		if(!empty($validate)){ //On vérifi que la variable de validation contenant les règles n'est pas vide
-			$errors = validates($validate, $_POST);
-		}
-		
-		if(empty($errors)){
-		
-			//Appel de la classe upload
-			pr($_POST);
-			foreach($_POST as $key => $value){
-			
-				//upload_files();
+			if(!empty($validate)){ //On vérifi que la variable de validation contenant les règles n'est pas vide
+				$errors = validates($validate, $requestDatas);
 			}
+
+			if(empty($errors)){
+
+				if(isset($requestDatas['file'])) { 
+					
+					$file2Upload = $requestDatas['file'];
+					unset($requestDatas['file']);
+				}
 			
-			$notification = 'success';
-		}
+				require_once(LIB.DS.'upload.php');
+				$handle = new Upload($file2Upload);
+				if($handle->uploaded) {
+			
+					foreach($requestDatas as $key => $value){
+						
+						 //if($key != 'file'){
+						 
+							//Upload du fichier
+							//upload_files($requestDatas['file'],$key);
+							/*require_once(LIB.DS.'upload.php');
+							$handle = new Upload($file);
+							if($handle->uploaded) {*/
+										
+								$filePath = WEBROOT.DS."files".DS.$key.DS.'Files';
+								//if(isset($file2Upload) && $file2Upload) { $filePath .= $value.DS.'Files'; }
+										
+								$handle->Process($filePath);
+							//}
+						//} 
+
+						
+					}
+					
+										
+					$fileName = $handle->file_dst_name;
+					$handle->Clean();
+				}
+				
+				$notification = 'success';
+			}
+		}else{$errors['file'] = 'Vous devez selectionner au moins un élève';}
 		
 	}
 	
@@ -423,6 +456,7 @@ function view_profil($id) {
 
 		Session::write('folder',$profil['folder']);
 		Session::write('ckfinder','pass');
+		
 	}
 	
 	$aReturn = array(

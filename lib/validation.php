@@ -248,5 +248,38 @@ class Validation {
 			$pattern = '(?:(?:25[0-5]|2[0-4][0-9]|(?:(?:1[0-9])?|[1-9]?)[0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|(?:(?:1[0-9])?|[1-9]?)[0-9])';
 			$this->__pattern['IPv4'] = $pattern;
 		}
-	}	
+	}
+
+	function checkUpload($data){
+		
+		if($data['error'] == 4){ 
+			return false; 
+		}else{ 
+			return true;
+		}
+
+	}
+
+	function checkType($data, $allowedMime = null){
+		
+		if(!isset($allowedMime) || empty($allowedMime)) { $allowedMime = array('image/gif','image/jpeg','image/png'); }
+		
+		if(!in_array($data['type'], $allowedMime)){ 
+			return false; 
+		}else{
+			return true;
+		}
+		
+	}
+
+	function checkSize($data, $size){
+	
+		if($data['size'] > $size){
+			return false;
+		}else{
+			return true;
+		}
+	}
+	
 }
+

@@ -1,7 +1,7 @@
 <?php
 ///////////////////////////////////////////////////
 //   DEFINITION DES VARIABLES DE L'APPLICATION   //
-define('DS', DIRECTORY_SEPARATOR); //DÃ©finition du sÃ©parateur dans le cas ou l'on est sur windows ou linux
+define('DS', DIRECTORY_SEPARATOR); //Définition du séparateur dans le cas ou l'on est sur windows ou linux
 
 define('WEBROOT', dirname(__FILE__)); //Chemin absolu vers le dossier webroot
 	define('CSS', WEBROOT.DS.'css'); //Chemin absolu vers le dossier css
@@ -62,28 +62,28 @@ $sUrl = isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/'; //Affectatio
 if(isset($_SERVER['PATH_INFO'])) { $sUrl = $_SERVER['PATH_INFO']; } 
 else { $sUrl = '/'; }
 */
-$sUrl = trim($sUrl, '/'); //On enlÃ¨ve les / en dÃ©but et fin de chaine
-$aParams = explode('/', $sUrl); //On rÃ©cupÃ¨re l'url sous forme de tableau
+$sUrl = trim($sUrl, '/'); //On enlève les / en début et fin de chaine
+$aParams = explode('/', $sUrl); //On récupère l'url sous forme de tableau
 
-//RÃ©cupÃ©ration du contrÃ´leur
-//On va tester si le premier paramÃ¨tre existe et si il est non vide
+//Récupération du contrôleur
+//On va tester si le premier paramètre existe et si il est non vide
 if(isset($aParams[0]) && !empty($aParams[0])) {
 	
-	//Si il existe on le stocke dans une variable et on le supprime du tableau des paramÃ¨tres
+	//Si il existe on le stocke dans une variable et on le supprime du tableau des paramètres
 	$sController = $aParams[0]; 
 	unset($aParams[0]);
 	
-} else { $sController = 'users'; } //Sinon on fait appel Ã  un contrÃ´lleur par dÃ©faut 
+} else { $sController = 'users'; } //Sinon on fait appel à un contrôlleur par défaut 
 
-//RÃ©cupÃ©ration de l'action
-//On va tester si le second paramÃ¨tre existe et si il est non vide
+//Récupération de l'action
+//On va tester si le second paramètre existe et si il est non vide
 if(isset($aParams[1]) && !empty($aParams[1])) {
 
-	//Si il existe on le stocke dans une variable et on le supprime du tableau des paramÃ¨tres
+	//Si il existe on le stocke dans une variable et on le supprime du tableau des paramètres
 	$sAction = $aParams[1];
 	unset($aParams[1]);
 
-} else { $sAction = 'index'; } //Sinon on fait appel Ã  une action par dÃ©faut
+} else { $sAction = 'index'; } //Sinon on fait appel à une action par défaut
 ////////////////////////////
 
 if(file_exists(CONTROLLERS.DS.$sController.'.php')) {
@@ -92,8 +92,8 @@ if(file_exists(CONTROLLERS.DS.$sController.'.php')) {
 	
 	if(file_exists(MODELS.DS.$sModel.'.php')) {
 
-		include(MODELS.DS.$sModel.'.php'); //On procÃ¨de Ã  l'inclusion du model
-		include(CONTROLLERS.DS.$sController.'.php'); //On procÃ¨de Ã  l'inclusion du contrÃ´leur
+		include(MODELS.DS.$sModel.'.php'); //On procède à l'inclusion du model
+		include(CONTROLLERS.DS.$sController.'.php'); //On procède à l'inclusion du contrôleur
 		
 		if(function_exists($sAction)) {
 			
@@ -110,7 +110,7 @@ if(file_exists(CONTROLLERS.DS.$sController.'.php')) {
 						
 						if( $sController.DS.$sAction != 'articles'.DS.'index' && $sController.DS.$sAction != 'users'.DS.'index' && $sAction != 'view_article' && $sAction != 'profil' && $sAction != 'logout' && $sAction != 'erreur' && $sAction != 'document'){
 							if(!Session::check('crud.'.$sController.'.'.$sAction)) {
-								redirect("users/erreur"); //Si la personne n'a pas accÃ¨s a cette page, on la redirige vers l'accueil
+								redirect("users/erreur"); //Si la personne n'a pas accès a cette page, on la redirige vers l'accueil
 							}
 						}
 						
@@ -120,8 +120,8 @@ if(file_exists(CONTROLLERS.DS.$sController.'.php')) {
 			
 				if(file_exists(LAYOUT.DS.$sLayout.'.php')) {
 				
-					$aControllerDatas = call_user_func_array($sAction, $aParams); //On fait appel Ã  la fonction de ce contrÃ´leur
-					ob_start(); //On va rÃ©cupÃ©rer dans une variable le contenu de la vue pour l'affichage dans la variable layout_for_content
+					$aControllerDatas = call_user_func_array($sAction, $aParams); //On fait appel à la fonction de ce contrôleur
+					ob_start(); //On va récupérer dans une variable le contenu de la vue pour l'affichage dans la variable layout_for_content
 					include(VIEWS.DS.$sController.DS.$sAction.'.php'); //Chargement de la vue
 					$content_for_layout = ob_get_clean(); //On stocke dans cette variable le contenu de la vue
 			

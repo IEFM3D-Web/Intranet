@@ -5,7 +5,7 @@
  * @param  array  $options  Tableau d'attributs
  */
 function form_create($attr = null) {
-	$html = '<form id="form" enctype="multipart/form-data" ';
+	$html = '<form id="form" ';
 	foreach($attr as $key => $value){$html .=' '.$key.'="'.$value.'"';}
 	$html .= '>';
 	

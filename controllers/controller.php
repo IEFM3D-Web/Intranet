@@ -54,4 +54,38 @@ function sendmail($parametres,$mail){
 	//On envoi le message
 	$result = $mailer->send($message);
 }
+
+function get_resquest_datas() {
+	
+	$requestDatas = array();
+	if(!empty($_GET)) {
+		
+		foreach($_GET as $k => $v) { 
+
+			$requestDatas[$k] = $v; 
+			//$requestDatas['datas']['get'][$k] = $v; 
+		}
+	}
+	
+	//Gestion des variables envoyée via POST
+	if(!empty($_POST)) {
+		
+		foreach($_POST as $k => $v) {
+
+			$requestDatas[$k] = $v;
+			//$requestDatas['datas']['post'][$k] = $v; 
+		}
+	}
+				
+	//Gestion des fichiers
+	if(!empty($_FILES)) {
+		
+		foreach($_FILES as $k => $v) { 
+
+			$requestDatas[$k] = $_FILES[$k];
+			//$requestDatas['datas']['files'][$k] = $_FILES[$k]; 
+		}
+	}
+	return $requestDatas;
+}
 ?>

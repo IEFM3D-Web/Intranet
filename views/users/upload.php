@@ -37,7 +37,7 @@ if(isset($aControllerDatas['notification'])){
 <div id="profil">
 <h2>Envoi multiple</h2>
 	<?php 
-		echo form_create(array('action' => $_SERVER['REQUEST_URI'], 'method' => 'post', 'class' => 'valid'));
+		echo form_create(array("enctype" => "multipart/form-data", 'action' => $_SERVER['REQUEST_URI'], 'method' => 'post', 'class' => 'valid'));
 			include(ELEMENTS.DS.'intranet'.DS.'formulaires'.DS.'upload.php'); 
 		echo form_close(); 
 	?>
