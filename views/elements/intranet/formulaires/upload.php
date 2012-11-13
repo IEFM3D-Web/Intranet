@@ -12,7 +12,7 @@ echo form_input('file', "Fichier", array('type' => 'file', 'errors' => $aControl
 				$cpt_eleves = 0;
 				foreach($aControllerDatas['sections_users'][$k] as $key => $value) {
 					echo '<td>';
-					echo '<input type="checkbox" value="'.$key.'" name="'.$value['folder'].'" id="Input'.$value['folder'].'" />';
+					echo '<input type="checkbox" value="1" name="'.$value['folder'].'" id="Input'.$value['folder'].'" />';
 					echo $value['nom'].' '.$value['prenom'];
 					echo '</td>';
 					$cpt_eleves++;
