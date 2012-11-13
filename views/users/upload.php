@@ -26,6 +26,14 @@ if(isset($aControllerDatas['notification'])){
 	}
 }
 ?>
+	<script>
+		$(function() {
+			$( "#accordion" ).accordion({
+				collapsible: true
+			});
+		});
+    </script>
+	
 <div id="profil">
 <h2>Envoi multiple</h2>
 	<?php 
@@ -34,3 +42,5 @@ if(isset($aControllerDatas['notification'])){
 		echo form_close(); 
 	?>
 </div>
+
+	

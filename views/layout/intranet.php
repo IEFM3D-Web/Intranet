@@ -11,6 +11,12 @@
 		'intranet/stylecss3',
 		'intranet/form',
 		'intranet/checkbox',
+		'intranet/plugins/accordion/jquery.ui.all',
+		'intranet/plugins/accordion/jquery.ui.base',
+		'intranet/plugins/accordion/jquery.ui.core',
+		'intranet/plugins/accordion/jquery.ui.theme',
+		'intranet/plugins/accordion/jquery.ui.accordion',
+		'intranet/plugins/accordion/jquery-ui',
 		'intranet/plugins/wysiwyg',
 		'intranet/plugins/wysiwyg.modal',
 		'intranet/plugins/wysiwyg-editor'
@@ -20,10 +26,14 @@
 	//On inclu les fichiers Javascript
 	$aJs = array(
 		'intranet/jquery-1.7.1',
+		'intranet/jquery-1.8.2',
 		'intranet/ddaccordion',
 		'intranet/jconfirmaction',
 		'intranet/checkall',
 		'intranet/js_start',
+		'intranet/jquery.ui.core',
+		'intranet/jquery.ui.widget',
+		'intranet/jquery.ui.accordion',
 		'ckeditor/ckeditor',
 		'ckfinder/ckfinder'
 	);
