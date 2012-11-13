@@ -1,6 +1,18 @@
 <?php
-session_name("intranetIefm3dLocalhost");
-session_start();
+///////////////////////////////////////////////////
+//   DEFINITION DES VARIABLES DE L'APPLICATION   //
+define('DS', DIRECTORY_SEPARATOR); //Définition du séparateur dans le cas ou l'on est sur windows ou linux
+define('WEBROOT', dirname(dirname(dirname(__FILE__))));
+define('ROOT', dirname(WEBROOT)); //Chemin absolu vers le dossier racine du site
+define('LIB', ROOT.DS.'lib'); //Chemin absolu vers le dossier lib
+
+require_once(LIB.DS.'inflector.php');
+require_once(LIB.DS.'set.php');
+require_once(LIB.DS.'session.php');
+
+//Initialisation de la session
+Session::init();
+
 /*
  * ### CKFinder : Configuration File - Basic Instructions
  *
