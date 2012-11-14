@@ -108,7 +108,7 @@ function edit($id) {
 		
 			$crud = $_POST['crud'];
 			
-			//Si l'on donne l'accès à laliste des utilisateurs, alors, on pourra consulter les profils.
+			//Si l'on donne l'accès à la liste des utilisateurs, alors, on pourra consulter les profils.
 			if($crud['users']['liste'] == 1){
 				$crud['users']['view_profil'] = 1;
 			}

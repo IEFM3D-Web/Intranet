@@ -13,26 +13,36 @@
 *@return ressource $link Ressource de la connection
 */
 function connect_db($database){
+	
+	//Tableau des adresses locales
+	$localhost = array('localhost','127.0.0.1');
 
+	//On test si on travail en local ou non
+	if(in_array($_SERVER['HTTP_HOST'], $localhost)){
+		$host = 'localhost';
+	}else{
+		$host = 'online';
+	}
+	
 	//Si aucun driver n'est passé en paramètre, on utilise MySQL par défault
-	if(!isset($database['driver']) || empty($database['driver'])){$database['driver'] = 'mysql';}
+	if(!isset($database[$host]['driver']) || empty($database[$host]['driver'])){$database[$host]['driver'] = 'mysql';}
 
-	switch ($database['driver']){
+	switch ($database[$host]['driver']){
 
 		case 'mysql':
-			$source = 'mysql:host='.$database['host'].';dbname='.$database['name'];
-			$utilisateur = $database['user'];
-			$mot_de_passe = $database['password'];
+			$source = 'mysql:host='.$database[$host]['host'].';dbname='.$database[$host]['name'];
+			$utilisateur = $database[$host]['user'];
+			$mot_de_passe = $database[$host]['password'];
 			break;
 		case 'oracle':
-			$source = 'oci:dbname='.$database['name'];
-			$utilisateur = $database['user'];
-			$mot_de_passe = $database['password'];
+			$source = 'oci:dbname='.$database[$host]['name'];
+			$utilisateur = $database[$host]['user'];
+			$mot_de_passe = $database[$host]['password'];
 			break;
 		case 'sqlite':
-			$source = $database['name'];
-			$utilisateur = $database['user'];
-			$mot_de_passe = $database['password'];
+			$source = $database[$host]['name'];
+			$utilisateur = $database[$host]['user'];
+			$mot_de_passe = $database[$host]['password'];
 			break;
 	}
 
