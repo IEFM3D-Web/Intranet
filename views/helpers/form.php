@@ -97,7 +97,7 @@ function form_input($name, $label, $options = array()) {
 			if($options['wysiwyg']){
 				$html .= "<script type='text/javascript'>
 							var ck_".$libelleId."_editor = CKEDITOR.replace( '".$libelleId."');
-							CKFinder.setupCKEditor( editor, '".BASE_URL."/js/ckfinder/' );
+							CKFinder.setupCKEditor(ck_".$libelleId."_editor, '".BASE_URL."/js/ckfinder/' );
 						  </script>";
 			}
 		break;

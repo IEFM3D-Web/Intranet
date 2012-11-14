@@ -16,13 +16,13 @@ echo form_input('file', "Fichier", array('type' => 'file', 'errors' => $aControl
 					echo $value['nom'].' '.$value['prenom'];
 					echo '</td>';
 					$cpt_eleves++;
-					if ($cpt_eleves==3) echo'<tr></tr>';
+					if ($cpt_eleves==3) { echo'<tr></tr>'; $cpt_eleves = 0; }
 				} 
 				?>
 				</tr>
 			</table>
 			<br /><br />
-			<input type="checkbox" value="<?php echo $k; ?>" name="cocheAll<?php echo $k; ?>" class="cocheAll" id="InputCocheAll<?php echo $k; ?>" /> Tout cocher
+			<input type="checkbox" value="<?php echo $k; ?>" class="cocheAll" /> Tout cocher
 		</div>
 	<?php } ?>   
 </div>	

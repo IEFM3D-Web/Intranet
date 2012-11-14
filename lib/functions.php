@@ -113,4 +113,9 @@ function filter($chaine) {
   $string = strtolower ($string);
   return $string;
 }
+
+function create_folder_name($name) {
+	
+	return strtolower(Inflector::slug(uniqid($name)));
+}
 ?>

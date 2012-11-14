@@ -1,8 +1,8 @@
 <?php
-//Tableau de configuration pour la connexion à la base de données
+//Tableau de configuration pour la connexion Ã  la base de donnÃ©es
 $database = array(
 	
-	//Configuration version développement
+	//Configuration version dÃ©veloppement
 	'localhost' =>array(
 		'host' => 'localhost',
 		'name' => 'intranet',

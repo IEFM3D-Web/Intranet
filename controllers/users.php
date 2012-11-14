@@ -220,12 +220,25 @@ function add(){
 			$_POST['password'] = $cryptPassword;
 			
 			//Création du nom du dossier personnel
-			$folderName = strtolower(filter(uniqid($_POST['prenom'].'_'.$_POST['nom'].'_')));
+			$folderName = create_folder_name($_POST['prenom'].' '.$_POST['nom'].' ');
+			
 			$_POST['folder'] = $folderName;
+				
+			$folderName = FILES.DS.$folderName;
+
+			$foldersToCreate = array(
+				$folderName,
+				$folderName.DS.'_thumbs',
+				$folderName.DS.'_thumbs'.DS.'Files',
+				$folderName.DS.'_thumbs'.DS.'Flash',
+				$folderName.DS.'_thumbs'.DS.'Images',
+				$folderName.DS.'files',
+				$folderName.DS.'flash',
+				$folderName.DS.'images'
+			);
 			
-			//Création du dossier personnel
-			mkdir(FILES.DS.$folderName);
-			
+            foreach($foldersToCreate as $folder) { FileAndDir::createPath($folder); }
+
 			//Création de l'utilisateur
 			save(array('table' => 'users', 'link' => $link), $_POST);
 			$notification = 'success';
@@ -366,11 +379,13 @@ function edit($id) {
 			$oldFolderName = $user['folder'];
 				
 			//Préparation des variables qui servirons au nouveau nom de dossier	
-			$nom = strtolower(filter($_POST['nom']));
-			$prenom = strtolower(filter($_POST['prenom']));
+			//$nom = strtolower(filter($_POST['nom']));
+			//$prenom = strtolower(filter($_POST['prenom']));
 				
 			//Création du nouveau nom du dossier personnel
-			$newFolderName = uniqid($prenom.'_'.$nom.'_');
+			//$newFolderName = uniqid();
+			
+			$newFolderName = create_folder_name($_POST['prenom'].' '.$_POST['nom'].' ');
 			
 			$_POST['folder'] = $newFolderName;	
 			
@@ -379,8 +394,8 @@ function edit($id) {
 			$notification = 'success';
 			
 			//On renomme le dossier personnel de l'utilisateur
-			sleep(1);
-			rename(FILES.DS.$oldFolderName, FILES.DS.$newFolderName);
+			//sleep(1);
+			FileAndDir::rename(FILES.DS.$oldFolderName, FILES.DS.$newFolderName);
 		}
 	}
 	
