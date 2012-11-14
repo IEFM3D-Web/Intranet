@@ -298,7 +298,7 @@ function upload(){
 							$handle = new Upload($file);
 							if($handle->uploaded) {*/
 										
-								$filePath = WEBROOT.DS."files".DS.$key.DS.'Files';
+								$filePath = WEBROOT.DS."files".DS.$key.DS.'files';
 								//if(isset($file2Upload) && $file2Upload) { $filePath .= $value.DS.'Files'; }								
 								$handle->Process($filePath);
 							//}

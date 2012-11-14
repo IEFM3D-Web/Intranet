@@ -16,7 +16,7 @@ $validate = array(
 	),
 	'file' => array(
         'rule1' =>array(
-            'rule' => array('checkType',),
+            'rule' => array('checkType'),
 			'message' => 'Mauvaise extension'
         ),
 		'rule2' =>array(
