@@ -2,4 +2,5 @@
 .project
 .settings/
 webroot/files/*
+!webroot/files/empty
 webroot/upload/*
