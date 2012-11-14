@@ -31,6 +31,5 @@
 			<input  class="field" name="password" type="password" value="" size="12" maxlength="180">
 			<button type="submit">Connexion</button>
 		</form>
-		<a href="<?php echo BASE_URL; ?>/users/password" class="lien">Mot de passe oublié ?</a>
 	</div>   
 </div>

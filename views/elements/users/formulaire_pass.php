@@ -1,4 +1,4 @@
-<h2 id="tab2">Récupération.</h2>
+<h2 id="tab2">Password oublié</h2>
 <div class="tabbody">
 	<div id="form2">
 		<div id="logo"></div>
