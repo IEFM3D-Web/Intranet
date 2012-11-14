@@ -31,11 +31,11 @@
 				<td class="center"><?php echo $aValue['mail']; ?></td>
 				<td class="center"><?php echo $aValue['tel']; ?></td>
 				<td class="center">
-					<a href="<?php echo BASE_URL; ?>/users/view_profil/<?php echo $aValue['id']; ?>"><img alt="Voir le profil" title="Voir le profil" src="<?php echo BASE_URL;?> /img/intranet/site/user.png"></a>
+					<a href="<?php echo BASE_URL; ?>/users/view_profil/<?php echo $aValue['id']; ?>"><img alt="Voir le profil" title="Voir le profil" src="<?php echo BASE_URL;?>/img/intranet/site/user.png"></a>
 					&nbsp;
-					<a href="<?php echo BASE_URL; ?>/users/edit/<?php echo $aValue['id']; ?>"><img alt="éditer" title="modifier" src="<?php echo BASE_URL;?> /img/intranet/site/article-edit.png"></a>
+					<a href="<?php echo BASE_URL; ?>/users/edit/<?php echo $aValue['id']; ?>"><img alt="éditer" title="modifier" src="<?php echo BASE_URL;?>/img/intranet/site/article-edit.png"></a>
 					&nbsp;
-					<a href="<?php echo BASE_URL; ?>/users/erase/<?php echo $aValue['id']; ?>" class="ask"><img alt="supprimer" title="supprimer" src="<?php echo BASE_URL;?> /img/intranet/site/article-delete.png"></a>
+					<a href="<?php echo BASE_URL; ?>/users/erase/<?php echo $aValue['id']; ?>" class="ask"><img alt="supprimer" title="supprimer" src="<?php echo BASE_URL;?>/img/intranet/site/article-delete.png"></a>
 				</td>
 			</tr>
 			<?php

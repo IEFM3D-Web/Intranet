@@ -25,9 +25,9 @@
 				</td>
 				<td><?php echo $aValue['name']; ?></td>
 				<td>
-					<a href="<?php echo BASE_URL; ?>/sections/edit/<?php echo $aValue['id']; ?>"><img alt="éditer" title="éditer" src="<?php echo BASE_URL;?> /img/intranet/site/article-edit.png"></a>
+					<a href="<?php echo BASE_URL; ?>/sections/edit/<?php echo $aValue['id']; ?>"><img alt="éditer" title="éditer" src="<?php echo BASE_URL;?>/img/intranet/site/article-edit.png"></a>
 					&nbsp;
-					<a href="<?php echo BASE_URL; ?>/sections/erase/<?php echo $aValue['id']; ?>" class="ask"><img alt="supprimer" title="supprimer" src="<?php echo BASE_URL;?> /img/intranet/site/article-delete.png"></a>
+					<a href="<?php echo BASE_URL; ?>/sections/erase/<?php echo $aValue['id']; ?>" class="ask"><img alt="supprimer" title="supprimer" src="<?php echo BASE_URL;?>/img/intranet/site/article-delete.png"></a>
 				</td>
 			</tr>
 			<?php

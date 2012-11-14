@@ -1,6 +1,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="fr">
-<head>
+	<head>
+	<?php 
+	$sUrl = isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/'; //Affectation de l'url
+	$sUrl = trim($sUrl, '/'); //On enlève les / en début et fin de chaine
+	$aParams = explode('/', $sUrl);
+	if(count($aParams) > 1){
+		$title = 'Intranet-'.$aParams[0].'-'.$aParams[1];
+	}else{
+		$title = 'Intranet-'.$sUrl;
+	}
+	?>	
+	<title><?php echo $title; ?></title>
 	<meta http-equiv="X-UA-Compatible" content="IE=8" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="language" content="fr" />
