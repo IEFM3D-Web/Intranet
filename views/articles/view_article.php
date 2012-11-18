@@ -9,10 +9,6 @@ $commentaires = $aControllerDatas['commentaires'];
 $articlesTypesList = $aControllerDatas['articlesTypesList'];
 ?>
 
-<div class="info_cat"><?php echo ucfirst($articlesTypesList[$article['articles_type_id']]) ?></div>
-<div class="info_dat">Date : <?php echo $article['created'] ?></div>
-<div class="info_aut"><?php echo ucfirst($authorList[$article['created_by']])?></div>
-
 <div class="view_article">
 	<?php echo $article['contenu']; ?>
 </div>

@@ -26,11 +26,11 @@
 					<input type="hidden" value="0" class="cb-element" name="delete[<?php echo $aValue['id']; ?>]" id="InputDelete<?php echo $aValue['id']; ?>hidden">
 					<input type="checkbox" value="1" class="cb-element" name="delete[<?php echo $aValue['id']; ?>]" id="InputDelete<?php echo $aValue['id']; ?>">
 				</td>
-				<td class="center"><?php echo ucfirst($aValue['nom']); ?></td>
-				<td class="center"><?php echo ucfirst($aValue['prenom']); ?></td>
-				<td class="center"><?php echo $aValue['mail']; ?></td>
-				<td class="center"><?php echo $aValue['tel']; ?></td>
-				<td class="center">
+				<td class="text"><?php echo ucfirst($aValue['nom']); ?></td>
+				<td class="text"><?php echo ucfirst($aValue['prenom']); ?></td>
+				<td class="text"><?php echo $aValue['mail']; ?></td>
+				<td class="text"><?php echo $aValue['tel']; ?></td>
+				<td>
 					<a href="<?php echo BASE_URL; ?>/users/view_profil/<?php echo $aValue['id']; ?>"><img alt="Voir le profil" title="Voir le profil" src="<?php echo BASE_URL;?>/img/intranet/site/user.png"></a>
 					&nbsp;
 					<a href="<?php echo BASE_URL; ?>/users/edit/<?php echo $aValue['id']; ?>"><img alt="éditer" title="modifier" src="<?php echo BASE_URL;?>/img/intranet/site/article-edit.png"></a>

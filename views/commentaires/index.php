@@ -23,18 +23,18 @@
 					<input type="hidden" value="0" class="cb-element" name="delete[<?php echo $aValue['id']; ?>]" id="InputDelete<?php echo $aValue['id']; ?>hidden">
 					<input type="checkbox" value="1" class="cb-element" name="delete[<?php echo $aValue['id']; ?>]" id="InputDelete<?php echo $aValue['id']; ?>">
 				</td>
-				<td class="center"><?php echo date("d/m/Y", strtotime($aValue['created'])); ?></td>
-				<td class="center"><?php echo ucfirst($authorList[$aValue['created_by']]); ?></td>
-				<td class="center"><?php if(strlen($aValue['contenu'])>15){echo substr($aValue['contenu'], 0, 15).' ...';}else{echo $aValue['contenu'];} ?></td>
-				<td class="center"><?php echo $articleList[$aValue['articles_id']]; ?></td>
-				<td class="center">
+				<td class="text"><?php echo date("d/m/Y", strtotime($aValue['created'])); ?></td>
+				<td class="text"><?php echo ucfirst($authorList[$aValue['created_by']]); ?></td>
+				<td class="text"><?php if(strlen($aValue['contenu'])>15){echo substr($aValue['contenu'], 0, 15).' ...';}else{echo $aValue['contenu'];} ?></td>
+				<td class="text"><?php echo $articleList[$aValue['articles_id']]; ?></td>
+				<td>
 					<?php if($aValue['online'] == 1) { ?>
 						<a href="<?php echo BASE_URL.'/commentaires/publish/'.$aValue['id'].'/0'; ?>"><img src="<?php echo BASE_URL.'/img/intranet/site/green.png'; ?>" alt="Oui" title="Oui" /></a>
 					<?php } else { ?>
 						<a href="<?php echo BASE_URL.'/commentaires/publish/'.$aValue['id'].'/1'; ?>"><img src="<?php echo BASE_URL.'/img/intranet/site/red.png'; ?>" alt="Oui" title="Oui" /></a>
 					<?php } ?>
 				</td>
-				<td class="center">
+				<td>
 					<a href="<?php echo BASE_URL; ?>/commentaires/edit/<?php echo $aValue['id']; ?>"><img alt="éditer" title="éditer" src="<?php echo BASE_URL;?>/img/intranet/site/article-edit.png"></a>
 					&nbsp;
 					<a href="<?php echo BASE_URL; ?>/commentaires/erase/<?php echo $aValue['id']; ?>" class="ask"><img alt="supprimer" title="supprimer" src="<?php echo BASE_URL;?>/img/intranet/site/article-delete.png"></a>
