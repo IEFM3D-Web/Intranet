@@ -1,7 +1,8 @@
 <div id="tabs">
 	<ul id="tabs">
-		<li><a class="connexion" href="#connexion">Connexion</a></li>
-		<li><a class="password" href="#password">Mot de passe oublié</a></li>
+		<li class="connexion"><a class="connexion-tab" href="#connexion">Connexion</a></li>
+		<li class="password"><a class="password-tab" href="#password">Mot de passe oublié</a></li>
+		<div style="clear:both;"></div>
 	</ul>	
 	<div id="tabs_content_container">
 			<div id="connexion">
