@@ -4,41 +4,37 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=8" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="language" content="fr" />
-	<title>Intranet - Connexion</title>	
+	<title>Intranet</title>	
 	<?php
 	//On inclu les fichiers css
 	$aCss = array(
 		'users/style',
-		'users/simple-sliding-doors'
 	);
 	Html::css($aCss);
-	?>	
-	<script type="text/javascript">document.documentElement.className += " js";</script>
-	
+	?>
 
 	<?php
 	//On inclu les fichiers Javascript
 	$aJs = array(
-		'users/jquery-1.7.min',
-		'users/jquery.tabs'
+		'users/jquery-1.8.2',
+		'users/jquery-ui-1.9.1.custom'
 	);
 
 	Html::js($aJs);
 	?>
-    <script type="text/javascript">
-		$(document).ready(function(){
-			$(".tabs").accessibleTabs({
-				tabhead:'h2',
-				fx:"show",
-				autoAnchor:true
-			});
-		});
-    </script>   
+	<script>
+	$(function(){
+		var tabOpts = {
+			fx: {
+				opacity: "toggle",
+				duration: "fast"
+			}
+		};
+		$("#tabs").tabs(tabOpts);
+	});
+	</script>	
 </head>
 <body>
-
-<?php //include(ELEMENTS.DS.'users/header.php'); ?>
-<!-- Affichage de la vue -->
 
 <div id="fleur">
 	<?php echo $content_for_layout; ?>
