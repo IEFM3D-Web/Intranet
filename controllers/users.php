@@ -10,148 +10,147 @@ require(CONTROLLERS.DS.'controller.php');
 function index() {
 	
 	global $link;
-	
-	//On test si un fomulaire a été envoyé
 	if(isset($_POST) && !empty($_POST)){
-
-		//On test si c'est le formulaire de connexion qui a été envoyé
-		if($_POST['form'] == "connexion"){
+	
+		$postLogin = $_POST['mail'];
+		$postPass =  sha1($_POST['password']);
+	
+		if(!empty($postLogin) && !empty($postPass)){
 		
-			$postLogin = $_POST['mail'];
-			$postPass =  sha1($_POST['password']);
-		
-			if(!empty($postLogin) && !empty($postPass)){
+			if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#i", $_POST['mail'])){
 			
-				if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#i", $_POST['mail'])){
+				$user = findFirst(array('table' => 'users', 'link' => $link, 'conditions' => "mail='".$postLogin."'"));
 				
-					$user = findFirst(array('table' => 'users', 'link' => $link, 'conditions' => "mail='".$postLogin."'"));
-					
-					if(!empty($user)){		
+				if(!empty($user)){		
 
-						$bddId = $user['id'];
-						$bddNom = $user['nom'];
-						$bddPrenom = $user['prenom'];
-						$bddLogin = $user['mail'];
-						$bddRole = $user['role'];
-						$bddPass = $user['password'];
-						$bddIs_auth = $user['is_auth'];
-						$bddFolder = $user['folder'];
+					$bddId = $user['id'];
+					$bddNom = $user['nom'];
+					$bddPrenom = $user['prenom'];
+					$bddLogin = $user['mail'];
+					$bddRole = $user['role'];
+					$bddPass = $user['password'];
+					$bddIs_auth = $user['is_auth'];
+					$bddFolder = $user['folder'];
+					
+					if($postPass == $bddPass){
 						
-						if($postPass == $bddPass){
+						if($bddIs_auth){
 							
-							if($bddIs_auth){
-								
-								//Insertion des données de session
-								Session::write('isAuth',true);
-								Session::write('user_id',$bddId);
-								Session::write('nom',$bddNom);
-								Session::write('role',$bddRole);
-								Session::write('prenom',$bddPrenom);
-								Session::write('folder',$bddFolder);
-								
-								//On récupère les informations du role en fonction de l'id du role de l'utilisateur
-								$types_users = find(array('table' => 'types_users', 'link' => $link, 'conditions' => 'id='.Session::read('role')));
-								
-								//On stock la couleur récupérée
-								Session::write('couleur',$types_users[0]['color']);
-								
-								//Récupération du rôle de l'utilisateur
-								$acls = find(array('table' => 'acls', 'link' => $link, 'conditions' => 'types_user_id='.$bddRole));
-								$crud = array();
-								
-								foreach($acls as $v){
-									$controller = $v['controller'];
-									$action = $v['action'];
-									$is_auth = $v['is_auth'];
-								
-									$crud[$controller][$action] = $is_auth;
-								}
-								
-								//On stock le tableau de CRUD
-								Session::write('crud',$crud);
-								
-								redirect("articles"); //On redirige vers l'accueil
-								
-							}else{return array('errors-connexion' => "Vous n'avez pas les droits pour vous connecter.");}	
-						}else{return array('errors-connexion' => "Le mot de passe est incorrect.");}				
-					}else{return array('errors-connexion' => "Adresse mail inexistante.");}
-				}else{return array('errors-connexion' => "Adresse mail invalide.");}
-			}else{return array('errors-connexion' => "Les champs sont vides.");}	
-			
-		}
-		
-		//Sinon on test si c'est le formulaire de mot de passe oublié qui a été envoyé
-		else if($_POST['form'] == "password"){
-			
-			global $mail;
-			
-			$errors = '';
-			$success = '';
-		
-			$postMail = $_POST['mail'];
-			if(isset($_POST['mail']) && !empty($_POST['mail'])){
-			
-				//On vérifi que l'adresse mail est bien valide à l'aide d'expression régulière
-				if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#i", $_POST['mail'])){
-
-					//On vérifi que l'adresse mail existe bien dans la base de données
-					$findMail = findFirst(array('table' => 'users', 'link' => $link, 'conditions' => "mail='".$postMail."'"));
-					if(empty($findMail)){
-						
-						Session::write('errors-password',"Adresse mail inexistante.");
-						redirect("users/index#password");
-					}else{
-						
-						//On récupère les informations de l'utilisateur en fonction de son adresse mail
-						$user = findFirst(array('table' => 'users', 'link' => $link, 'conditions' => "mail='".$postMail."'"));
-						
-						//On ajoute son Id au tableau $_POST
-						$_POST['id'] = $user['id'];	
-						
-						//Génération du nouveau mot de passe
-						$newPassword = genere_Password(6);
-						
-						//On ajoute le nouveau mot de passe au tableau $_POST
-						$_POST['password'] = sha1($newPassword);	
-						
-						//On supprime le mail et le type de formulaire du tableau $_POST
-						unset($_POST['mail']);
-						unset($_POST['form']);
-						
-						//Mise à jour du mot de passe
-						save(array('table' => 'users', 'link' => $link), $_POST);
-					
-						//Inclusion de la librairie Swift Mailler
-						require(LIB.DS.'swift/swift_required.php');
-						
-						//Création d'une instance de swift transport (SMTP)
-						$transport = Swift_SmtpTransport::newInstance($mail['smtp'], $mail['port'])
-						->setUsername($mail['user'])
-						->setPassword($mail['password']);
-						
-						//Création d'une instance de swift mailer
-						$mailer = Swift_Mailer::newInstance($transport);
-
-						//Création du mail
-						$message = Swift_Message::newInstance('Nouveau mot de passe')
-						->setFrom(array('john@doe.com' => 'IEFM3D'))
-						->setTo(array($postMail))
-						->setBody('Voici votre nouveau mot de passe : '.$newPassword);
-
-						//Envoi du message
-						$result = $mailer->send($message);
-
-						if($result){
-							Session::write('success-password',"Nouveau mot de passe envoyé.");
-						}
-
-					}
-				}else{Session::write('errors-password',"Adresse mail invalide.");}
-			}else{Session::write('errors-password',"Le champ mail est vide.");}
-			
-			redirect("users/index#password");
-		}
+							//Insertion des données de session
+							Session::write('isAuth',true);
+							Session::write('user_id',$bddId);
+							Session::write('nom',$bddNom);
+							Session::write('role',$bddRole);
+							Session::write('prenom',$bddPrenom);
+							Session::write('folder',$bddFolder);
+							
+							//On récupère les informations du role en fonction de l'id du role de l'utilisateur
+							$types_users = find(array('table' => 'types_users', 'link' => $link, 'conditions' => 'id='.Session::read('role')));
+							
+							//On stock la couleur récupérée
+							Session::write('couleur',$types_users[0]['color']);
+							
+							//Récupération du rôle de l'utilisateur
+							$acls = find(array('table' => 'acls', 'link' => $link, 'conditions' => 'types_user_id='.$bddRole));
+							$crud = array();
+							
+							foreach($acls as $v){
+								$controller = $v['controller'];
+								$action = $v['action'];
+								$is_auth = $v['is_auth'];
+							
+								$crud[$controller][$action] = $is_auth;
+							}
+							
+							//On stock le tableau de CRUD
+							Session::write('crud',$crud);
+							
+							redirect("articles"); //On redirige vers l'accueil
+							
+						}else{return array('errors' => "Vous n'avez pas les droits pour vous connecter !");}	
+					}else{return array('errors' => "Le mot de passe n'est pas bon !");}				
+				}else{return array('errors' => "Adresse mail inexistante !");}
+			}else{return array('errors' => "Adresse mail invalide !");}
+		}else{return array('errors' => "Les champs sont vides !");}	
 	}	
+}
+
+/**
+*Cette fonction permet de générer et d'envoyer un nouveau mot de passe en cas de perte
+*/
+function password() {
+	
+	global $link;
+	global $mail;
+	
+	$errors = '';
+	$success = '';
+	
+	if(isset($_POST) && !empty($_POST)){
+	
+		$postMail = $_POST['mail'];
+		if(isset($_POST['mail']) && !empty($_POST['mail'])){
+		
+			//On vérifi que l'adresse mail est bien valide à l'aide d'expression régulière
+			if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#i", $_POST['mail'])){
+
+				//On vérifi que l'adresse mail existe bien dans la base de données
+				$findMail = findFirst(array('table' => 'users', 'link' => $link, 'conditions' => "mail='".$postMail."'"));
+				if(empty($findMail)){
+					return array('errors' => "Adresse mail inexistante !");
+				}else{
+					
+					//On récupère les informations de l'utilisateur en fonction de son adresse mail
+					$user = findFirst(array('table' => 'users', 'link' => $link, 'conditions' => "mail='".$postMail."'"));
+					
+					//On ajoute son Id au tableau $_POST
+					$_POST['id'] = $user['id'];	
+					
+					//Génération du nouveau mot de passe
+					$newPassword = genere_Password(6);
+					
+					//On ajoute le nouveau mot de passe au tableau $_POST
+					$_POST['password'] = sha1($newPassword);	
+					
+					//On supprime le mail du tableau $_POST
+					unset($_POST['mail']);
+					
+					//Mise à jour du mot de passe
+					save(array('table' => 'users', 'link' => $link), $_POST);
+				
+					//Inclusion de la librairie Swift Mailler
+					require(LIB.DS.'swift/swift_required.php');
+					
+					//Création d'une instance de swift transport (SMTP)
+					$transport = Swift_SmtpTransport::newInstance($mail['smtp'], $mail['port'])
+					->setUsername($mail['user'])
+					->setPassword($mail['password']);
+					
+					//Création d'une instance de swift mailer
+					$mailer = Swift_Mailer::newInstance($transport);
+
+					//Création du mail
+					$message = Swift_Message::newInstance('Nouveau mot de passe')
+					->setFrom(array('john@doe.com' => 'IEFM3D'))
+					->setTo(array($postMail))
+					->setBody('Voici votre nouveau mot de passe : '.$newPassword);
+
+					//Envoi du message
+					$result = $mailer->send($message);
+
+					if($result){
+						$success = 'oui';
+					}
+
+				}
+			}else{$errors = "Adresse mail invalide !";}
+		}else{$errors = "Le champ mail est vide !";}	
+	}
+	
+	return array(
+		'errors' => $errors,
+		'success' => $success
+	);
 }
 
 /**
@@ -344,8 +343,6 @@ function upload(){
 
 	}
 	
-	//pr($end);
-	
 	return array(
 		'sections_users' => $end,
 		'sections_liste' => $userTypesSection,
@@ -379,24 +376,49 @@ function edit($id) {
 			//On récupère le nom du dossier actuel
 			$oldFolderName = $user['folder'];
 				
-			//Préparation des variables qui servirons au nouveau nom de dossier	
-			//$nom = strtolower(filter($_POST['nom']));
-			//$prenom = strtolower(filter($_POST['prenom']));
 				
-			//Création du nouveau nom du dossier personnel
-			//$newFolderName = uniqid();
+			if(FileAndDir::dexists(FILES.DS.$oldFolderName)){
 			
-			$newFolderName = create_folder_name($_POST['prenom'].' '.$_POST['nom'].' ');
-			
-			$_POST['folder'] = $newFolderName;	
-			
-			//On met à kour les informations de l'utilisateur
-			save(array('table' => $table, 'link' => $link), $_POST);
-			$notification = 'success';
-			
-			//On renomme le dossier personnel de l'utilisateur
-			//sleep(1);
-			FileAndDir::rename(FILES.DS.$oldFolderName, FILES.DS.$newFolderName);
+				//Préparation des variables qui servirons au nouveau nom de dossier	
+				//$nom = strtolower(filter($_POST['nom']));
+				//$prenom = strtolower(filter($_POST['prenom']));
+					
+				//Création du nouveau nom du dossier personnel
+				//$newFolderName = uniqid();
+				
+				$newFolderName = create_folder_name($_POST['prenom'].' '.$_POST['nom'].' ');
+				
+				$_POST['folder'] = $newFolderName;	
+				
+				//On met à kour les informations de l'utilisateur
+				save(array('table' => $table, 'link' => $link), $_POST);
+				$notification = 'success';
+				
+				//On renomme le dossier personnel de l'utilisateur
+				//sleep(1);
+				FileAndDir::rename(FILES.DS.$oldFolderName, FILES.DS.$newFolderName);
+			}else{
+				
+				//Création du nom du dossier personnel
+				$folderName = create_folder_name($_POST['prenom'].' '.$_POST['nom'].' ');
+				
+				$_POST['folder'] = $folderName;
+					
+				$folderName = FILES.DS.$folderName;
+
+				$foldersToCreate = array(
+					$folderName,
+					$folderName.DS.'_thumbs',
+					$folderName.DS.'_thumbs'.DS.'Files',
+					$folderName.DS.'_thumbs'.DS.'Flash',
+					$folderName.DS.'_thumbs'.DS.'Images',
+					$folderName.DS.'files',
+					$folderName.DS.'flash',
+					$folderName.DS.'images'
+				);
+				
+				foreach($foldersToCreate as $folder) { FileAndDir::createPath($folder); }
+			}
 		}
 	}
 	
