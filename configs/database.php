@@ -14,9 +14,9 @@ $database = array(
 	//Configuration version production
 	'online' =>array(
 		'host' => 'localhost',
-		'name' => 'intranetiefm3d',
-		'user' => 'intranetiefm3d',
-		'password' => 'g54mD5k',
+		'name' => '',
+		'user' => '',
+		'password' => '',
 		'driver' => 'mysql'
 		)
 );
