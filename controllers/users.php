@@ -344,8 +344,6 @@ function upload(){
 
 	}
 	
-	//pr($end);
-	
 	return array(
 		'sections_users' => $end,
 		'sections_liste' => $userTypesSection,
@@ -379,24 +377,49 @@ function edit($id) {
 			//On récupère le nom du dossier actuel
 			$oldFolderName = $user['folder'];
 				
-			//Préparation des variables qui servirons au nouveau nom de dossier	
-			//$nom = strtolower(filter($_POST['nom']));
-			//$prenom = strtolower(filter($_POST['prenom']));
 				
-			//Création du nouveau nom du dossier personnel
-			//$newFolderName = uniqid();
+			if(FileAndDir::dexists(FILES.DS.$oldFolderName)){
 			
-			$newFolderName = create_folder_name($_POST['prenom'].' '.$_POST['nom'].' ');
-			
-			$_POST['folder'] = $newFolderName;	
-			
-			//On met à kour les informations de l'utilisateur
-			save(array('table' => $table, 'link' => $link), $_POST);
-			$notification = 'success';
-			
-			//On renomme le dossier personnel de l'utilisateur
-			//sleep(1);
-			FileAndDir::rename(FILES.DS.$oldFolderName, FILES.DS.$newFolderName);
+				//Préparation des variables qui servirons au nouveau nom de dossier	
+				//$nom = strtolower(filter($_POST['nom']));
+				//$prenom = strtolower(filter($_POST['prenom']));
+					
+				//Création du nouveau nom du dossier personnel
+				//$newFolderName = uniqid();
+				
+				$newFolderName = create_folder_name($_POST['prenom'].' '.$_POST['nom'].' ');
+				
+				$_POST['folder'] = $newFolderName;	
+				
+				//On met à kour les informations de l'utilisateur
+				save(array('table' => $table, 'link' => $link), $_POST);
+				$notification = 'success';
+				
+				//On renomme le dossier personnel de l'utilisateur
+				//sleep(1);
+				FileAndDir::rename(FILES.DS.$oldFolderName, FILES.DS.$newFolderName);
+			}else{
+				
+				//Création du nom du dossier personnel
+				$folderName = create_folder_name($_POST['prenom'].' '.$_POST['nom'].' ');
+				
+				$_POST['folder'] = $folderName;
+					
+				$folderName = FILES.DS.$folderName;
+
+				$foldersToCreate = array(
+					$folderName,
+					$folderName.DS.'_thumbs',
+					$folderName.DS.'_thumbs'.DS.'Files',
+					$folderName.DS.'_thumbs'.DS.'Flash',
+					$folderName.DS.'_thumbs'.DS.'Images',
+					$folderName.DS.'files',
+					$folderName.DS.'flash',
+					$folderName.DS.'images'
+				);
+				
+				foreach($foldersToCreate as $folder) { FileAndDir::createPath($folder); }
+			}
 		}
 	}
 	
