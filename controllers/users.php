@@ -366,7 +366,8 @@ function edit($id) {
 	
 	if(isset($_POST) && !empty($_POST)) {
 	
-		if(!empty($validate)){ //On vérifi que la variable de validation contenant les règles n'est pas vide
+		//On vérifi que la variable de validation contenant les règles n'est pas vide
+		if(!empty($validate)){ 
 			$errors = validates($validate, $_POST);
 		}
 		if(empty($errors)){
@@ -374,32 +375,26 @@ function edit($id) {
 			//On récupère les informations de l'utilisateur
 			$user = findFirst(array('table' => 'users', 'link' => $link, 'conditions' => 'id='.$id));	
 
-			//On récupère le nom du dossier actuel
+			//On récupère le nom du dossier actuel de l'utilisateur
 			$oldFolderName = $user['folder'];
 				
-				
+			//On test si le dossier de l'utilisateur existe
 			if(FileAndDir::dexists(FILES.DS.$oldFolderName)){
-			
-				//Préparation des variables qui servirons au nouveau nom de dossier	
-				//$nom = strtolower(filter($_POST['nom']));
-				//$prenom = strtolower(filter($_POST['prenom']));
-					
-				//Création du nouveau nom du dossier personnel
-				//$newFolderName = uniqid();
 				
+				//On génère le nom du dossier à modifier
 				$newFolderName = create_folder_name($_POST['prenom'].' '.$_POST['nom'].' ');
 				
-				$_POST['folder'] = $newFolderName;	
+				$_POST['folder'] = $newFolderName;
 				
-				//On met à kour les informations de l'utilisateur
+				//On met à jour les informations de l'utilisateur
 				save(array('table' => $table, 'link' => $link), $_POST);
-				$notification = 'success';
-				
+
 				//On renomme le dossier personnel de l'utilisateur
 				//sleep(1);
 				FileAndDir::rename(FILES.DS.$oldFolderName, FILES.DS.$newFolderName);
+
 			}else{
-				
+
 				//Création du nom du dossier personnel
 				$folderName = create_folder_name($_POST['prenom'].' '.$_POST['nom'].' ');
 				
@@ -419,7 +414,12 @@ function edit($id) {
 				);
 				
 				foreach($foldersToCreate as $folder) { FileAndDir::createPath($folder); }
+				
+				//On met à kour les informations de l'utilisateur
+				save(array('table' => $table, 'link' => $link), $_POST);
 			}
+			
+			$notification = 'success';
 		}
 	}
 	
