@@ -448,6 +448,29 @@ function profil() {
 	$errors = array();
 	$notification = '';
 	
+	//Récupération des information de l'utilisateur
+	$user = findFirst(array('table' => 'users', 'link' => $link, 'conditions' => 'id='.Session::read('user_id')));
+	
+	//On test si le dossier de l'utilisateur n'existe pas
+	if(!FileAndDir::dexists(FILES.DS.$user['folder'])){
+			
+			//Création du nom du dossier personnel
+			$folderName = FILES.DS.$user['folder'];
+
+			$foldersToCreate = array(
+				$folderName,
+				$folderName.DS.'_thumbs',
+				$folderName.DS.'_thumbs'.DS.'Files',
+				$folderName.DS.'_thumbs'.DS.'Flash',
+				$folderName.DS.'_thumbs'.DS.'Images',
+				$folderName.DS.'files',
+				$folderName.DS.'flash',
+				$folderName.DS.'images'
+			);
+			
+			foreach($foldersToCreate as $folder) { FileAndDir::createPath($folder); }
+	}
+	
 	if(isset($_POST) && !empty($_POST)) {
 	
 		if(!empty($validate)){ //On vérifi que la variable de validation contenant les règles n'est pas vide
@@ -455,13 +478,11 @@ function profil() {
 		}
 		if(empty($errors)){
 		
-		
 			if(!empty($_POST)){
 			
 				//Cryptage du mot de passe en Sha1
 				$cryptPassword = sha1($_POST['password']);
 				$_POST['password'] = $cryptPassword;
-			
 			}
 		
 			save(array('table' => $table, 'link' => $link), $_POST);
@@ -470,7 +491,7 @@ function profil() {
 	}
 	
 	$aReturn = array(
-		'users' => findFirst(array('table' => 'users', 'link' => $link, 'conditions' => 'id='.Session::read('user_id'))),
+		'users' => $user,
 		'usersTypesList' => findRole(array('table' => 'types_users', 'link' => $link)),
 		'errors' => $errors,
 		'notification' => $notification
