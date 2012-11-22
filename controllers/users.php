@@ -188,7 +188,7 @@ function liste(){
 		$page = $_GET['page'];
 	}else{$page = 1;}
 	
-	$limit = 5; //Limite d'éléments par page
+	$limit = 10; //Limite d'éléments par page
 	$start = ($page - 1) * $limit;
 	
 	return array(
@@ -290,24 +290,10 @@ function upload(){
 				if($handle->uploaded) {
 			
 					foreach($requestDatas as $key => $value){
-						
-						 //if($key != 'file'){
-						 
-							//Upload du fichier
-							//upload_files($requestDatas['file'],$key);
-							/*require_once(LIB.DS.'upload.php');
-							$handle = new Upload($file);
-							if($handle->uploaded) {*/
-										
-								$filePath = WEBROOT.DS."files".DS.$key.DS.'files';
-								//if(isset($file2Upload) && $file2Upload) { $filePath .= $value.DS.'Files'; }								
-								$handle->Process($filePath);
-							//}
-						//} 
-
-						
+												
+						$filePath = WEBROOT.DS."files".DS.$key.DS.'files';							
+						$handle->Process($filePath);					
 					}
-					
 										
 					$fileName = $handle->file_dst_name;
 					$handle->Clean();
@@ -484,7 +470,8 @@ function profil() {
 				$cryptPassword = sha1($_POST['password']);
 				$_POST['password'] = $cryptPassword;
 			}
-		
+			
+			//modification du profil
 			save(array('table' => $table, 'link' => $link), $_POST);
 			$notification = 'success';
 		}
