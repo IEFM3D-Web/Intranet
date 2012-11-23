@@ -1,5 +1,5 @@
 <?php 
-echo form_input('file', "Fichier", array('type' => 'file', 'errors' => $aControllerDatas['errors']));
+echo form_input('file', "Fichier", array('class' => 'file','type' => 'file', 'errors' => $aControllerDatas['errors']));
 ?>
 
 <div id="accordion">

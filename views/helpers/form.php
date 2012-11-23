@@ -22,7 +22,7 @@ function form_create($attr = null) {
 function form_close($submit = true, $value = 'Envoyer') {
 	$html = '';
 	if($submit){
-		$html .='<button type="submit" class="button medium blue">'.$value.'</button><div class="clear"></div>';
+		$html .='<button type="submit" class="button medium blue" style="margin-top:10px;">'.$value.'</button><div class="clear"></div>';
 	}
 	$html .='</form>';
 	
@@ -126,7 +126,7 @@ function form_input($name, $label, $options = array()) {
 		break;
 		
 		case 'file':
-			$html .= '<input type="file" id="'.$libelleId.'" name="'.$name.'" />';
+			$html .= '<input type="file" id="'.$libelleId.'" name="'.$name.'" class="'.$options['class'].'" />';
 		break;
 
 		case 'checkbox':
