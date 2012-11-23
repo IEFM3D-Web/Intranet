@@ -63,6 +63,7 @@ function liste(){
 			if($value == 1){
 				$aDelete['id'] = $key;
 				delete($aDelete);
+				delete_by_name(array('table' => 'commentaires', 'link' => $link, 'name' => 'articles_id', 'value' => $key));
 			}
 		}
 		Session::write('success','Articles supprimées avec succès.');		
@@ -201,7 +202,7 @@ function view_article($id) {
 }
 
 
-function publish($Id, $newValueOnline){
+function publish($id, $newValueOnline){
 	
 	global $link;
 	global $table;
@@ -223,6 +224,7 @@ function erase($id) {
 	
 	global $link;
 	delete(array('table' => 'articles', 'link' => $link, 'id' => $id));
+	delete_by_name(array('table' => 'commentaires', 'link' => $link, 'name' => 'articles_id', 'value' => $id));
 	Session::write('success','Article supprimé avec succès.');
 	redirect('articles/liste');
 }
