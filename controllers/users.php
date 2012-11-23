@@ -188,7 +188,7 @@ function liste(){
 		$page = $_GET['page'];
 	}else{$page = 1;}
 	
-	$limit = 10; //Limite d'éléments par page
+	$limit = 15; //Limite d'éléments par page
 	$start = ($page - 1) * $limit;
 	
 	return array(

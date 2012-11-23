@@ -70,7 +70,17 @@ function deleteCategory()
 
 function deleteRole()
 {
-	var answer = confirm("Supprimer les rôles sélectionnées ?")
+	var answer = confirm("Supprimer les rôles sélectionnés ?")
+	if (answer){
+		document.messages.submit();
+	}
+
+	return false;  
+}
+
+function deleteSection()
+{
+	var answer = confirm("Supprimer les sections sélectionnées ?")
 	if (answer){
 		document.messages.submit();
 	}

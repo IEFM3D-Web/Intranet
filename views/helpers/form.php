@@ -22,7 +22,7 @@ function form_create($attr = null) {
 function form_close($submit = true, $value = 'Envoyer') {
 	$html = '';
 	if($submit){
-		$html .='<button type="submit">'.$value.'</button><div class="clear"></div>';
+		$html .='<button type="submit" class="button medium blue">'.$value.'</button><div class="clear"></div>';
 	}
 	$html .='</form>';
 	
@@ -59,6 +59,8 @@ function form_input($name, $label, $options = array()) {
 	);
 	
 	$options = array_merge($defaultOptions, $options);
+	
+	if(!isset($options['onclick'])){$options['onclick'] = "";}
 	
 	if($options['type'] != 'checkbox') {
 		 if(isset($options['values'][$name])){ $value = $options['values'][$name]; } 
@@ -138,7 +140,7 @@ function form_input($name, $label, $options = array()) {
 		
 		
 		case 'submit':
-			return '<button type="'.$options['type'].'" class="'.$options['class'].'">'.$name.'</span></button>';
+			return '<button type="'.$options['type'].'" class="'.$options['class'].'" onclick="'.$options['onclick'].'">'.$name.'</button>';
 		break;
 	
 	}

@@ -31,14 +31,14 @@ function index(){
 	}else{$page = 1;}
 	
 	//Pagination
-	$limit = 5; //Limite d'éléments par page
+	$limit = 15; //Limite d'éléments par page
 	$start = ($page - 1) * $limit;
 	
 	return array(
 		'commentaires' => find(array('table' => 'commentaires', 'limite' => array('start' =>$start, 'limit' =>$limit),'link' => $link)),
 		'authorList' => findAuthor(array('table' => 'users', 'link' => $link)),
 		'articleList' => findArticle(array('table' => 'articles', 'link' => $link)),
-		'pagination' => pagination($link, 'articles', $limit)
+		'pagination' => pagination($link, 'commentaires', $limit)
 	);
 };
 

@@ -12,12 +12,6 @@
 				<th scope="col" class="rounded-q4 center"><input type="checkbox" id="checkall"/></th>
 			</tr> 
 		</thead> 
-		<tfoot>
-			<tr>
-				<td colspan="6" class="rounded-foot-left">&nbsp;</td>
-				<td class="rounded-foot-right">&nbsp;</td>
-			</tr>
-		</tfoot>
 		 <tbody>
 			 <?php
 				foreach($aControllerDatas['users'] as $iKey => $aValue) {
@@ -48,8 +42,17 @@
 			</tr>
 			<?php
 			}
-			?>
+			?> 
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="7" class="foot">
+					<?php 
+					echo $aControllerDatas['pagination']; 
+					echo form_input('Supprimer','',array('type' => 'submit', 'class' => 'button small red', 'onclick' => 'return deleteUser();'));
+					?>
+				</td>
+			</tr>
+		</tfoot>
 	</table>
-	<?php echo $aControllerDatas['pagination']; ?>
-	<button type="submit" onclick="return deleteUser();"><span>Supprimer</span></button>
 </form>

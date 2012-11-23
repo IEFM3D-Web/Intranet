@@ -137,10 +137,12 @@ echo form_input('name', "Nom", array('errors' => $aControllerDatas['errors'], 'v
 	?>
 
 	</tbody>
-	<tfoot class="checkall">
+	<tfoot>
 		<tr>
-			<td style="text-align:right; background-color:#e6e6e6" colspan="6">Tout sélectionner</td>
-			<td style="background-color:#e6e6e6;"><input type="checkbox" id="checkall"/></td>
+			<td colspan="7" class="foot">
+				<span class="left"><input type="checkbox" id="checkall"/>Tout sélectionner</span>
+				<?php echo form_input('Envoyer','',array('type' => 'submit', 'class' => 'button medium blue')); ?>
+			</td>
 		</tr>
 	</tfoot>
 </table>

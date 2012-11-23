@@ -3,26 +3,16 @@
 	<table id="rounded-corner">
 		<thead>
 			<tr>
-				<th scope="col" class="rounded-company"><input type="checkbox" id="checkall"/></th>
-				<th scope="col" class="rounded fixed-width">Nom</th>
-				<th scope="col" class="rounded-q4">Actions</th>
+				<th scope="col" class="rounded-company fixed-width">Nom</th>
+				<th scope="col" class="rounded center">Actions</th>
+				<th scope="col" class="rounded-q4 center"><input type="checkbox" id="checkall"/></th>
 			</tr> 
 		</thead> 
-		<tfoot>
-			<tr>
-				<td colspan="2" class="rounded-foot-left">&nbsp;</td>
-				<td class="rounded-foot-right">&nbsp;</td>
-			</tr>
-		</tfoot>
-		 <tbody>
+		<tbody>
 			 <?php
 				foreach($aControllerDatas['types'] as $iKey => $aValue) {
 			?>
 			<tr>
-				<td>
-					<input type="hidden" value="0" class="cb-element" name="delete[<?php echo $aValue['id']; ?>]" id="InputDelete<?php echo $aValue['id']; ?>hidden">
-					<input type="checkbox" value="1" class="cb-element" name="delete[<?php echo $aValue['id']; ?>]" id="InputDelete<?php echo $aValue['id']; ?>">
-				</td>
 				<td class="text"><?php echo ucfirst($aValue['name']); ?></td>
 				<td>
 					<a href="<?php echo BASE_URL; ?>/users_types/edit/<?php echo $aValue['id']; ?>"><img alt="éditer" title="modifier" src="<?php echo BASE_URL;?>/img/intranet/site/article-edit.png"></a>
@@ -36,12 +26,24 @@
 					}
 					?>
 				</td>
+				<td>
+					<input type="hidden" value="0" class="cb-element" name="delete[<?php echo $aValue['id']; ?>]" id="InputDelete<?php echo $aValue['id']; ?>hidden">
+					<input type="checkbox" value="1" class="cb-element" name="delete[<?php echo $aValue['id']; ?>]" id="InputDelete<?php echo $aValue['id']; ?>">
+				</td>
 			</tr>
 			<?php
 			}
 			?>
+		</tbody>	
+		<tfoot>
+			<tr>
+				<td colspan="3" class="foot">
+					<?php 
+					echo $aControllerDatas['pagination']; 
+					echo form_input('Supprimer','',array('type' => 'submit', 'class' => 'button small red', 'onclick' => 'return deleteRole();'));
+					?>
+				</td>
+			</tr>
+		</tfoot>
 	</table>
-	<?php echo $aControllerDatas['pagination']; ?>
-	<br />
-	<button type="submit" onclick="return deleteRole();"><span>Supprimer</span></button>
 </form>

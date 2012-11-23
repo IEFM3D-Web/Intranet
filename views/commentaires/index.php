@@ -46,11 +46,13 @@
 		</tbody> 
 		<tfoot>
 			<tr>
-				<td colspan="6" class="rounded-foot-left">&nbsp;</td>
-				<td class="rounded-foot-right">&nbsp;</td>
+				<td colspan="7" class="foot">
+					<?php 
+					echo $aControllerDatas['pagination']; 
+					echo form_input('Supprimer','',array('type' => 'submit', 'class' => 'button small red', 'onclick' => 'return deleteComment();'));
+					?>
+				</td>
 			</tr>
 		</tfoot>
 	</table>
-	<?php echo $aControllerDatas['pagination']; ?>
-	<button type="submit" onclick="return deleteComment();"><span>Supprimer</span></button>
 </form>

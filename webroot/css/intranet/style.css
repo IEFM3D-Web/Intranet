@@ -40,6 +40,10 @@ margin:15px 20px 0 0;
 padding:0 0 0 18px
 }
 
+.left{
+float:left;
+}
+
 #main_container {
 width:900px;
 margin:0 auto;
@@ -298,7 +302,7 @@ margin:7px 0 0 8px
 }
 /******************************** TABLEAUX ***********************************/
 #rounded-corner {
-width:600px;
+width:100%;
 text-align:left;
 border-collapse:collapse;
 font-size:12px;
@@ -339,12 +343,14 @@ color:#669;
 padding:8px
 }
 
-#rounded-corner tfoot td.rounded-foot-left {
-background:#ecf8fd url(../../img/intranet/site/botleft.jpg) left bottom no-repeat
-}
-
-#rounded-corner tfoot td.rounded-foot-right {
-background:#ecf8fd url(../../img/intranet/site/botright.jpg) right bottom no-repeat
+.foot {
+background:#ecf8fd;
+-webkit-border-bottom-right-radius: 6px;
+-webkit-border-bottom-left-radius: 6px;
+-moz-border-radius-bottomright: 6px;
+-moz-border-radius-bottomleft: 6px;
+border-bottom-right-radius: 6px;
+border-bottom-left-radius: 6px;
 }
 
 #rounded-corner tbody tr:hover td {
@@ -603,13 +609,11 @@ padding:5px 0 5px 10px
 }
 /********************************** PAGINATION *****************************************/
 div.pagination {
-width:600px;
-text-align:right;
+text-align:left;
 float:left;
 clear:both;
 font-size:11px;
 margin:0;
-padding:10px 0
 }
 
 div.pagination a {
