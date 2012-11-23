@@ -21,9 +21,9 @@ function index(){
 				$aDelete['id'] = $key;
 				delete($aDelete);
 			}
-
-	
 		}
+		Session::write('success','Commentaires supprimés avec succès.');		
+		redirect('commentaires/index');
 	}
 	
 	if(isset($_GET['page']) && !empty($_GET['page'])){
@@ -53,7 +53,6 @@ function edit($id) {
 	global $table;
 	
 	$errors = array();
-	$notification = '';
 	
 	if(isset($_POST) && !empty($_POST)) {
 	
@@ -63,15 +62,15 @@ function edit($id) {
 		}
 		if(empty($errors)){
 			save(array('table' => $table, 'link' => $link), $_POST);
-			$notification = 'success';
+			Session::write('success','Commentaire modifié avec succès.');
+			redirect('commentaires/index');
 		}
 	}
 	
 	$aReturn = array(
 		'commentaires' => findFirst(array('table' => 'commentaires', 'link' => $link, 'conditions' => 'id='.$id)),
 		'id' => $id,
-		'errors' => $errors,
-		'notification' => $notification
+		'errors' => $errors
 	);
 	return $aReturn;
 }
@@ -85,6 +84,7 @@ function erase($id) {
 	
 	global $link;
 	delete(array('table' => 'commentaires', 'link' => $link, 'id' => $id));
+	Session::write('success','Commentaire supprimé avec succès.');
 	redirect('commentaires/index');
 }
 
@@ -101,14 +101,4 @@ function publish($id, $newValueOnline){
 	
 	//on redirige vers la liste des commentaires
 	redirect('commentaires/index');
-}
-
-/**
-*Cette fonction permet la suppression de plusieurs commentaires
-*/
-function erase_all($id) {
-
-	global $link;
-	delete(array('table' => 'articles', 'link' => $link, 'datas' => $_POST));
-	redirect('articles/liste');
 }

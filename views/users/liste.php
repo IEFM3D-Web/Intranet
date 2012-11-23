@@ -1,4 +1,16 @@
 <h2>Gérer les utilisateurs</h2>
+<?php
+//On test si il y a des messages de succès à afficher
+if(Session::check('success')){
+?>
+	<div class="success message">
+		<p><?php echo Session::read('success');?></p>
+	</div>
+<?php
+	//On détruit le message de succès une fois qu'il a été affiché
+	Session::delete('success');
+}
+?>
 <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
 	<table id="rounded-corner">
 		<thead>

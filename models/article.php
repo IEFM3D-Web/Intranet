@@ -9,19 +9,19 @@ $validate = array(
 	'titre' => array(
 		'rule1' => array(
 			'rule' => array('minLength', 3),
-			'message' => "La valeur de ce champs est de 3 caractères minimum."
+			'message' => "Titre : La valeur de ce champs est de 3 caractères minimum."
 		),
 		'rule2' => array(
 			'rule' => array('maxLength', 80),
-			'message' => "La valeur de ce champs est de 80 caractères maximum."
+			'message' => "Titre : La valeur de ce champs est de 80 caractères maximum."
 		)
 	),
 	'chapeau' => array(
 		'rule' => array('minLength', 10),
-		'message' => "La valeur de ce champs est de 10 caractères minimum."
+		'message' => "Chapeau : La valeur de ce champs est de 10 caractères minimum."
 	),
 	'contenu' => array(
 		'rule' => array('minLength', 10),
-		'message' => "La valeur de ce champs est de 10 caractères minimum."
+		'message' => "Contenu : La valeur de ce champs est de 10 caractères minimum."
 	)
 );

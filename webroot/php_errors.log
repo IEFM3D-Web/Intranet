@@ -165,3 +165,85 @@
 [23-Nov-2012 17:32:52 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
 [23-Nov-2012 17:32:52 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
 [23-Nov-2012 17:32:52 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:33
+[23-Nov-2012 19:00:19 UTC] PHP Parse error:  syntax error, unexpected '<' in C:\wamp\www\Intranet\views\articles\edit.php on line 32
+[23-Nov-2012 19:00:19 UTC] PHP Stack trace:
+[23-Nov-2012 19:00:19 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 19:00:25 UTC] PHP Parse error:  syntax error, unexpected '<' in C:\wamp\www\Intranet\views\articles\edit.php on line 32
+[23-Nov-2012 19:00:25 UTC] PHP Stack trace:
+[23-Nov-2012 19:00:25 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 19:00:27 UTC] PHP Parse error:  syntax error, unexpected '<' in C:\wamp\www\Intranet\views\articles\edit.php on line 32
+[23-Nov-2012 19:00:27 UTC] PHP Stack trace:
+[23-Nov-2012 19:00:27 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 19:32:56 UTC] PHP Notice:  Undefined variable: cryptPassword in C:\wamp\www\Intranet\controllers\users.php on line 475
+[23-Nov-2012 19:32:56 UTC] PHP Stack trace:
+[23-Nov-2012 19:32:56 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 19:32:56 UTC] PHP   2. call_user_func_array() C:\wamp\www\Intranet\webroot\index.php:123
+[23-Nov-2012 19:32:56 UTC] PHP   3. profil() C:\wamp\www\Intranet\webroot\index.php:123
+[23-Nov-2012 19:33:13 UTC] PHP Notice:  Undefined variable: cryptPassword in C:\wamp\www\Intranet\controllers\users.php on line 475
+[23-Nov-2012 19:33:13 UTC] PHP Stack trace:
+[23-Nov-2012 19:33:13 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 19:33:13 UTC] PHP   2. call_user_func_array() C:\wamp\www\Intranet\webroot\index.php:123
+[23-Nov-2012 19:33:13 UTC] PHP   3. profil() C:\wamp\www\Intranet\webroot\index.php:123
+[23-Nov-2012 19:33:19 UTC] PHP Notice:  Undefined variable: cryptPassword in C:\wamp\www\Intranet\controllers\users.php on line 475
+[23-Nov-2012 19:33:19 UTC] PHP Stack trace:
+[23-Nov-2012 19:33:19 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 19:33:19 UTC] PHP   2. call_user_func_array() C:\wamp\www\Intranet\webroot\index.php:123
+[23-Nov-2012 19:33:19 UTC] PHP   3. profil() C:\wamp\www\Intranet\webroot\index.php:123
+[23-Nov-2012 19:33:29 UTC] PHP Notice:  Undefined variable: cryptPassword in C:\wamp\www\Intranet\controllers\users.php on line 475
+[23-Nov-2012 19:33:29 UTC] PHP Stack trace:
+[23-Nov-2012 19:33:29 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 19:33:29 UTC] PHP   2. call_user_func_array() C:\wamp\www\Intranet\webroot\index.php:123
+[23-Nov-2012 19:33:29 UTC] PHP   3. profil() C:\wamp\www\Intranet\webroot\index.php:123
+[23-Nov-2012 19:33:33 UTC] PHP Notice:  Undefined variable: cryptPassword in C:\wamp\www\Intranet\controllers\users.php on line 475
+[23-Nov-2012 19:33:33 UTC] PHP Stack trace:
+[23-Nov-2012 19:33:33 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 19:33:33 UTC] PHP   2. call_user_func_array() C:\wamp\www\Intranet\webroot\index.php:123
+[23-Nov-2012 19:33:33 UTC] PHP   3. profil() C:\wamp\www\Intranet\webroot\index.php:123
+[23-Nov-2012 19:45:37 UTC] PHP Parse error:  syntax error, unexpected ';' in C:\wamp\www\Intranet\views\categories\index.php on line 3
+[23-Nov-2012 19:45:37 UTC] PHP Stack trace:
+[23-Nov-2012 19:45:37 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 19:48:29 UTC] PHP Notice:  Undefined index: prenom in C:\wamp\www\Intranet\views\elements\intranet\header.php on line 5
+[23-Nov-2012 19:48:29 UTC] PHP Stack trace:
+[23-Nov-2012 19:48:29 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 19:48:29 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:128
+[23-Nov-2012 19:48:29 UTC] PHP   3. include() C:\wamp\www\Intranet\views\layout\intranet.php:55
+[23-Nov-2012 19:48:29 UTC] PHP Notice:  Undefined index: nom in C:\wamp\www\Intranet\views\elements\intranet\header.php on line 5
+[23-Nov-2012 19:48:29 UTC] PHP Stack trace:
+[23-Nov-2012 19:48:29 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 19:48:29 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:128
+[23-Nov-2012 19:48:29 UTC] PHP   3. include() C:\wamp\www\Intranet\views\layout\intranet.php:55
+[23-Nov-2012 19:48:29 UTC] PHP Notice:  Undefined index: role in C:\wamp\www\Intranet\views\elements\intranet\left_content.php on line 12
+[23-Nov-2012 19:48:29 UTC] PHP Stack trace:
+[23-Nov-2012 19:48:29 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 19:48:29 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:128
+[23-Nov-2012 19:48:29 UTC] PHP   3. include() C:\wamp\www\Intranet\views\layout\intranet.php:58
+[23-Nov-2012 19:48:29 UTC] PHP Warning:  include(C:\wamp\www\Intranet\views\elements\intranet\menus\menu_.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in C:\wamp\www\Intranet\views\elements\intranet\left_content.php on line 12
+[23-Nov-2012 19:48:29 UTC] PHP Stack trace:
+[23-Nov-2012 19:48:29 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 19:48:29 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:128
+[23-Nov-2012 19:48:29 UTC] PHP   3. include() C:\wamp\www\Intranet\views\layout\intranet.php:58
+[23-Nov-2012 19:48:29 UTC] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'C:\wamp\www\Intranet\views\elements\intranet\menus\menu_.php' for inclusion (include_path='.;C:\php\pear') in C:\wamp\www\Intranet\views\elements\intranet\left_content.php on line 12
+[23-Nov-2012 19:48:29 UTC] PHP Stack trace:
+[23-Nov-2012 19:48:29 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 19:48:29 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:128
+[23-Nov-2012 19:48:29 UTC] PHP   3. include() C:\wamp\www\Intranet\views\layout\intranet.php:58
+[23-Nov-2012 20:19:52 UTC] PHP Notice:  Undefined variable: cryptPassword in C:\wamp\www\Intranet\controllers\users.php on line 473
+[23-Nov-2012 20:19:52 UTC] PHP Stack trace:
+[23-Nov-2012 20:19:52 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:19:52 UTC] PHP   2. call_user_func_array() C:\wamp\www\Intranet\webroot\index.php:123
+[23-Nov-2012 20:19:52 UTC] PHP   3. profil() C:\wamp\www\Intranet\webroot\index.php:123
+[23-Nov-2012 20:33:26 UTC] PHP Notice:  Undefined index: publish in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 57
+[23-Nov-2012 20:33:26 UTC] PHP Stack trace:
+[23-Nov-2012 20:33:26 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:33:26 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:33:26 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:35:06 UTC] PHP Notice:  Undefined variable: cryptPassword in C:\wamp\www\Intranet\controllers\users.php on line 476
+[23-Nov-2012 20:35:06 UTC] PHP Stack trace:
+[23-Nov-2012 20:35:06 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:35:06 UTC] PHP   2. call_user_func_array() C:\wamp\www\Intranet\webroot\index.php:123
+[23-Nov-2012 20:35:06 UTC] PHP   3. profil() C:\wamp\www\Intranet\webroot\index.php:123
+[23-Nov-2012 20:35:10 UTC] PHP Notice:  Undefined variable: cryptPassword in C:\wamp\www\Intranet\controllers\users.php on line 476
+[23-Nov-2012 20:35:10 UTC] PHP Stack trace:
+[23-Nov-2012 20:35:10 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:35:10 UTC] PHP   2. call_user_func_array() C:\wamp\www\Intranet\webroot\index.php:123
+[23-Nov-2012 20:35:10 UTC] PHP   3. profil() C:\wamp\www\Intranet\webroot\index.php:123

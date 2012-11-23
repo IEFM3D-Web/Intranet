@@ -25,6 +25,20 @@ if(isset($aControllerDatas['notification'])){
 		<?php
 	}
 }
+if(isset($aControllerDatas['errors']) && !empty($aControllerDatas['errors'])){
+?>
+	
+		<div class="error message">
+		<h4>Des erreurs ont étées trouvées</h4>
+			<?php
+			foreach($aControllerDatas['errors'] as $k => $v){
+				
+				echo '<p>'.$k.' : '.$v.'</p>';
+			}
+			?>
+		</div>
+		<?php
+}
 ?>
 <div id="profil">
 <h2>Ajouter un rôle</h2>

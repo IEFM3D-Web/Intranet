@@ -145,10 +145,6 @@ function form_input($name, $label, $options = array()) {
 	
 	}
 	
-	if(isset($options['errors'][$name])){
-		$html .= '<div class="error_box">'.$options['errors'][$name].'</div>';
-	}
-	
 	$html .= '</div>';
 $html .= '</div>';
 	

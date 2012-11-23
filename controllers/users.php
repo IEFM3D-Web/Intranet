@@ -180,8 +180,9 @@ function liste(){
 				$aDelete['id'] = $key;
 				delete($aDelete);
 			}
-
 		}
+		Session::write('success','Utilisateurs supprimés avec succès.');		
+		redirect('users/liste');
 	}
 	//Pagination
 	if(isset($_GET['page']) && !empty($_GET['page'])){
@@ -206,7 +207,6 @@ function add(){
 	global $validate;
 	
 	$errors = array();
-	$notification = '';
 
 	if(isset($_POST) && !empty($_POST)) {
 		
@@ -242,7 +242,8 @@ function add(){
 
 			//Création de l'utilisateur
 			save(array('table' => 'users', 'link' => $link), $_POST);
-			$notification = 'success';
+			Session::write('success','Utilisateur ajouté avec succès.');
+			redirect('users/liste');
 		}
 		
 	}
@@ -251,8 +252,7 @@ function add(){
 		'usersTypesList' => findList(array('table' => 'types_users', 'link' => $link)),
 		'userTypesSex'=> findSex(array('table' => 'sexes_users', 'link' => $link)),
 		'userTypesSection'=> findList(array('table' => 'sections', 'link' => $link)),
-		'errors' => $errors,
-		'notification' => $notification
+		'errors' => $errors
 	);
 }
 
@@ -348,7 +348,6 @@ function edit($id) {
 	global $table;
 	
 	$errors = array();
-	$notification = '';
 	
 	if(isset($_POST) && !empty($_POST)) {
 	
@@ -378,6 +377,8 @@ function edit($id) {
 				//On renomme le dossier personnel de l'utilisateur
 				//sleep(1);
 				FileAndDir::rename(FILES.DS.$oldFolderName, FILES.DS.$newFolderName);
+				Session::write('success','Utilisateurs modifié avec succès.');
+				redirect('users/liste');
 
 			}else{
 
@@ -403,9 +404,9 @@ function edit($id) {
 				
 				//On met à kour les informations de l'utilisateur
 				save(array('table' => $table, 'link' => $link), $_POST);
+				Session::write('success','Utilisateurs modifié avec succès.');
+				redirect('users/liste');
 			}
-			
-			$notification = 'success';
 		}
 	}
 	
@@ -415,8 +416,7 @@ function edit($id) {
 		'usersTypesList' => findList(array('table' => 'types_users', 'link' => $link)),	
 		'userTypesSection'=> findList(array('table' => 'sections', 'link' => $link)),
 		'userTypesSex'=> findSex(array('table' => 'sexes_users', 'link' => $link)),
-		'errors' => $errors,
-		'notification' => $notification
+		'errors' => $errors
 	);
 	return $aReturn;
 }
@@ -460,17 +460,23 @@ function profil() {
 	if(isset($_POST) && !empty($_POST)) {
 	
 		if(!empty($validate)){ //On vérifi que la variable de validation contenant les règles n'est pas vide
+		
+			//On test si un mot de passe a été envoyé
+			if(isset($_POST['password']) && !empty($_POST['password'])){
+				
+				//Cryptage du mot de passe en Sha1
+				$cryptPassword = sha1($_POST['password']);		
+			}
+			//On efface le mot de passe de la variable $_POST avant la validation vue que ce champ est optionnel
+			unset($_POST['password'] );
+			
 			$errors = validates($validate, $_POST);
 		}
-		if(empty($errors)){
 		
-			if(!empty($_POST)){
-			
-				//Cryptage du mot de passe en Sha1
-				$cryptPassword = sha1($_POST['password']);
-				$_POST['password'] = $cryptPassword;
-			}
-			
+		if($cryptPassword){$_POST['password'] = $cryptPassword;}
+		
+		if(empty($errors)){
+
 			//modification du profil
 			save(array('table' => $table, 'link' => $link), $_POST);
 			$notification = 'success';
@@ -521,16 +527,7 @@ function erase($id) {
 	
 	global $link;
 	delete(array('table' => 'users', 'link' => $link, 'id' => $id));
-	redirect('users/liste');
-}
-
-/**
-*Cette fonction permet la suppression d'utilisateurs multiples
-*/
-function erase_all($id) {
-
-	global $link;
-	delete(array('table' => 'users', 'link' => $link, 'datas' => $_POST));
+	Session::write('success','Utilisateur supprimé avec succès.');
 	redirect('users/liste');
 }
 

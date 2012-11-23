@@ -8,46 +8,46 @@ $table = 'users';
 $validate = array(
 	'nom' => array(
 		'rule' => array('minLength', 3),
-		'message' => 'La valeur de ce champs est de 3 caractères minimum.'
+		'message' => 'Nom : La valeur de ce champs est de 3 caractères minimum.'
 	),
 	'prenom' => array(
 		'rule' => array('minLength', 3),
-		'message' => 'La valeur de ce champs est de 3 caractères minimum.'
+		'message' => 'Prénom : La valeur de ce champs est de 3 caractères minimum.'
 	),
 	'password' => array(
 		'rule' => array('minLength', 3),
-		'message' => 'La valeur de ce champs est de 3 caractères minimum.'
+		'message' => 'Mot de passe : La valeur de ce champs est de 3 caractères minimum.'
 	),
 	'mail' => array(
 		'rule' => array('email'),
-		'message' => 'Cette adresse est invalide'
+		'message' => 'Mail : Cette adresse est invalide'
 	),
 	'adresse' => array(
 		'rule' => array('minLength', 10),
-		'message' => "La valeur de ce champs est de 10 caractères minimum."
+		'message' => "Adresse : La valeur de ce champs est de 10 caractères minimum."
 	),
 	'file' => array(
         'rule1' =>array(
             'rule' => array('checkType'),
-			'message' => 'Mauvaise extension'
+			'message' => 'Fichier : Mauvaise extension'
         ),
 		'rule2' =>array(
             'rule' => array('checkSize', 2097152),
-			'message' => 'Le fichier fait plus de 2Mo'
+			'message' => 'Fichier : Le fichier fait plus de 2Mo'
         ),
         'rule3' =>array(
             'rule' => array('checkUpload'),
-			'message' => 'Vous devez selectionner un fichier'
+			'message' => 'Fichier : Vous devez selectionner un fichier'
         )
 	),
 	'tel' => array(
 		'rule1' => array(
 			'rule' => array('minLength', 10),
-			'message' => 'La valeur de ce champ est de 10 caractères '
+			'message' => 'Téléphone : La valeur de ce champ est de 10 caractères '
 		),
 		'rule2' => array(
 			'rule' => array('maxLength', 10),
-			'message' => 'La valeur de ce champ est de 10 caractères '
+			'message' => 'Téléphone : La valeur de ce champ est de 10 caractères '
 		)
 	),
 );

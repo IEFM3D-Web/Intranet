@@ -28,6 +28,20 @@ if(isset($aControllerDatas['notification'])){
 		<?php
 	}
 }
+if(isset($aControllerDatas['errors']) && !empty($aControllerDatas['errors'])){
+?>
+	
+		<div class="error message">
+		<h4>Des erreurs ont étées trouvées</h4>
+			<?php
+			foreach($aControllerDatas['errors'] as $v){
+				
+				echo '<p>'.$v.'</p>';
+			}
+			?>
+		</div>
+		<?php
+}
 ?>
 <h2>Mon profil</h2>
 <div id="profil">

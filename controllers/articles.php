@@ -64,9 +64,9 @@ function liste(){
 				$aDelete['id'] = $key;
 				delete($aDelete);
 			}
-
-	
 		}
+		Session::write('success','Articles supprimées avec succès.');		
+		redirect('articles/liste');
 	}
 	
 	if(isset($_GET['page']) && !empty($_GET['page'])){
@@ -95,7 +95,6 @@ function add(){
 	global $validate;
 	
 	$errors = array();
-	$notification = '';
 	
 	if(isset($_POST) && !empty($_POST)) {
 		
@@ -106,15 +105,15 @@ function add(){
 		
 		if(empty($errors)){
 			save(array('table' => 'articles', 'link' => $link), $_POST);
-			$notification = 'success';
+			Session::write('success','Article ajouté avec succès.');
+			redirect('articles/liste');
 		}
 		
 	}
 	
 	return array(
 		'articlesTypesList' => findList(array('table' => 'articles_types', 'link' => $link)),
-		'errors' => $errors,
-		'notification' => $notification
+		'errors' => $errors
 	);
 };
 
@@ -130,7 +129,6 @@ function edit($id) {
 	global $table;
 	
 	$errors = array();
-	$notification = '';
 	
 	if(isset($_POST) && !empty($_POST)) {
 	
@@ -140,7 +138,8 @@ function edit($id) {
 		}
 		if(empty($errors)){
 			save(array('table' => $table, 'link' => $link), $_POST);
-			$notification = 'success';
+			Session::write('success','Article modifié avec succès.');
+			redirect('articles/liste');
 		}
 	}
 	
@@ -148,8 +147,7 @@ function edit($id) {
 		'articles' => findFirst(array('table' => 'articles', 'link' => $link, 'conditions' => 'id='.$id)),
 		'id' => $id,
 		'articlesTypesList' => findList(array('table' => 'articles_types', 'link' => $link)),
-		'errors' => $errors,
-		'notification' => $notification
+		'errors' => $errors
 	);
 	return $aReturn;
 }
@@ -225,16 +223,6 @@ function erase($id) {
 	
 	global $link;
 	delete(array('table' => 'articles', 'link' => $link, 'id' => $id));
-	redirect('articles/liste');
-}
-
-
-/**
-*Cette fonction permet la suppression de plusieurs articles
-*/
-function erase_all($id) {
-
-	global $link;
-	delete(array('table' => 'articles', 'link' => $link, 'datas' => $_POST));
+	Session::write('success','Article supprimé avec succès.');
 	redirect('articles/liste');
 }

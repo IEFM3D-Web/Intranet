@@ -8,6 +8,6 @@ $table = 'commentaires';
 $validate = array(
 	'contenu' => array(
 		'rule' => array('minLength', 10),
-		'message' => "La valeur de ce champs est de 10 caractères minimum."
+		'message' => "Contenu : La valeur de ce champs est de 10 caractères minimum."
 	)
 );

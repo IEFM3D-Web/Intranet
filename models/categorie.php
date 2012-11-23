@@ -9,11 +9,11 @@ $validate = array(
 	'name' => array(
 		'rule1' => array(
 			'rule' => array('minLength', 3),
-			'message' => "La valeur de ce champs est de 3 caractères minimum."
+			'message' => "Nom : La valeur de ce champs est de 3 caractères minimum."
 		),
 		'rule2' => array(
 			'rule' => array('maxLength', 80),
-			'message' => "La valeur de ce champs est de 80 caractères maximum."
+			'message' => "Nom : La valeur de ce champs est de 80 caractères maximum."
 		)
 	)
 );

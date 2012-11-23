@@ -21,8 +21,9 @@ function index(){
 				$aDelete['id'] = $key;
 				delete($aDelete);
 			}
-
 		}
+		Session::write('success','Rôles supprimés avec succès.');		
+		redirect('users_types/index');
 	}
 	
 	if(isset($_GET['page']) && !empty($_GET['page'])){
@@ -49,7 +50,6 @@ function add(){
 	global $validate;
 	
 	$errors = array();
-	$notification = '';
 
 	if(isset($_POST) && !empty($_POST)) {
 		
@@ -73,14 +73,15 @@ function add(){
 			}
 			
 			menu($crud,$last_id); //Génération du menu en fonctiond du crud
-			$notification = 'success';
+			Session::write('success','Rôle ajouté avec succès.');
+			redirect('users_types/index');
+			
 		}
 		
 	}
 	
 	return array(
-		'errors' => $errors,
-		'notification' => $notification
+		'errors' => $errors
 	);
 }
 
@@ -96,7 +97,6 @@ function edit($id) {
 	global $table;
 	
 	$errors = array();
-	$notification = '';
 	
 	if(isset($_POST) && !empty($_POST)) {
 	
@@ -125,7 +125,8 @@ function edit($id) {
 				}
 			}
 			menu($crud,$last_id); //Génération du menu en fonctiond du crud
-			$notification = 'success';
+			Session::write('success','Rôle modifié avec succès.');
+			redirect('users_types/index');
 		}
 	}
 	
@@ -144,8 +145,7 @@ function edit($id) {
 		'types' => findFirst(array('table' => 'types_users', 'link' => $link, 'conditions' => 'id='.$id)),
 		'id' => $id,
 		'crud' => $crud,
-		'errors' => $errors,
-		'notification' => $notification
+		'errors' => $errors
 	);
 	return $aReturn;
 }
@@ -162,22 +162,11 @@ function erase($id) {
 		delete(array('table' => 'types_users', 'link' => $link, 'id' => $id)); //On supprime le role de la table types_users
 		delete_by_name(array('table' => 'acls', 'link' => $link, 'name' => 'types_user_id', 'value' => $id)); //On supprime le role de la table acls
 		if(file_exists(ELEMENTS.DS.'intranet/menus/menu_'.$id.'.php')){unlink(ELEMENTS.DS.'intranet/menus/menu_'.$id.'.php');} //On supprime le menu associé au role
+		Session::write('success','Rôle supprimé avec succès.');
 		redirect('users_types/index');
 	}else{
 		redirect('articles');
 	}
 	
-}
-
-
-
-/**
-*Cette fonction permet la suppression de plusieurs rôles
-*/
-function erase_all($id) {
-
-	global $link;
-	delete(array('table' => 'types_users', 'link' => $link, 'datas' => $_POST));
-	redirect('users_types/index');
 }
 ?>

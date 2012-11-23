@@ -17,12 +17,13 @@ function index(){
 		foreach($_POST['delete'] as $key => $value){
 		
 			if($value == 1){
+			
 				$aDelete['id'] = $key;
 				delete($aDelete);
 			}
-
-	
 		}
+		Session::write('success','Catégories supprimées avec succès.');		
+		redirect('categories/index');
 	}
 	
 	if(isset($_GET['page']) && !empty($_GET['page'])){
@@ -49,7 +50,6 @@ function add(){
 	global $validate;
 	
 	$errors = array();
-	$notification = '';
 	
 	if(isset($_POST) && !empty($_POST)) {
 		
@@ -61,14 +61,14 @@ function add(){
 		
 		if(empty($errors)){
 			save(array('table' => 'articles_types', 'link' => $link), $_POST);
-			$notification = 'success';
+			Session::write('success','Catégorie ajoutée avec succès.');
+			redirect('categories/index');
 		}
 		
 	}
 
 	return array(
 		'errors' => $errors,
-		'notification' => $notification
 	);
 	
 };
@@ -85,7 +85,6 @@ function edit($id) {
 	global $table;
 	
 	$errors = array();
-	$notification = '';
 	
 	if(isset($_POST) && !empty($_POST)) {
 	
@@ -95,15 +94,15 @@ function edit($id) {
 		}
 		if(empty($errors)){
 			save(array('table' => $table, 'link' => $link), $_POST);
-			$notification = 'success';
+			Session::write('success','Catégorie modifiée avec succès.');
+			redirect('categories/index');
 		}
 	}
 	
 	$aReturn = array(
 		'categories' => findFirst(array('table' => 'articles_types', 'link' => $link, 'conditions' => 'id='.$id)),
 		'id' => $id,
-		'errors' => $errors,
-		'notification' => $notification
+		'errors' => $errors
 	);
 	return $aReturn;
 }
@@ -117,17 +116,6 @@ function erase($id) {
 	
 	global $link;
 	delete(array('table' => 'articles_types', 'link' => $link, 'id' => $id));
-	redirect('categories/index');
-}
-
-
-
-/**
-*Cette fonction permet la suppression de plusieurs articles
-*/
-function erase_all($id) {
-
-	global $link;
-	delete(array('table' => 'articles_types', 'link' => $link, 'datas' => $_POST));
+	Session::write('success','Catégorie supprimée avec succès.');
 	redirect('categories/index');
 }

@@ -20,10 +20,24 @@ if(isset($aControllerDatas['notification'])){
 		});       
 		</script>
 		<div class="success message">
-			<p>Fichié envoyé avec succés.</p>
+			<p>Fichier envoyé avec succès.</p>
 		</div>
 		<?php
 	}
+}
+if(isset($aControllerDatas['errors']) && !empty($aControllerDatas['errors'])){
+?>
+	
+		<div class="error message">
+		<h4>Des erreurs ont étées trouvées</h4>
+			<?php
+			foreach($aControllerDatas['errors'] as $v){
+				
+				echo '<p>'.$v.'</p>';
+			}
+			?>
+		</div>
+		<?php
 }
 ?>
 	<script>

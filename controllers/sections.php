@@ -21,6 +21,8 @@ function index(){
 				delete($aDelete);
 			}
 		}
+		Session::write('success','Sections supprimées avec succès.');		
+		redirect('sections/index');
 	}
 	
 	if(isset($_GET['page']) && !empty($_GET['page'])){
@@ -49,7 +51,6 @@ function add(){
 	global $validate;
 	
 	$errors = array();
-	$notification = '';
 	
 	if(isset($_POST) && !empty($_POST)) {
 		
@@ -61,14 +62,14 @@ function add(){
 		
 		if(empty($errors)){
 			save(array('table' => 'sections', 'link' => $link), $_POST);
-			$notification = 'success';
+			Session::write('success','Section ajoutée avec succès.');
+			redirect('sections/index');
 		}
 		
 	}
 
 	return array(
-		'errors' => $errors,
-		'notification' => $notification
+		'errors' => $errors
 	);
 	
 };
@@ -85,7 +86,6 @@ function edit($id) {
 	global $table;
 	
 	$errors = array();
-	$notification = '';
 	
 	if(isset($_POST) && !empty($_POST)) {
 	
@@ -95,15 +95,15 @@ function edit($id) {
 		}
 		if(empty($errors)){
 			save(array('table' => $table, 'link' => $link), $_POST);
-			$notification = 'success';
+			Session::write('success','Section modifiée avec succès.');
+			redirect('sections/index');
 		}
 	}
 	
 	$aReturn = array(
 		'sections' => findFirst(array('table' => 'sections', 'link' => $link, 'conditions' => 'id='.$id)),
 		'id' => $id,
-		'errors' => $errors,
-		'notification' => $notification
+		'errors' => $errors
 	);
 	return $aReturn;
 }
@@ -117,17 +117,6 @@ function erase($id) {
 	
 	global $link;
 	delete(array('table' => 'sections', 'link' => $link, 'id' => $id));
-	redirect('sections/index');
-}
-
-
-
-/**
-*Cette fonction permet la suppression de plusieurs articles
-*/
-function erase_all($id) {
-
-	global $link;
-	delete(array('table' => 'sections', 'link' => $link, 'datas' => $_POST));
+	Session::write('success','Section supprimée avec succès.');
 	redirect('sections/index');
 }
