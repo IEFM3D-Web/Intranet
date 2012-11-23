@@ -1,7 +1,7 @@
 <?php 
 echo form_input('file', "Fichier", array('class' => 'file','type' => 'file', 'errors' => $aControllerDatas['errors']));
 ?>
-
+<input type="checkbox" id="checkall"/><label for="checkall">Toutes les sections</label>
 <div id="accordion">
 	<?php 
 	foreach($aControllerDatas['sections_liste'] as $k => $v){ 
@@ -12,6 +12,11 @@ echo form_input('file', "Fichier", array('class' => 'file','type' => 'file', 'er
 			<h3 style="width:564px;"><?php echo $v; ?></h3>
 			<div id="section<?php echo $k; ?>">
 				<table style="width:100%;">
+					<tr>
+					<td>
+					<input type="checkbox" value="<?php echo $k; ?>" class="cocheAll" />Tout cocher
+					</td>
+					</tr>
 					<tr>
 					<?php 
 					$cpt_eleves = 0;
@@ -26,8 +31,6 @@ echo form_input('file', "Fichier", array('class' => 'file','type' => 'file', 'er
 					?>
 					</tr>
 				</table>
-				<br /><br />
-				<input type="checkbox" value="<?php echo $k; ?>" class="cocheAll" /> Tout cocher
 			</div>
 	<?php 
 		}
