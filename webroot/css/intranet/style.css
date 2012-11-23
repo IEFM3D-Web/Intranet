@@ -56,6 +56,10 @@ margin:0 auto
 width:450px
 }
 
+.40width {
+width:10%
+}
+
 .logo {
 padding-bottom:20px
 }
@@ -302,7 +306,6 @@ margin:0
 }
 
 #rounded-corner thead th.rounded-company {
-width:26px;
 background:#2a9dd9 url(../../img/intranet/site/left.png) left top no-repeat;
 text-align:center
 }

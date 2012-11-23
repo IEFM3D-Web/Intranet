@@ -203,13 +203,19 @@ function view_article($id) {
 }
 
 
-function publish($articleId, $newValueOnline){
+function publish($Id, $newValueOnline){
 	
 	global $link;
 	global $table;
-	save(array('table' => $table, 'link' => $link), array('id' => $articleId, 'online' => $newValueOnline));
+	
+	//On test si les paramètres nécessaires existent
+	if(isset($id) && isset($newValueOnline)){
+	
+		save(array('table' => $table, 'link' => $link), array('id' => $id, 'online' => $newValueOnline));
+	}
+	
+	//On redirige vers la liste des articles
 	redirect('articles/liste');
-
 }
 
 /**
@@ -221,7 +227,6 @@ function erase($id) {
 	delete(array('table' => 'articles', 'link' => $link, 'id' => $id));
 	redirect('articles/liste');
 }
-
 
 
 /**

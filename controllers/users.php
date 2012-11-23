@@ -537,4 +537,19 @@ function erase_all($id) {
 function erreur() {
 
 }
+
+function publish($Id, $newValueOnline){
+	
+	global $link;
+	global $table;
+	
+	//On test si les paramètres nécessaires existent
+	if(isset($id) && isset($newValueOnline)){
+	
+		save(array('table' => $table, 'link' => $link), array('id' => $id, 'is_auth' => $newValueOnline));
+	}
+	
+	//On redirige vers la liste des utilisateurs
+	redirect('users/liste');
+}
 ?>

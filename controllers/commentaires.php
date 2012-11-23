@@ -88,13 +88,19 @@ function erase($id) {
 	redirect('commentaires/index');
 }
 
-function publish($commentId, $newValueOnline){
+function publish($id, $newValueOnline){
 	
 	global $link;
 	global $table;
-	save(array('table' => $table, 'link' => $link), array('id' => $commentId, 'online' => $newValueOnline));
+	
+	//On test si les paramètres nécessaires existent
+	if(isset($id) && isset($newValueOnline)){
+	
+		save(array('table' => $table, 'link' => $link), array('id' => $id, 'online' => $newValueOnline));
+	}
+	
+	//on redirige vers la liste des commentaires
 	redirect('commentaires/index');
-
 }
 
 /**

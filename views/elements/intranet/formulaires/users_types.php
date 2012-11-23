@@ -54,7 +54,7 @@ echo form_input('name', "Nom", array('errors' => $aControllerDatas['errors'], 'v
 			<td><?php echo form_input('crud[users][liste]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['users']['liste'])); ?></td>
 			<td><?php echo form_input('crud[users][edit]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['users']['edit'])); ?></td>
 			<td><?php echo form_input('crud[users][erase]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['users']['erase'])); ?></td>
-			<td> - </td>
+			<td><?php echo form_input('crud[users][publish]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['users']['publish'])); ?></td>
 			<td><?php echo form_input('crud[users][upload]', " ", array('type' => 'checkbox', 'values' => $crud['crud']['users']['upload'])); ?></td>
 		</tr>
 		<tr>
@@ -111,7 +111,7 @@ echo form_input('name', "Nom", array('errors' => $aControllerDatas['errors'], 'v
 			<td><?php echo form_input('crud[users][liste]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
 			<td><?php echo form_input('crud[users][edit]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
 			<td><?php echo form_input('crud[users][erase]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
-			<td> - </td>
+			<td><?php echo form_input('crud[users][publish]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
 			<td><?php echo form_input('crud[users][upload]', " ", array('type' => 'checkbox', 'values' => '')); ?></td>
 		</tr>
 		<tr>
