@@ -20,6 +20,8 @@ function index(){
 			if($value == 1){
 				$aDelete['id'] = $key;
 				delete($aDelete);
+				delete_by_name(array('table' => 'acls', 'link' => $link, 'name' => 'types_user_id', 'value' => $key)); //On supprime le role de la table acls
+				if(file_exists(ELEMENTS.DS.'intranet/menus/menu_'.$key.'.php')){unlink(ELEMENTS.DS.'intranet/menus/menu_'.$key.'.php');} //On supprime le menu associé au role
 			}
 		}
 		Session::write('success','Rôles supprimés avec succès.');		

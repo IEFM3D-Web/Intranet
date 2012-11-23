@@ -247,3 +247,158 @@
 [23-Nov-2012 20:35:10 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
 [23-Nov-2012 20:35:10 UTC] PHP   2. call_user_func_array() C:\wamp\www\Intranet\webroot\index.php:123
 [23-Nov-2012 20:35:10 UTC] PHP   3. profil() C:\wamp\www\Intranet\webroot\index.php:123
+[23-Nov-2012 20:41:22 UTC] PHP Warning:  include(C:\wamp\www\Intranet\views\elements\intranet\menus\menu_1.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in C:\wamp\www\Intranet\views\elements\intranet\left_content.php on line 12
+[23-Nov-2012 20:41:22 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:22 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:22 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:128
+[23-Nov-2012 20:41:22 UTC] PHP   3. include() C:\wamp\www\Intranet\views\layout\intranet.php:58
+[23-Nov-2012 20:41:22 UTC] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'C:\wamp\www\Intranet\views\elements\intranet\menus\menu_1.php' for inclusion (include_path='.;C:\php\pear') in C:\wamp\www\Intranet\views\elements\intranet\left_content.php on line 12
+[23-Nov-2012 20:41:22 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:22 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:22 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:128
+[23-Nov-2012 20:41:22 UTC] PHP   3. include() C:\wamp\www\Intranet\views\layout\intranet.php:58
+[23-Nov-2012 20:41:35 UTC] PHP Notice:  Undefined index: crud in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 26
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:41:35 UTC] PHP Notice:  Undefined index: crud in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 27
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:41:35 UTC] PHP Notice:  Undefined index: crud in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 28
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:41:35 UTC] PHP Notice:  Undefined index: crud in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 29
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:41:35 UTC] PHP Notice:  Undefined index: crud in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 35
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:41:35 UTC] PHP Notice:  Undefined index: crud in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 36
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:41:35 UTC] PHP Notice:  Undefined index: crud in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 37
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:41:35 UTC] PHP Notice:  Undefined index: crud in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 38
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:41:35 UTC] PHP Notice:  Undefined index: crud in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 39
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:41:35 UTC] PHP Notice:  Undefined index: crud in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 45
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:41:35 UTC] PHP Notice:  Undefined index: crud in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 46
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:41:35 UTC] PHP Notice:  Undefined index: crud in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 47
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:41:35 UTC] PHP Notice:  Undefined index: crud in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 48
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:41:35 UTC] PHP Notice:  Undefined index: crud in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 53
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:41:35 UTC] PHP Notice:  Undefined index: crud in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 54
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:41:35 UTC] PHP Notice:  Undefined index: crud in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 55
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:41:35 UTC] PHP Notice:  Undefined index: crud in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 56
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:41:35 UTC] PHP Notice:  Undefined index: crud in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 57
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:41:35 UTC] PHP Notice:  Undefined index: crud in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 58
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:41:35 UTC] PHP Notice:  Undefined index: crud in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 62
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:41:35 UTC] PHP Notice:  Undefined index: crud in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 63
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:41:35 UTC] PHP Notice:  Undefined index: crud in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 64
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:41:35 UTC] PHP Notice:  Undefined index: crud in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 65
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:41:35 UTC] PHP Notice:  Undefined index: crud in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 71
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:41:35 UTC] PHP Notice:  Undefined index: crud in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 72
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:41:35 UTC] PHP Notice:  Undefined index: crud in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 73
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:41:35 UTC] PHP Notice:  Undefined index: crud in C:\wamp\www\Intranet\views\elements\intranet\formulaires\users_types.php on line 74
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users_types\edit.php:47
+[23-Nov-2012 20:41:35 UTC] PHP Warning:  include(C:\wamp\www\Intranet\views\elements\intranet\menus\menu_1.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in C:\wamp\www\Intranet\views\elements\intranet\left_content.php on line 12
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:128
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\layout\intranet.php:58
+[23-Nov-2012 20:41:35 UTC] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'C:\wamp\www\Intranet\views\elements\intranet\menus\menu_1.php' for inclusion (include_path='.;C:\php\pear') in C:\wamp\www\Intranet\views\elements\intranet\left_content.php on line 12
+[23-Nov-2012 20:41:35 UTC] PHP Stack trace:
+[23-Nov-2012 20:41:35 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 20:41:35 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:128
+[23-Nov-2012 20:41:35 UTC] PHP   3. include() C:\wamp\www\Intranet\views\layout\intranet.php:58
