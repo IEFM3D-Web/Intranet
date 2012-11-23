@@ -1,0 +1,12 @@
+[23-Nov-2012 14:40:11 UTC] PHP Notice:  Undefined index: cols in C:\wamp\www\Intranet\views\helpers\form.php on line 95
+[23-Nov-2012 14:40:11 UTC] PHP Stack trace:
+[23-Nov-2012 14:40:11 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 14:40:11 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 14:40:11 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users\add.php:33
+[23-Nov-2012 14:40:11 UTC] PHP   4. form_input() C:\wamp\www\Intranet\views\elements\intranet\formulaires\users.php:18
+[23-Nov-2012 14:40:11 UTC] PHP Notice:  Undefined index: rows in C:\wamp\www\Intranet\views\helpers\form.php on line 95
+[23-Nov-2012 14:40:11 UTC] PHP Stack trace:
+[23-Nov-2012 14:40:11 UTC] PHP   1. {main}() C:\wamp\www\Intranet\webroot\index.php:0
+[23-Nov-2012 14:40:11 UTC] PHP   2. include() C:\wamp\www\Intranet\webroot\index.php:125
+[23-Nov-2012 14:40:11 UTC] PHP   3. include() C:\wamp\www\Intranet\views\users\add.php:33
+[23-Nov-2012 14:40:11 UTC] PHP   4. form_input() C:\wamp\www\Intranet\views\elements\intranet\formulaires\users.php:18

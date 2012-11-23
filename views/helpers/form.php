@@ -119,6 +119,10 @@ function form_input($name, $label, $options = array()) {
 			$html .= '<input type="hidden" value="'.$value.'" name="'.$name.'" id="'.$libelleId.'Hidden"/>';
 		break;
 		
+		case 'password':
+			$html .= '<input type="password" name="'.$name.'" '.$attr.' id="'.$libelleId.'" value="'.$value.'"/>';
+		break;
+		
 		case 'file':
 			$html .= '<input type="file" id="'.$libelleId.'" name="'.$name.'" />';
 		break;

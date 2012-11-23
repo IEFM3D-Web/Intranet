@@ -6,6 +6,18 @@ $table = 'users';
 
 //Définition des règles de validation
 $validate = array(
+	'nom' => array(
+		'rule' => array('minLength', 3),
+		'message' => 'La valeur de ce champs est de 3 caractères minimum.'
+	),
+	'prenom' => array(
+		'rule' => array('minLength', 3),
+		'message' => 'La valeur de ce champs est de 3 caractères minimum.'
+	),
+	'password' => array(
+		'rule' => array('minLength', 3),
+		'message' => 'La valeur de ce champs est de 3 caractères minimum.'
+	),
 	'mail' => array(
 		'rule' => array('email'),
 		'message' => 'Cette adresse est invalide'
