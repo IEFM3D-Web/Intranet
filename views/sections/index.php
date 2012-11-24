@@ -1,4 +1,4 @@
-<h2>Gérer les sections</h2>
+<h2>Gérer les sections<?php echo form_input('Ajouter une section','',array('type' => 'submit', 'class' => 'button small green', 'onclick' => 'window.location = \'add\'')); ?></h2>
 <?php
 //On test si il y a des messages de succès à afficher
 if(Session::check('success')){
