@@ -238,15 +238,28 @@ CREATE TABLE IF NOT EXISTS `sections` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=16 ;
 
 --
 -- Contenu de la table `sections`
 --
 
 INSERT INTO `sections` (`id`, `name`) VALUES
-(1, 'Administrateur'),
-(2, 'Professeur');
+(1, 'Administration'),
+(2, 'Professeur'),
+(3, 'Prépa'),
+(4, 'Anim 1'),
+(5, 'Anim 2'),
+(6, 'Anim 3'),
+(7, 'GDM 1'),
+(8, 'GDM 2'),
+(9, 'GDM 3'),
+(10, 'GD 1'),
+(11, 'GD 2'),
+(12, 'GD 3'),
+(13, 'WEB 1'),
+(14, 'WEB 2'),
+(15, 'WEB 3');
 
 -- --------------------------------------------------------
 
@@ -321,4 +334,4 @@ INSERT INTO `users` (`id`, `nom`, `prenom`, `mail`, `password`, `adresse`, `tel`
 (1, 'Dupond', 'Martin', 'admin@gmx.fr', 'd033e22ae348aeb5660fc2140aec35850c4da997', '32 rue des Eglantines, 34070 Montpellier', '0234569871', 0, 1, 1, 'martin_dupond_50afe1dd08c2a', 1),
 (2, 'Dubois', 'Jean', 'moderateur@gmx.fr', 'f1b9f75822c22f1e7e3f3f91aabfbcd795027963', '1 rue de la République, 34000 Montpellier', '0123456789', 0, 1, 2, 'jean_dubois_50afe1dabf54b', 1),
 (3, 'Delmas', 'Pierre', 'prof@gmx.fr', 'd9f02d46be016f1b301f7c02a4b9c4ebe0dde7ef', '35 rue Broca, 34000 Montpellier', '0123456789', 0, 1, 3, 'pierre_delmas_50afe1d85d517', 2),
-(4, 'Cassan', 'Sébastien', 'eleve@gmx.fr', '0e9a7fdc4821370a252df21582a4a656e81e0687', '3 place de la République, 34000 Montpellier', '0123456789', 0, 1, 4, 'sebastien_cassan_50afe1f394697', 2);
+(4, 'Cassan', 'Sébastien', 'eleve@gmx.fr', '0e9a7fdc4821370a252df21582a4a656e81e0687', '3 place de la République, 34000 Montpellier', '0123456789', 0, 1, 4, 'sebastien_cassan_50afe1f394697', 14);
