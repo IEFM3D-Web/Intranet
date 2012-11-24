@@ -23,8 +23,9 @@ function liste_Dirs($dir, $userPath) {
     $dossier = opendir($dir);
 
 	
-    while(($item = readdir($dossier)))
-    {
+    while($item = readdir($dossier))
+    {	
+	
         $berk = array('.', '..'); // ne pas tenir compte de ses répertoires / fichiers
 		$extension = recup_file_extension($item);
 			

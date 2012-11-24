@@ -43,9 +43,9 @@ if(Session::check('success')){
 				<td class="text"><?php if(strlen($aValue['contenu'])>15){echo substr($aValue['contenu'], 0, 15).' ...';}else{echo $aValue['contenu'];} ?></td>
 				<td class="text"><?php echo $articleList[$aValue['articles_id']]; ?></td>
 				<td>
-					<a href="<?php echo BASE_URL; ?>/commentaires/edit/<?php echo $aValue['id']; ?>"><img alt="éditer" title="éditer" src="<?php echo BASE_URL;?>/img/intranet/site/article-edit.png"></a>
+					<a href="<?php echo BASE_URL; ?>/commentaires/edit/<?php echo $aValue['id']; ?>" class="tooltip" title="Éditer"><img alt="éditer" src="<?php echo BASE_URL;?>/img/intranet/site/article-edit.png"></a>
 					&nbsp;
-					<a href="<?php echo BASE_URL; ?>/commentaires/erase/<?php echo $aValue['id']; ?>" class="ask"><img alt="supprimer" title="supprimer" src="<?php echo BASE_URL;?>/img/intranet/site/article-delete.png"></a>
+					<a href="<?php echo BASE_URL; ?>/commentaires/erase/<?php echo $aValue['id']; ?>" class="ask tooltip" title="Supprimer"><img alt="supprimer" src="<?php echo BASE_URL;?>/img/intranet/site/article-delete.png"></a>
 				</td>
 				<td>
 					<input type="hidden" value="0" class="cb-element" name="delete[<?php echo $aValue['id']; ?>]" id="InputDelete<?php echo $aValue['id']; ?>hidden">

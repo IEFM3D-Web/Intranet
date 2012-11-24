@@ -27,9 +27,9 @@ if(Session::check('success')){
 			<tr>
 				<td  class="text"><?php echo $aValue['name']; ?></td>
 				<td>
-					<a href="<?php echo BASE_URL; ?>/sections/edit/<?php echo $aValue['id']; ?>"><img alt="éditer" title="éditer" src="<?php echo BASE_URL;?>/img/intranet/site/article-edit.png"></a>
+					<a href="<?php echo BASE_URL; ?>/sections/edit/<?php echo $aValue['id']; ?>" class="tooltip" title="Éditer"><img alt="éditer" src="<?php echo BASE_URL;?>/img/intranet/site/article-edit.png"></a>
 					&nbsp;
-					<a href="<?php echo BASE_URL; ?>/sections/erase/<?php echo $aValue['id']; ?>" class="ask"><img alt="supprimer" title="supprimer" src="<?php echo BASE_URL;?>/img/intranet/site/article-delete.png"></a>
+					<a href="<?php echo BASE_URL; ?>/sections/erase/<?php echo $aValue['id']; ?>" class="ask tooltip" title="Supprimer"><img alt="supprimer" src="<?php echo BASE_URL;?>/img/intranet/site/article-delete.png"></a>
 				</td>
 				<td>
 					<input type="hidden" value="0" class="cb-element" name="delete[<?php echo $aValue['id']; ?>]" id="InputDelete<?php echo $aValue['id']; ?>hidden">

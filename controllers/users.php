@@ -473,7 +473,7 @@ function profil() {
 			$errors = validates($validate, $_POST);
 		}
 		
-		if($cryptPassword){$_POST['password'] = $cryptPassword;}
+		if(isset($cryptPassword)){$_POST['password'] = $cryptPassword;}
 		
 		if(empty($errors)){
 

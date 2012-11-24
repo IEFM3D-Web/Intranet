@@ -46,12 +46,18 @@
 		'intranet/jquery.ui.widget',
 		'intranet/jquery.ui.accordion',
 		'ckeditor/ckeditor',
-		'ckfinder/ckfinder'
+		'ckfinder/ckfinder',
+		'intranet/tipsy'
 	);
 	Html::js($aJs);
 	?>
 </head>
 <body class="CKFinderFrameWindow">
+<script type='text/javascript'>
+  $(function() {
+    $('.tooltip').tipsy({gravity: 's'});
+  });
+</script>
 	<?php include(ELEMENTS.DS.'intranet/header.php'); ?>
 	<div class="main_content"> 
 		<div class="center_content">  

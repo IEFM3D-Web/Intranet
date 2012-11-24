@@ -72,7 +72,8 @@ if(isset($aControllerDatas['errors']) && !empty($aControllerDatas['errors'])){
 <h2>Mes documents</h2>
 <div id="profil">
 <?php 
-	echo liste_Dirs(FILES.DS.$users['folder'], $users['folder']);
+	$list = liste_Dirs(FILES.DS.$users['folder'], $users['folder']);
+	if($list != '<ul></ul>'){echo $list;}else{echo 'Votre dossier personnel ne contient pas de fichiers.';}
 ?>
 </div>
 

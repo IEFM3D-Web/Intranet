@@ -43,9 +43,9 @@ if(Session::check('success')){
 				<td class="text"><?php echo ucfirst($authorList[$aValue['created_by']]); ?></td>
 				<td class="text"><?php echo $articlesTypesList[$aValue['articles_type_id']]; ?></td>
 				<td>
-					<a href="<?php echo BASE_URL; ?>/articles/edit/<?php echo $aValue['id']; ?>"><img alt="éditer" title="éditer" src="<?php echo BASE_URL;?>/img/intranet/site/article-edit.png"></a>
+					<a href="<?php echo BASE_URL; ?>/articles/edit/<?php echo $aValue['id']; ?>" class="tooltip" title="Éditer"><img alt="Éditer" src="<?php echo BASE_URL;?>/img/intranet/site/article-edit.png"></a>
 					&nbsp;
-					<a href="<?php echo BASE_URL; ?>/articles/erase/<?php echo $aValue['id']; ?>" class="ask"><img alt="supprimer" title="supprimer" src="<?php echo BASE_URL;?>/img/intranet/site/article-delete.png"></a>
+					<a href="<?php echo BASE_URL; ?>/articles/erase/<?php echo $aValue['id']; ?>" class="ask tooltip" title="Supprimer"><img alt="Supprimer" src="<?php echo BASE_URL;?>/img/intranet/site/article-delete.png"></a>
 				</td>
 				<td>
 					<input type="hidden" value="0" class="cb-element" name="delete[<?php echo $aValue['id']; ?>]" id="InputDelete<?php echo $aValue['id']; ?>hidden">
