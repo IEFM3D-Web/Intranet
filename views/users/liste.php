@@ -19,8 +19,8 @@ if(Session::check('success')){
 				<th scope="col" class="rounded center">Autorisé</th>
 				<th scope="col" class="rounded center">Nom</th>
 				<th scope="col" class="rounded center">Prénom</th>
-				<th scope="col" class="rounded center">Mail</th>
-				<th scope="col" class="rounded center">Téléphone</th>
+				<th scope="col" class="rounded center">Section</th>
+				<th scope="col" class="rounded center">Rôle</th>
 				<th scope="col" class="rounded center">Actions</th>
 				<th scope="col" class="rounded-q4 center"><input type="checkbox" id="checkall"/></th>
 			</tr> 
@@ -40,8 +40,8 @@ if(Session::check('success')){
 				</td>
 				<td class="text"><?php echo ucfirst($aValue['nom']); ?></td>
 				<td class="text"><?php echo ucfirst($aValue['prenom']); ?></td>
-				<td class="text"><?php echo $aValue['mail']; ?></td>
-				<td class="text"><?php echo $aValue['tel']; ?></td>
+				<td class="text"><?php echo $aControllerDatas['usersSectionsList'][$aValue['section_id']]; ?></td>
+				<td class="text"><?php echo $aControllerDatas['usersTypesList'][$aValue['role']]; ?></td>
 				<td>
 					<a href="<?php echo BASE_URL; ?>/users/edit/<?php echo $aValue['id']; ?>" class="tooltip" title="Éditer"><img alt="éditer" src="<?php echo BASE_URL;?>/img/intranet/site/article-edit.png"></a>
 					&nbsp;

@@ -194,6 +194,8 @@ function liste(){
 	
 	return array(
 		'users' => find(array('table' => 'users', 'limite' => array('start' =>$start, 'limit' =>$limit),'link' => $link)),
+		'usersTypesList' => findRole(array('table' => 'types_users', 'link' => $link)),
+		'usersSectionsList' => findSection(array('table' => 'sections', 'link' => $link)),
 		'pagination' => pagination($link, 'users', $limit)
 	);
 }
