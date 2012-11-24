@@ -16,7 +16,7 @@ if(Session::check('success')){
 		<thead>
 			<tr>
 				<th scope="col" class="rounded-company"></th>
-				<th scope="col" class="rounded center">Autorisé</th>
+				<th scope="col" class="rounded center"></th>
 				<th scope="col" class="rounded center">Nom</th>
 				<th scope="col" class="rounded center">Prénom</th>
 				<th scope="col" class="rounded center">Section</th>
@@ -33,9 +33,9 @@ if(Session::check('success')){
 				<td><a href="<?php echo BASE_URL; ?>/users/view_profil/<?php echo $aValue['id']; ?>" class="tooltip" title="Voir le profil"><img alt="Voir le profil" src="<?php echo BASE_URL;?>/img/intranet/site/user.png"></a></td>
 				<td>
 					<?php if($aValue['is_auth'] == 1) { ?>
-						<a href="<?php echo BASE_URL.'/users/publish/'.$aValue['id'].'/0'; ?>"><img src="<?php echo BASE_URL.'/img/intranet/site/green.png'; ?>" alt="Oui" title="Oui" /></a>
+						<a href="<?php echo BASE_URL.'/users/publish/'.$aValue['id'].'/0'; ?>" class="tooltip" title="Bannir l'utilisateur"><img src="<?php echo BASE_URL.'/img/intranet/site/green.png'; ?>" alt="Oui" /></a>
 					<?php } else { ?>
-						<a href="<?php echo BASE_URL.'/users/publish/'.$aValue['id'].'/1'; ?>"><img src="<?php echo BASE_URL.'/img/intranet/site/red.png'; ?>" alt="Oui" title="Oui" /></a>
+						<a href="<?php echo BASE_URL.'/users/publish/'.$aValue['id'].'/1'; ?>" class="tooltip" title="Débannir l'utilisateur"><img src="<?php echo BASE_URL.'/img/intranet/site/red.png'; ?>" alt="Non" /></a>
 					<?php } ?>
 				</td>
 				<td class="text"><?php echo ucfirst($aValue['nom']); ?></td>

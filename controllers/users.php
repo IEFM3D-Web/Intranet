@@ -537,7 +537,7 @@ function erreur() {
 
 }
 
-function publish($Id, $newValueOnline){
+function publish($id, $newValueOnline){
 	
 	global $link;
 	global $table;

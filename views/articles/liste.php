@@ -15,7 +15,7 @@ if(Session::check('success')){
 	<table id="rounded-corner">
 		<thead>
 			<tr>
-				<th scope="col" class="rounded-company">Publié</th>
+				<th scope="col" class="rounded-company"></th>
 				<th scope="col" class="rounded center">Titre</th>
 				<th scope="col" class="rounded center">Création</th>
 				<th scope="col" class="rounded center">Auteur</th>
@@ -33,9 +33,9 @@ if(Session::check('success')){
 			<tr>
 				<td>
 					<?php if($aValue['online'] == 1) { ?>
-						<a href="<?php echo BASE_URL.'/articles/publish/'.$aValue['id'].'/0'; ?>"><img src="<?php echo BASE_URL.'/img/intranet/site/green.png'; ?>" alt="Oui" title="Oui" /></a>
+						<a href="<?php echo BASE_URL.'/articles/publish/'.$aValue['id'].'/0'; ?>" class="tooltip" title="Passer en non-publié"><img src="<?php echo BASE_URL.'/img/intranet/site/green.png'; ?>" alt="Oui" /></a>
 					<?php } else { ?>
-						<a href="<?php echo BASE_URL.'/articles/publish/'.$aValue['id'].'/1'; ?>"><img src="<?php echo BASE_URL.'/img/intranet/site/red.png'; ?>" alt="Oui" title="Oui" /></a>
+						<a href="<?php echo BASE_URL.'/articles/publish/'.$aValue['id'].'/1'; ?>" class="tooltip" title="Passer en publié"><img src="<?php echo BASE_URL.'/img/intranet/site/red.png'; ?>" alt="Oui" /></a>
 					<?php } ?>
 				</td>
 				<td class="text"><?php if(strlen($aValue['titre'])>15){echo substr(ucfirst($aValue['titre']), 0, 15).' ...';}else{echo ucfirst($aValue['titre']);} ?></td>
