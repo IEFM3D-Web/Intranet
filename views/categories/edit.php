@@ -18,7 +18,7 @@ if(isset($aControllerDatas['errors']) && !empty($aControllerDatas['errors'])){
 }
 ?>
 <div id="profil">
-<h2>Éditer une catégorie</h2>
+<h2>Éditer une catégorie<?php echo form_input('Retour à la liste','',array('type' => 'submit', 'class' => 'button small blue', 'onclick' => 'window.location = \'../index\'')); ?></h2>
 	<?php 
 		echo form_create(array('action' => $_SERVER['REQUEST_URI'], 'method' => 'post', 'class' => 'valid'));
 			include(ELEMENTS.DS.'intranet'.DS.'formulaires'.DS.'categories.php'); 

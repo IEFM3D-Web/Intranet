@@ -18,7 +18,7 @@ if(isset($aControllerDatas['errors']) && !empty($aControllerDatas['errors'])){
 }
 ?>
 <div id="profil">
-<h2>Ajouter un utilisateur</h2>
+<h2>Ajouter un utilisateur<?php echo form_input('Retour à la liste','',array('type' => 'submit', 'class' => 'button small blue', 'onclick' => 'window.location = \'liste\'')); ?></h2>
 	<?php 
 		echo form_create(array("enctype" => "multipart/form-data", 'action' => $_SERVER['REQUEST_URI'], 'method' => 'post', 'class' => 'valid'));
 			include(ELEMENTS.DS.'intranet'.DS.'formulaires'.DS.'users.php'); 
