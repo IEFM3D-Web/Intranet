@@ -15,7 +15,7 @@ font-size:14px;
 margin:0 10px 15px 10px;
 }
 
-#logo {
+.logo {
 position:relative;
 width:195px;
 height:49px;
@@ -92,19 +92,20 @@ display:block;
 text-align:center;
 font-weight:700;
 padding-bottom:5px;
-margin:0 auto 10px auto;
+margin:0 auto 0px auto;
 }
 
 button:hover {
 background:url(../../img/intranet/site/form_button_hover.png) no-repeat 0 0
 }
 
-#tabs {
+#tabs ,ul{
 list-style: none;
 padding: 0px 0 4px 0;
 width:266px;
 margin-left:auto;
 margin-right:auto;
+height:21px;
 }
 
 #tabs li {

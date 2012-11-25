@@ -25,7 +25,7 @@ class Html{
 
 		foreach($a as $k => $v) {
 
-			echo '<script src="'.BASE_URL.'/js/'.$v.'.js"></script>';
+			echo '<script type="text/javascript" src="'.BASE_URL.'/js/'.$v.'.js"></script>';
 		}
 	}
 }

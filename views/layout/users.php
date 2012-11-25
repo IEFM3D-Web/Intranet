@@ -17,22 +17,12 @@
 	//On inclu les fichiers Javascript
 	$aJs = array(
 		'users/jquery-1.8.2',
-		'users/jquery-ui-1.9.1.custom'
+		'users/jquery-ui-1.9.1.custom',
+		'users/tabs'
 	);
 
 	Html::js($aJs);
-	?>
-	<script>
-	$(function(){
-		var tabOpts = {
-			fx: {
-				opacity: "toggle",
-				duration: "fast"
-			}
-		};
-		$("#tabs").tabs(tabOpts);
-	});
-	</script>	
+	?>	
 </head>
 <body>
 
