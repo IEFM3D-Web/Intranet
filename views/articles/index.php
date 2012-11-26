@@ -7,7 +7,11 @@ foreach($aControllerDatas['articles'] as $iKey => $aValue) {
 ?>
 <div class="article">
 	<div id="article_header">
-		<div class="name"><?php echo '<a href="'.BASE_URL.'/articles/view_article/'.$aValue['id'].'">'.ucfirst($aValue['titre']).'</a>'; ?></div>
+		<div class="name">
+			<?php 
+				echo '<a href="'.BASE_URL.'/articles/view_article/'.$aValue['id'].'">'.ucfirst($aValue['titre']).'</a>'; 
+			?>
+		</div>
 		<div class="top_art">
 			<div>
 				<?php echo date("d/m/Y", strtotime($aValue['created'])); ?> |
@@ -19,7 +23,12 @@ foreach($aControllerDatas['articles'] as $iKey => $aValue) {
 	</div>
 	<div class="separe"></div>
 	<div class="clear"></div>
-	<div class="contenu"><?php echo $aValue['chapeau']; ?></div>
+	<div class="contenu">
+		<?php 
+			echo $aValue['chapeau'];
+			echo '<a href= "'.BASE_URL.'/articles/view_article/'.$aValue['id'].'" class="button small blue">En savoir +</a>';
+		?>
+	</div>
 	<div class="clear"></div>
 </div>
 <?php
