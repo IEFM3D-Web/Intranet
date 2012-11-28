@@ -101,11 +101,11 @@ background:url(../../img/intranet/site/form_button_hover.png) no-repeat 0 0
 
 #tabs ,ul{
 list-style: none;
-padding: 0px 0 4px 0;
+padding: 0px 0px 4px 0;
 width:266px;
 margin-left:auto;
 margin-right:auto;
-height:21px;
+height:18px;
 }
 
 #tabs li {
