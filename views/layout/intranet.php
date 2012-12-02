@@ -36,18 +36,15 @@
 	
 	//On inclu les fichiers Javascript
 	$aJs = array(
-		'intranet/jquery-1.7.1',
-		'intranet/jquery-1.8.2',
+		'intranet/jquery-1.8.3.min',
+		'intranet/jquery-ui-1.9.2.custom.min',
 		'intranet/ddaccordion',
 		'intranet/jconfirmaction',
 		'intranet/checkall',
-		'intranet/js_start',
-		'intranet/jquery.ui.core',
-		'intranet/jquery.ui.widget',
-		'intranet/jquery.ui.accordion',
 		'ckeditor/ckeditor',
 		'ckfinder/ckfinder',
-		'intranet/tipsy'
+		'intranet/tipsy',
+		'intranet/js_start'
 	);
 	Html::js($aJs);
 	?>

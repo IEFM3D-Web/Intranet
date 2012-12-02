@@ -16,8 +16,8 @@
 	<?php
 	//On inclu les fichiers Javascript
 	$aJs = array(
-		'users/jquery-1.8.2',
-		'users/jquery-ui-1.9.1.custom',
+		'users/jquery-1.8.3.min',
+		'users/jquery-ui-1.9.2.custom.min',
 		'users/tabs'
 	);
 
